@@ -1,0 +1,55 @@
+---
+import SectionTitle from '../components/SectionTitle.astro';
+---
+
+<section class="p-brand-stores">
+  <div class="l-container">
+    <div class="p-brand-stores__inner">
+      <SectionTitle
+        title="世界の店舗"
+        class="p-brand-stores__title"
+      />
+      <div class="p-brand-stores__carousel splide" id="brand-stores-carousel">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide">
+              <div class="p-brand-stores__slide">
+                <div class="p-brand-stores__slide-image">
+                  <div class="p-brand-stores__slide-image-placeholder" aria-hidden="true"></div>
+                </div>
+                <p class="p-brand-stores__slide-caption">ストリート</p>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="p-brand-stores__slide">
+                <div class="p-brand-stores__slide-image">
+                  <div class="p-brand-stores__slide-image-placeholder" aria-hidden="true"></div>
+                </div>
+                <p class="p-brand-stores__slide-caption">ロケーション</p>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="p-brand-stores__slide">
+                <div class="p-brand-stores__slide-image">
+                  <div class="p-brand-stores__slide-image-placeholder" aria-hidden="true"></div>
+                </div>
+                <p class="p-brand-stores__slide-caption">ストア</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import initBrandStores from '../scripts/brand-stores.js';
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBrandStores);
+  } else {
+    initBrandStores();
+  }
+</script>
+

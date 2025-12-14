@@ -1,0 +1,17 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  class?: string;
+}
+
+const { title, subtitle, class: className = '' } = Astro.props;
+---
+
+<div class={`c-section-title ${className}`}>
+  <h2 class="c-section-title__title">{title}</h2>
+  {subtitle && (
+    <p class="c-section-title__subtitle">{subtitle}</p>
+  )}
+</div>
+

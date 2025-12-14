@@ -1,0 +1,50 @@
+---
+import SectionTitle from '../components/SectionTitle.astro';
+import Image from 'astro/components/Image.astro';
+import brandOrigin1 from '../assets/images/brand-origin-1.jpg';
+import brandOrigin2 from '../assets/images/brand-origin-2.jpg';
+---
+
+<section class="p-brand-origin">
+  <div class="l-container">
+    <div class="p-brand-origin__inner">
+      <SectionTitle
+        title="上等カレーの起源と味へのこだわり"
+        class="p-brand-origin__title"
+      />
+      <div class="p-brand-origin__content">
+        <div class="p-brand-origin__column">
+          <div class="p-brand-origin__image">
+            <div class="p-brand-origin__image-placeholder">
+              <Image src={brandOrigin1} alt="上等カレーの起源" width={500} height={500} />
+            </div>
+          </div>
+          <div class="p-brand-origin__text">
+            <p class="p-brand-origin__paragraph">
+              上等カレーの起源は、カレーうどんから始まりました。伝統的なうどんに、独自に開発したカレースープを組み合わせることで、新しい味の世界を切り開きました。
+            </p>
+            <p class="p-brand-origin__paragraph">
+              このカレーうどんは、多くのお客様に愛され、上等カレーの基礎となっています。
+            </p>
+          </div>
+        </div>
+        <div class="p-brand-origin__column">
+          <div class="p-brand-origin__image">
+            <div class="p-brand-origin__image-placeholder">
+              <Image src={brandOrigin2} alt="上等カレーの起源" width={500} height={500} />
+            </div>
+          </div>
+          <div class="p-brand-origin__text">
+            <p class="p-brand-origin__paragraph">
+              味へのこだわりは、経験豊富なシェフたちの手によって受け継がれています。一つの鍋を丁寧に仕上げ、時間をかけて味を引き出す。その伝統的な手法は、今も変わらず続いています。
+            </p>
+            <p class="p-brand-origin__paragraph">
+              手間ひまかけて作り上げたカレーは、深い味わいと豊かな香りが特徴です。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

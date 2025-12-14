@@ -1,0 +1,62 @@
+.p-franchise-voices {
+  padding-block: var(--spacing-4xl);
+  background-color: var(--color-white);
+  overflow: hidden;
+}
+
+.p-franchise-voices__inner {
+  max-width: var(--layout-max-width-inner);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-3xl);
+}
+
+.p-franchise-voices__title {
+}
+
+.p-franchise-voices__carousel {
+  width: 100vw;
+  margin-inline-start: calc(50% - 50vw);
+}
+
+.p-franchise-voices__slide {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl);
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+.p-franchise-voices__text {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  margin: 0;
+  flex: 1;
+}
+
+.p-franchise-voices__profile {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.p-franchise-voices__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-xl);
+  background-color: var(--color-light-beige);
+  background-image: linear-gradient(135deg, var(--color-light-beige) 0%, var(--color-beige) 100%);
+  flex-shrink: 0;
+}
+
+.p-franchise-voices__store-name {
+  font-size: var(--font-size-base);
+  font-weight: var(--fw-medium);
+  color: var(--color-text);
+  margin: 0;
+}
+

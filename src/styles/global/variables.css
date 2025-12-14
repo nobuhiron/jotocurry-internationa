@@ -4,47 +4,26 @@
 :root {
   /* Base Colors */
   --color-white: #fff;
-  --color-black: #333;
-  --color-light-beige: #efe5d1;
-  --color-beige: #d4b987;
-  --color-deep-beige: #8e6e33;
-  --color-brown: #6a3c0a;
-  --color-dark-brown: #563d0d;
-  --color-gold: #bf9c35;
-  --color-red: #af2304;
-  --color-dim-red: #b93728;
-  --color-dim-red2: #c2584a;
-  --color-pink: #e18e72;
-  --color-purple: #bca8d2;
-  --color-green: #75a046;
-  --color-deep-green: #4e530f;
-  --color-gray: #797979;
-  --color-light-gray: #f6f5f2;
-  --color-pale-pink: #f2b9bb;
-  --color-pale-orange: #f2c5b5;
-  --color-pale-yellow: #f7e19f;
-  --color-pale-green: #c7e6b3;
+  --color-black: #1a1a1a;
+  --color-gray: #777;
+  --color-light-gray: #b1b1b1;
+  --color-red: #dc2626;
+  --color-pale-white: #fafafa;
+  --color-pale-beige: #faf7f1;
+  --color-pale-orange: #c76a15;
+  --color-pale-blue: #4c6475;
 
   /* Semantic Colors */
   --color-text: var(--color-black);
-  --color-bg: var(--color-light-beige);
-  --color-main: var(--color-brown);
-  --color-accent: var(--color-deep-pink);
-  --color-accent2: var(--color-dim-red2);
-  --color-sub: var(--color-gold);
-  --color-sub2: var(--color-green);
-  --color-sub3: var(--color-pink);
-  --color-sub4: var(--color-purple);
-  --color-sub5: var(--color-dim-red);
-  --color-sub6: var(--color-gray);
-  --color-qa-header: var(--color-beige);
-  --color-waffle-title: var(--color-deep-green);
-  --color-item-card-price: var(--color-dark-brown);
-  --color-tips-header1: var(--color-pale-pink);
-  --color-tips-header2: var(--color-pale-orange);
-  --color-tips-header3: var(--color-pale-yellow);
-  --color-tips-header4: var(--color-pale-green);
-  --color-contents-bg: var(--color-light-gray);
+  --color-text-muted: var(--color-gray);
+  --color-text-on_dark: var(--color-white);
+  --color-text-danger: var(--color-red);
+  --color-bg-base: var(--color-pale-white);
+  --color-bg-surface: var(--color-white);
+  --color-bg-surface-alt: var(--color-pale-beige);
+  --color-accent-warm: var(--color-pale-orange);
+  --color-accent-cool: var(--color-pale-blue);
+  --color-border-strong: var(--color-light-gray);
 }
 
 /* -------------------
@@ -53,16 +32,14 @@
 :root {
   --font-jp--serif: 'Noto Serif JP', 'Georgia', 'Times New Roman', serif;
   --font-jp--sanserif: 'Noto Sans JP', 'Helvetica', 'Arial', sans-serif;
-  --font-en: 'Metal', sans-serif;
-  --font-en--decor: 'Alex Brush', sans-serif;
+  --font-en: 'Roboto', sans-serif;
 
   --fw-regular: 400;
   --fw-medium: 500;
   --fw-semibold: 600;
   --fw-bold: 700;
 
-  /* 16px ~ 18px のfluid指定 (SCSSのfz関数相当) */
-  --font-size-base: clamp(16px, 1.6vw, 18px);
+  --font-size-base: 16px;
   --line-height-base: 1.62;
 }
 
@@ -73,7 +50,7 @@
   --layout-max-width: 1440px;
   --layout-max-width-inner: 1100px;
   --layout-padding-sp: 20px;
-  --layout-padding-pc: 50px;
+  --layout-padding-pc: 120px;
 }
 
 /* -------------------
@@ -88,15 +65,17 @@
   --spacing-2xl: 40px;
   --spacing-3xl: 48px;
   --spacing-4xl: 64px;
-  --spacing-5xl: 96px;
+  --spacing-5xl: 80px;
+  --spacing-6xl: 96px;
 }
 /* -------------------
    radius
 ------------------- */
 :root {
-  --radius-xs: 4px;
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --radius-xl: 50%;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
 }

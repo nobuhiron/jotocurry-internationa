@@ -1,0 +1,30 @@
+.c-stat-card {
+  text-align: left;
+}
+
+.c-stat-card__value {
+  display: flex;
+  align-items: baseline;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-sm);
+}
+
+.c-stat-card__value-number {
+  font-size: clamp(64px, 5vw, 96px);
+  font-weight: var(--fw-bold);
+  color: var(--color-accent-warm);
+  font-family: var(--font-en);
+}
+
+.c-stat-card__value-unit {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: var(--fw-bold);
+  color: var(--color-accent-warm);
+  margin-left: 0.1em;
+}
+
+.c-stat-card__label {
+  font-size: var(--font-size-base);
+  color: var(--color-gray);
+  line-height: 1.5;
+}

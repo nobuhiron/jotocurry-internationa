@@ -1,0 +1,52 @@
+@import '../global/variables.css';
+@import '../global/custom_media.css';
+
+.p-reasons {
+  padding-block: var(--spacing-4xl);
+  background-color: var(--color-bg-surface-alt);
+}
+
+.p-reasons__inner {
+  max-width: var(--layout-max-width-inner);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-3xl);
+}
+
+.p-reasons__title {
+}
+
+.p-reasons__cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+}
+
+@media (--md) {
+  .p-reasons__cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-2xl);
+  }
+}
+
+.p-reasons__card {
+  width: 100%;
+}
+
+.p-reasons__buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+  justify-items: center;
+}
+
+@media (--md) {
+  .p-reasons__buttons {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+  }
+}
+
+.p-reasons__button {
+  min-width: 200px;
+}

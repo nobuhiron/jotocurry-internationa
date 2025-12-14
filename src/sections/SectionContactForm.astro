@@ -1,0 +1,195 @@
+---
+import SectionTitle from '../components/SectionTitle.astro';
+---
+
+<section class="p-contact-form">
+  <div class="l-container">
+    <div class="p-contact-form__inner">
+      <div class="p-contact-form__info">
+        <SectionTitle
+          title="フランチャイズに関するお問い合わせ"
+          subtitle="出店をご検討中の方は、下記フォームよりお気軽にご相談ください。"
+          class="p-contact-form__title"
+        />
+
+        <div class="p-contact-form__contact">
+          <div class="p-contact-form__contact-item">
+            <span class="p-contact-form__contact-icon" aria-hidden="true">✉</span>
+            <div class="p-contact-form__contact-details">
+              <a href="mailto:kawakami@tokumasa.net" class="p-contact-form__contact-link">kawakami@tokumasa.net</a>
+              <a href="mailto:kato@tokumasa.net" class="p-contact-form__contact-link">kato@tokumasa.net</a>
+            </div>
+          </div>
+
+          <div class="p-contact-form__contact-item">
+            <span class="p-contact-form__contact-icon" aria-hidden="true">📞</span>
+            <a href="tel:06-6926-8286" class="p-contact-form__contact-link">06-6926-8286</a>
+          </div>
+
+          <div class="p-contact-form__contact-item">
+            <span class="p-contact-form__contact-icon" aria-hidden="true">📍</span>
+            <address class="p-contact-form__contact-address">
+              〒541-0052 大阪府大阪市中央区安土町3-2-16長野ビル3F
+            </address>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-contact-form__form-wrapper">
+        <form class="p-contact-form__form" id="contact-form" action="#" method="post">
+          <div class="p-contact-form__row">
+            <div class="p-contact-form__field">
+              <label for="last-name" class="p-contact-form__label">姓</label>
+              <input
+                type="text"
+                id="last-name"
+                name="last-name"
+                class="p-contact-form__input"
+                required
+              />
+            </div>
+            <div class="p-contact-form__field">
+              <label for="first-name" class="p-contact-form__label">名</label>
+              <input
+                type="text"
+                id="first-name"
+                name="first-name"
+                class="p-contact-form__input"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="p-contact-form__field">
+            <label for="email" class="p-contact-form__label">メール</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="p-contact-form__input"
+              placeholder="example@example.com"
+              required
+            />
+          </div>
+
+          <div class="p-contact-form__field">
+            <label for="area" class="p-contact-form__label">展開予定エリア</label>
+            <select
+              id="area"
+              name="area"
+              class="p-contact-form__select"
+              required
+            >
+              <option value="">選択してください</option>
+              <option value="asia">アジア</option>
+              <option value="europe">ヨーロッパ</option>
+              <option value="americas">南北アメリカ</option>
+              <option value="oceania">オセアニア</option>
+              <option value="other">その他</option>
+            </select>
+          </div>
+
+          <div class="p-contact-form__field">
+            <label for="purpose" class="p-contact-form__label">お問い合わせ目的</label>
+            <select
+              id="purpose"
+              name="purpose"
+              class="p-contact-form__select"
+              required
+            >
+              <option value="">選択してください</option>
+              <option value="franchise">フランチャイズについて</option>
+              <option value="wholesale">卸について</option>
+              <option value="media">メディア取材について</option>
+              <option value="other">その他</option>
+            </select>
+          </div>
+
+          <fieldset class="p-contact-form__fieldset">
+            <legend class="p-contact-form__legend">現在のご状況を教えてください</legend>
+            <div class="p-contact-form__radio-group">
+              <div class="p-contact-form__radio-item">
+                <input
+                  type="radio"
+                  id="situation-1"
+                  name="situation"
+                  value="restaurant-owner"
+                  class="p-contact-form__radio"
+                  required
+                />
+                <label for="situation-1" class="p-contact-form__radio-label">飲食店オーナーで、新規出店を検討</label>
+              </div>
+              <div class="p-contact-form__radio-item">
+                <input
+                  type="radio"
+                  id="situation-2"
+                  name="situation"
+                  value="conversion"
+                  class="p-contact-form__radio"
+                  required
+                />
+                <label for="situation-2" class="p-contact-form__radio-label">既存店の業態転換を検討</label>
+              </div>
+              <div class="p-contact-form__radio-item">
+                <input
+                  type="radio"
+                  id="situation-3"
+                  name="situation"
+                  value="developer"
+                  class="p-contact-form__radio"
+                  required
+                />
+                <label for="situation-3" class="p-contact-form__radio-label">デベロッパーとして検討</label>
+              </div>
+              <div class="p-contact-form__radio-item">
+                <input
+                  type="radio"
+                  id="situation-4"
+                  name="situation"
+                  value="individual"
+                  class="p-contact-form__radio"
+                  required
+                />
+                <label for="situation-4" class="p-contact-form__radio-label">個人として出店を検討</label>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="p-contact-form__field">
+            <label for="message" class="p-contact-form__label">メッセージ</label>
+            <textarea
+              id="message"
+              name="message"
+              class="p-contact-form__textarea"
+              rows="6"
+              placeholder="例)出店を検討している国・エリア、オープン希望時期、ご質問などをご自由にご記入ください。"
+            ></textarea>
+          </div>
+
+          <div class="p-contact-form__checkbox-wrapper">
+            <input
+              type="checkbox"
+              id="privacy"
+              name="privacy"
+              class="p-contact-form__checkbox"
+              required
+            />
+            <label for="privacy" class="p-contact-form__checkbox-label">
+              <a href="#" class="p-contact-form__privacy-link">プライバシーポリシー</a>に同意します
+            </label>
+          </div>
+
+          <div class="p-contact-form__submit">
+            <button
+              type="submit"
+              class="c-button c-button--primary p-contact-form__submit-button"
+            >
+              <span class="c-button__text">無料相談を申し込む</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+

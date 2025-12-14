@@ -1,0 +1,30 @@
+---
+interface Props {
+  number: string;
+  title: string;
+  description: string;
+  icon?: string;
+  class?: string;
+}
+
+const { number, title, description, icon, class: className = '' } = Astro.props;
+---
+
+<div class={`c-reason-card ${className}`}>
+  <div class="c-reason-card__header">
+<div class="c-reason-card__badge-wrapper">
+  <div class="c-reason-card__badge">
+      <span class="c-reason-card__badge-text">Reasons.</span>
+      <span class="c-reason-card__badge-amount">{number}</span>
+    </div>
+</div>
+    {icon && (
+      <span class="c-reason-card__icon" aria-hidden="true">
+        {icon}
+      </span>
+    )}
+      <h3 class="c-reason-card__title">{title}</h3>
+  </div>
+  <p class="c-reason-card__description">{description}</p>
+</div>
+

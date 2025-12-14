@@ -1,0 +1,28 @@
+---
+import Button from '../components/Button.astro';
+import Image from 'astro/components/Image.astro';
+import mapImage from '../assets/images/map.jpg';
+---
+
+<section class="p-about">
+  <div class="l-container">
+      <h2 class="p-about__title">大阪生まれの甘辛カレーは、今、世界へ広がっています。</h2>
+      <div class="p-about__content">
+        <p class="p-about__text">
+          日本の食文化、特にカツカレーを世界に広めることをミッションとして、2004年に「TOKUMASA INTERNATIONAL」を設立しました。日本カレーは、寿司やラーメンに続く、世界で注目される日本の食文化です。この機会に、ぜひフランチャイズオーナーとして、あなたの街で上等カレーを展開してみませんか。
+        </p>
+        <div class="p-about__button">
+          <Button
+            text="まずは無料オンライン相談"
+            variant="primary"
+          />
+        </div>
+      </div>
+      <div class="p-about__world-map">
+          <div class="p-about__world-map__image" aria-label="世界地図">
+            <Image src={mapImage} alt="世界地図" />
+          </div>
+      </div>
+  </div>
+</section>
+

@@ -1,0 +1,14 @@
+---
+interface Props {
+  href?: string;
+  text?: string;
+  class?: string;
+}
+
+const { href = "#", text = "お問い合わせ", class: className = "" } = Astro.props;
+---
+
+<a href={href} class={`c-contact-button ${className}`}>
+  {text}
+</a>
+

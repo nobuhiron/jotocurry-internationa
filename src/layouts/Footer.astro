@@ -1,0 +1,99 @@
+---
+import Image from 'astro/components/Image.astro';
+import logo from './public/logo.svg';
+
+// Navigation items (Headerと同じ + ホームとお問い合わせ)
+const navItems = [
+  { label: 'ホーム', href: '/' },
+  { label: '上等カレーとは', href: '#' },
+  { label: 'フランチャイズ事業内容', href: '#' },
+  { label: 'サポート体制', href: '#' },
+  { label: 'よくある質問', href: '#' },
+  { label: 'お問い合わせ', href: '#' },
+];
+
+// 会社情報
+const companyInfo = {
+  postalCode: '〒541-0052',
+  address: '大阪府大阪市中央区安土町3-2-16長野ビル3F',
+  phone: '06-6926-8286',
+  emails: [
+    { label: 'kawakami@tokumasa.net', href: 'mailto:kawakami@tokumasa.net' },
+    { label: 'kato@tokumasa.net', href: 'mailto:kato@tokumasa.net' },
+  ],
+};
+
+// 法的リンク
+const legalLinks = [
+  { label: 'プライバシーポリシー', href: '#' },
+  { label: 'cookieについて', href: '#' },
+];
+---
+
+<footer class="l-footer">
+  <div class="l-container">
+  <div class="l-footer__inner">
+    <!-- アクセス情報 -->
+    <div class="l-footer__access">
+      <!-- Logo -->
+      <a href="/" class="l-footer__logo">
+        <Image src={logo} alt="上等カレー" width={100} height={100} />
+      </a>
+
+      <!-- 会社情報 -->
+      <div class="l-footer__info">
+        <div class="l-footer__address">
+          <span class="l-footer__label">住所:</span>
+          <span class="l-footer__text">
+           <span class="l-footer__postal-code">{companyInfo.postalCode}</span>
+           <span class="l-footer__address-text">{companyInfo.address}</span>
+          </span>
+        </div>
+
+        <div class="l-footer__contact">
+          <span class="l-footer__label">問い合わせ:</span>
+          <div class="l-footer__contact-details">
+            <a href={`tel:${companyInfo.phone}`} class="l-footer__phone">
+              {companyInfo.phone}
+            </a>
+            <div class="l-footer__emails">
+              {companyInfo.emails.map((email) => (
+                <a href={email.href} class="l-footer__email">
+                  {email.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ナビゲーション -->
+    <nav class="l-footer__nav" aria-label="フッターナビゲーション">
+      <ul class="l-footer__nav-list">
+        {navItems.map((item) => (
+          <li class="l-footer__nav-item">
+            <a href={item.href} class="l-footer__nav-link">
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+     <!-- 下部: 法的リンクと著作権 -->
+  <div class="l-footer__bottom">
+    <div class="l-footer__bottom-inner">
+      <p class="l-footer__copyright">©得正 All Rights Reserved.</p>
+      <div class="l-footer__legal">
+        {legalLinks.map((link) => (
+          <a href={link.href} class="l-footer__legal-link">
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+</footer>
+

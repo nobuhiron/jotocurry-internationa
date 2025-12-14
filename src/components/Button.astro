@@ -1,0 +1,30 @@
+---
+interface Props {
+  href?: string;
+  text: string;
+  variant?: 'primary' | 'secondary';
+  icon?: string;
+  class?: string;
+}
+
+const {
+  href = '#',
+  text,
+  variant = 'primary',
+  icon,
+  class: className = ''
+} = Astro.props;
+---
+
+<a
+  href={href}
+  class={`c-button c-button--${variant} ${className}`}
+>
+  {icon && (
+    <span class="c-button__icon" aria-hidden="true">
+      {icon}
+    </span>
+  )}
+  <span class="c-button__text">{text}</span>
+</a>
+

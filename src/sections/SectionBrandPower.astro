@@ -1,0 +1,123 @@
+---
+import SectionTitle from '../components/SectionTitle.astro';
+import StatCard from '../components/StatCard.astro';
+import Button from '../components/Button.astro';
+import placeholderImage from '../assets/images/Placeholder Image.jpg';
+---
+
+<section class="p-brand-power">
+  <div class="l-container">
+    <div class="p-brand-power__inner">
+      <SectionTitle
+        title="数字が証明する上等カレーのブランド力"
+        class="p-brand-power__title"
+      />
+      <p class="p-brand-power__description">
+        40年で築いた確かな実績。これらの数字は、高い回転数による安定した収益と、グローバル展開による将来の成長性を裏付けています。
+      </p>
+      <div class="p-brand-power__stats">
+        <StatCard
+          value="5000"
+          unit="食"
+          label="1日の平均提供食数"
+          class="p-brand-power__stat"
+        />
+        <StatCard
+          value="44"
+          unit="店舗"
+          label="国内展開店舗数"
+          class="p-brand-power__stat"
+        />
+        <StatCard
+          value="11"
+          unit="店舗"
+          label="海外展開店舗数"
+          class="p-brand-power__stat"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="p-brand-power__carousel-wrapper">
+    <div class="p-brand-power__carousel splide" id="brand-power-carousel">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide">
+            <div class="p-brand-power__slide">
+              <img
+                src={placeholderImage.src}
+                alt="店舗のれん"
+                class="p-brand-power__slide-image"
+              />
+            </div>
+          </li>
+          <li class="splide__slide">
+            <div class="p-brand-power__slide">
+              <img
+                src={placeholderImage.src}
+                alt="店舗のれん"
+                class="p-brand-power__slide-image"
+              />
+            </div>
+          </li>
+          <li class="splide__slide">
+            <div class="p-brand-power__slide">
+              <img
+                src={placeholderImage.src}
+                alt="店舗のれん"
+                class="p-brand-power__slide-image"
+              />
+            </div>
+          </li>
+          <li class="splide__slide">
+            <div class="p-brand-power__slide">
+              <img
+                src={placeholderImage.src}
+                alt="店舗のれん"
+                class="p-brand-power__slide-image"
+              />
+            </div>
+          </li>
+          <li class="splide__slide">
+            <div class="p-brand-power__slide">
+              <img
+                src={placeholderImage.src}
+                alt="店舗のれん"
+                class="p-brand-power__slide-image"
+              />
+            </div>
+          </li>
+          <li class="splide__slide">
+            <div class="p-brand-power__slide">
+              <img
+                src={placeholderImage.src}
+                alt="店舗のれん"
+                class="p-brand-power__slide-image"
+              />
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="l-container">
+    <div class="p-brand-power__button-wrapper">
+      <Button
+        text="ブランドストーリーを見る"
+        variant="secondary"
+        icon="→"
+        class="p-brand-power__button"
+      />
+    </div>
+  </div>
+</section>
+
+<script>
+  import initBrandPower from '../scripts/brand-power.js';
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBrandPower);
+  } else {
+    initBrandPower();
+  }
+</script>
+

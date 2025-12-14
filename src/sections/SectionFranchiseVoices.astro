@@ -1,0 +1,59 @@
+---
+import SectionTitle from '../components/SectionTitle.astro';
+---
+
+<section class="p-franchise-voices">
+  <div class="l-container">
+    <div class="p-franchise-voices__inner">
+      <SectionTitle
+        title="出店を決めたフランチャイズオーナーの声"
+        subtitle="なぜ上等カレーへの出店を決めたのか。開業前の不安や、実際の運営の手応えなどリアルな声をご紹介。"
+        class="p-franchise-voices__title"
+      />
+      <div class="p-franchise-voices__carousel splide" id="franchise-voices-carousel">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide">
+              <div class="p-franchise-voices__slide">
+                <p class="p-franchise-voices__text">テキストテキスト</p>
+                <div class="p-franchise-voices__profile">
+                  <div class="p-franchise-voices__avatar" aria-hidden="true"></div>
+                  <p class="p-franchise-voices__store-name">店舗名店舗名店舗名</p>
+                </div>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="p-franchise-voices__slide">
+                <p class="p-franchise-voices__text">テキストテキスト</p>
+                <div class="p-franchise-voices__profile">
+                  <div class="p-franchise-voices__avatar" aria-hidden="true"></div>
+                  <p class="p-franchise-voices__store-name">店舗名店舗名店舗名</p>
+                </div>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="p-franchise-voices__slide">
+                <p class="p-franchise-voices__text">テキストテキスト</p>
+                <div class="p-franchise-voices__profile">
+                  <div class="p-franchise-voices__avatar" aria-hidden="true"></div>
+                  <p class="p-franchise-voices__store-name">店舗名店舗名店舗名</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import initFranchiseVoices from '../scripts/franchise-voices.js';
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFranchiseVoices);
+  } else {
+    initFranchiseVoices();
+  }
+</script>
+

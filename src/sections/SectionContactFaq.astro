@@ -1,0 +1,68 @@
+---
+import SectionTitle from '../components/SectionTitle.astro';
+import ContactButton from '../components/ContactButton.astro';
+import { faqData } from '../scripts/contact-faq.js';
+---
+
+<section class="p-contact-faq">
+  <div class="l-container">
+    <div class="p-contact-faq__inner">
+      <SectionTitle
+        title="フランチャイズ出店に関するよくある質問"
+        subtitle="初期費用やトレーニング、サポート体制など、オーナー候補の方から多く寄せられるご質問をまとめました。"
+        class="p-contact-faq__title"
+      />
+
+      <div class="p-contact-faq__list">
+        {faqData.map((faq, index) => {
+          const itemId = `faq-item-${index}`;
+          const contentId = `faq-content-${index}`;
+          const isFirst = index === 0;
+          return (
+            <div class={`p-contact-faq__item ${isFirst ? 'is-open' : ''}`} id={itemId}>
+              <button
+                type="button"
+                class="p-contact-faq__button"
+                id={`faq-button-${index}`}
+                aria-expanded={isFirst ? 'true' : 'false'}
+                aria-controls={contentId}
+              >
+                <span class="p-contact-faq__question">{faq.question}</span>
+                <span class="p-contact-faq__icon" aria-hidden="true">
+                  <span class="p-contact-faq__icon-plus">+</span>
+                  <span class="p-contact-faq__icon-close">×</span>
+                </span>
+              </button>
+              <div
+                id={contentId}
+                class="p-contact-faq__content"
+                aria-labelledby={`faq-button-${index}`}
+              >
+                <p class="p-contact-faq__answer">{faq.answer}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <div class="p-contact-faq__cta">
+        <h3 class="p-contact-faq__cta-title">まだ質問がありますか?</h3>
+        <p class="p-contact-faq__cta-text">こちらにないご質問も、お気軽にご相談ください。詳細について直接お話しさせていただきます。</p>
+        <div class="p-contact-faq__cta-button">
+          <ContactButton text="問い合わせをする" href="#contact-form" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import initContactFaq from '../scripts/contact-faq.js';
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initContactFaq);
+  } else {
+    initContactFaq();
+  }
+</script>
+

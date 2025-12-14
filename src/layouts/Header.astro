@@ -1,0 +1,158 @@
+---
+import ContactButton from '../components/ContactButton.astro';
+import Image from 'astro/components/Image.astro';
+import logo from './public/logo.svg';
+
+interface Props {
+  currentLang?: string;
+}
+
+const { currentLang = 'ja' } = Astro.props;
+
+// Navigation items
+const navItems = [
+  { label: '上等カレーとは', href: '#' },
+  { label: 'フランチャイズ事業内容', href: '#' },
+  { label: 'サポート体制', href: '#' },
+  { label: 'よくある質問', href: '#' },
+];
+
+// Language options (将来のmicroCMS連携を見据えた構造)
+const languages = [
+  { code: 'ja', label: '日本語' },
+  { code: 'en', label: 'English' },
+];
+---
+
+<header class="l-header">
+  <div class="l-header__inner">
+    <!-- Logo -->
+     <h1 class="l-header__logo">
+    <a href="/" class="l-header__logo-link">
+      <Image src={logo} alt="上等カレー" width={722} height={160} />
+    </a>
+    </h1>
+    <!-- Desktop Navigation -->
+    <nav class="l-header__nav" aria-label="メインナビゲーション">
+      <ul class="l-header__nav-list">
+        {navItems.map((item) => (
+          <li class="l-header__nav-item">
+            <a href={item.href} class="l-header__nav-link">
+              {item.label}
+            </a>
+          </li>
+        ))}
+
+        <!-- Language Dropdown -->
+        <li class="l-header__nav-item">
+          <div class="l-header__language">
+            <button
+              class="l-header__language-toggle"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-label="言語を選択"
+            >
+              言語
+            </button>
+            <div class="l-header__language-dropdown">
+              <ul class="l-header__language-list">
+                {languages.map((lang) => (
+                  <li class="l-header__language-item">
+                    <a
+                      href={`#lang=${lang.code}`}
+                      class="l-header__language-link"
+                      data-lang={lang.code}
+                    >
+                      {lang.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+       <!-- Contact Button (Desktop) -->
+      <div class=" l-header__contact">
+      <ContactButton />
+    </div>
+    </nav>
+
+
+    <!-- Mobile Menu Toggle -->
+    <button
+      class="l-header__menu-toggle"
+      aria-expanded="false"
+      aria-label="メニューを開く"
+      aria-controls="mobile-menu"
+    >
+      <span class="l-header__menu-toggle-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="l-header__mobile-menu" id="mobile-menu">
+    <div class="l-header__mobile-menu-header">
+      <a href="/" class="l-header__mobile-menu-logo">Logo</a>
+      <button
+        class="l-header__mobile-menu-close"
+        aria-label="メニューを閉じる"
+      >
+        ×
+      </button>
+    </div>
+
+    <nav class="l-header__mobile-nav" aria-label="モバイルナビゲーション">
+      <ul class="l-header__mobile-nav-list">
+        {navItems.map((item) => (
+          <li class="l-header__mobile-nav-item">
+            <a href={item.href} class="l-header__mobile-nav-link">
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <!-- Mobile Language Dropdown -->
+    <div class="l-header__mobile-language">
+      <button
+        class="l-header__mobile-language-toggle"
+        aria-expanded="false"
+        aria-haspopup="true"
+      >
+        言語
+      </button>
+      <div class="l-header__mobile-language-dropdown">
+        <ul class="l-header__mobile-language-list">
+          {languages.map((lang) => (
+            <li class="l-header__mobile-language-item">
+              <a
+                href={`#lang=${lang.code}`}
+                class="l-header__mobile-language-link"
+                data-lang={lang.code}
+              >
+                {lang.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Mobile Contact Button -->
+    <div class="l-header__mobile-contact">
+      <ContactButton />
+    </div>
+  </div>
+</header>
+
+<script>
+  import initHeader from '../assets/js/header.js';
+  initHeader();
+</script>
+

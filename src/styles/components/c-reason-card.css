@@ -1,0 +1,52 @@
+.c-reason-card {
+  padding: var(--spacing-lg);
+  background-color: var(--color-bg-surface);
+  border-radius: var(--radius-md);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+
+.c-reason-card__badge {
+  display: inline-block;
+  background-color: var(--color-accent-warm);
+  color: var(--color-white);
+  border-radius: var(--radius-full);
+  padding-block: var(--spacing-sm);
+  padding-inline: var(--spacing-md);
+  line-height: 1;
+}
+
+.c-reason-card__badge-text {
+  font-family: var(--font-en);
+  font-size: 12px;
+}
+
+.c-reason-card__badge-amount {
+  font-size: 14px;
+}
+
+.c-reason-card__header {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-sm);
+}
+
+.c-reason-card__icon {
+  font-size: 1.5rem;
+  display: block;
+  text-align: center;
+  color: var(--color-accent-warm);
+}
+
+.c-reason-card__title {
+  font-family: var(--font-jp--serif);
+  font-size: 24px;
+  font-weight: var(--fw-bold);
+  text-align: center;
+}
+
+.c-reason-card__description {
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+}

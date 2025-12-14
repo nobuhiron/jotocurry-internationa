@@ -1,0 +1,119 @@
+.p-franchise-mechanisms {
+  padding-block: var(--spacing-4xl);
+  background-color: var(--color-white);
+}
+
+.p-franchise-mechanisms__inner {
+  max-width: var(--layout-max-width-inner);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-3xl);
+}
+
+.p-franchise-mechanisms__title {
+  text-align: center;
+}
+
+.p-franchise-mechanisms__title .c-section-title__subtitle {
+  text-align: left;
+}
+
+@media (--md) {
+  .p-franchise-mechanisms__title .c-section-title {
+    text-align: center;
+  }
+
+  .p-franchise-mechanisms__title .c-section-title__subtitle {
+    text-align: center;
+  }
+}
+
+.p-franchise-mechanisms__cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+}
+
+@media (--md) {
+  .p-franchise-mechanisms__cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-2xl);
+  }
+}
+
+.p-franchise-mechanisms__card {
+  width: 100%;
+}
+
+.c-franchise-mechanism-card {
+  padding: var(--spacing-lg);
+  background-color: var(--color-bg-surface);
+  border-left: 4px solid var(--color-accent-cool);
+  border-radius: var(--radius-md);
+  box-shadow: 4px 4px 18px 0 rgba(0, 0, 0, 0.2);
+  container-type: inline-size;
+}
+
+@media (--md) {
+  .c-franchise-mechanism-card {
+    border-left: none;
+    border-top: 4px solid var(--color-accent-cool);
+  }
+}
+
+.c-franchise-mechanism-card__header {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+  margin-block-end: var(--spacing-lg);
+  text-align: center;
+}
+
+.c-franchise-mechanism-card__icon {
+  width: 48px;
+  height: 48px;
+  color: var(--color-text);
+  margin-inline: auto;
+}
+
+.c-franchise-mechanism-card__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c-franchise-mechanism-card__title {
+  font-family: var(--font-jp--serif);
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  font-weight: var(--fw-bold);
+  line-height: 1.4;
+  color: var(--color-text);
+  margin: 0;
+  text-align: center;
+}
+
+@container (min-width: 400px) {
+  .c-franchise-mechanism-card__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-md);
+    text-align: center;
+  }
+
+  .c-franchise-mechanism-card__icon {
+    margin-inline: 0;
+    flex-shrink: 0;
+  }
+
+  .c-franchise-mechanism-card__title {
+    text-align: center;
+  }
+}
+
+.c-franchise-mechanism-card__description {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  margin: 0;
+}
+

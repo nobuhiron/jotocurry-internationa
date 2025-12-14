@@ -1,0 +1,19 @@
+---
+interface Props {
+  value: string;
+  unit?: string;
+  label: string;
+  class?: string;
+}
+
+const { value, unit, label, class: className = '' } = Astro.props;
+---
+
+<div class={`c-stat-card ${className}`}>
+  <div class="c-stat-card__value">
+    <span class="c-stat-card__value-number">{value}</span>
+    {unit && <span class="c-stat-card__value-unit">{unit}</span>}
+  </div>
+  <p class="c-stat-card__label">{label}</p>
+</div>
+

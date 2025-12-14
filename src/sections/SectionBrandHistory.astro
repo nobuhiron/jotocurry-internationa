@@ -1,0 +1,54 @@
+---
+import SectionTitle from '../components/SectionTitle.astro';
+import Button from '../components/Button.astro';
+import BrandHistoryItem from '../components/BrandHistoryItem.astro';
+import brandHistory1 from '../assets/images/brand-history-1.jpg';
+---
+
+<section class="p-brand-history">
+  <div class="l-container">
+    <div class="p-brand-history__inner">
+      <SectionTitle
+        title="上等カレーの世界への歩み"
+        class="p-brand-history__title"
+      />
+      <div class="p-brand-history__intro">
+        <p class="p-brand-history__intro-text">
+          40年以上の経験により、安定したフランチャイズ運営が可能です。1983年に大阪の小さな店から始まった上等カレーは、今や国内外に展開するグローバルブランドへと成長しました。この着実な成長の歴史が、あなたの成功を支えます。
+        </p>
+        <div class="p-brand-history__button">
+          <Button
+            text="フランチャイズのご相談はこちら"
+            variant="secondary"
+            icon="→"
+            href="#contact"
+          />
+        </div>
+      </div>
+      <div class="p-brand-history__timeline">
+        <BrandHistoryItem
+          imageSrc={brandHistory1}
+          imageAlt="グルメの街。大阪で誕生"
+          year="1983"
+          heading="グルメの街。大阪で誕生"
+          description="食の都・大阪・大阪で「手打ちうどん 得正」として創業。創業者のこだわりが生んだカレーうどんが評判を呼び、カレー専門店への展開を決意。"
+        />
+        <BrandHistoryItem
+          imageSrc={brandHistory1}
+          imageAlt="グルメの街。大阪で誕生"
+          year="1990s"
+          heading="ナショナルブランドへと成長"
+          description="1995年、カレー専門店「上等カレー」として本格的なチェーン展開を開始。食道楽の街、大阪を中心にオフィスワーカーから口コミで人気が広がり高い支持を獲得。著名人やメディアにも取り上げられ、「大阪の名物カレー」として認知が広がりました。"
+        />
+        <BrandHistoryItem
+          imageSrc={brandHistory1}
+          imageAlt="大阪から生まれた一杯は、世界各地へ。"
+          year="Now"
+          heading="大阪から生まれた一杯は、世界各地へ。"
+          description="現在、海外11店舗を展開中。モンゴル、タイ、カンボジアでの成功に続き、2025年以降、韓国、中国、シンガポール、インドネシア、フィリピン、カナダでの事業計画が進行中です。世界で成長し続けるブランドと共に、あなたも成功への一歩を踏み出しませんか。"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+

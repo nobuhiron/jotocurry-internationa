@@ -1,0 +1,44 @@
+---
+import { getImage } from 'astro:assets';
+import Button from '../components/Button.astro';
+import heroImage from '../assets/images/hero-img.jpg';
+import Image from 'astro/components/Image.astro';
+import ContactButton from '../components/ContactButton.astro';
+---
+
+<section class="p-hero" >
+  <div class="p-hero__image">
+          <Image src={heroImage} alt="ヒーローイメージ" width={1920} height={1080} />
+      <div class="p-hero__overlay"></div>
+  </div>
+    <div class="p-hero__content">
+      <header class="p-hero__header">
+      <div class="p-hero__badge">海外フランチャイズオーナー募集中</div>
+      <h1 class="p-hero__title">大阪発の<br class="is-lg">甘辛カツカレーを、<br class="u-hidden-lg">あなたの街で。</h1>
+      </header>
+      <ul class="p-hero__features">
+        <li class="p-hero__feature">✔ 40年の実績</li>
+        <li class="p-hero__feature">✔︎ シンプル運営</li>
+        <li class="p-hero__feature">✔︎ 未経験からスタート可能</li>
+      </ul>
+    </div>
+    <div class="p-hero__bottom-section">
+      <p class="p-hero__description">
+        シンプルなオペレーションで展開できる<br>日本カレーのフランチャイズビジネス。
+      </p>
+      <div class="p-hero__buttons p-hero__buttons--desktop">
+        <ContactButton
+          text="まずは無料オンライン相談"
+          class="p-hero__button"
+          href="#contact-form"
+        />
+        <Button
+          text="詳細資料をダウンロード"
+          variant="secondary"
+          icon="↓"
+          class="p-hero__button"
+        />
+      </div>
+  </div>
+</section>
+
