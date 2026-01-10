@@ -1,8 +1,6 @@
 ---
 import ContactButton from '../components/ContactButton.astro';
-import Image from 'astro/components/Image.astro';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
-import logo from './public/logo.svg';
 import { getLocalizedPath } from '../lib/i18n';
 import { getTranslation } from '../data/translations';
 import type { Locale } from '../lib/i18n';
@@ -32,7 +30,7 @@ const navItems = [
     <!-- Logo -->
      <h1 class="l-header__logo">
     <a href={getLocalizedPath('/', locale)} class="l-header__logo-link">
-      <Image src={logo} alt={headerText.logoAlt} width={722} height={160} />
+      <img src="/logo.svg" alt={headerText.logoAlt} width={722} height={160} />
     </a>
     </h1>
     <!-- Desktop Navigation -->
