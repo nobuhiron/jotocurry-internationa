@@ -1,0 +1,30 @@
+@import '../global/variables.css';
+
+/* セクションの基本スタイル */
+.l-section {
+  padding-block: var(--spacing-4xl);
+}
+
+/* 背景色のバリエーション（データ属性で制御） */
+.l-section[data-bg="white"] {
+  background-color: var(--color-white);
+}
+
+.l-section[data-bg="alt"] {
+  background-color: var(--color-bg-surface-alt);
+}
+
+/* セクションのinnerコンテナの共通スタイル */
+.l-section__inner {
+  max-width: var(--layout-max-width-inner);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-3xl);
+  margin-inline: auto;
+}
+
+/* gapのバリエーション（データ属性で制御） */
+.l-section__inner[data-gap="4xl"] {
+  gap: var(--spacing-4xl);
+}
+

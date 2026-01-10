@@ -48,9 +48,9 @@
 ------------------- */
 :root {
   --layout-max-width: 1440px;
-  --layout-max-width-inner: 1100px;
+  --layout-max-width-inner: 1200px;
   --layout-padding-sp: 20px;
-  --layout-padding-pc: 120px;
+  --layout-padding-pc: 40px;
 }
 
 /* -------------------

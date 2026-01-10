@@ -1,12 +1,4 @@
 .p-about {
-  padding-block: var(--spacing-4xl);
-  background-color: var(--color-white);
-}
-
-.p-about > .l-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-4xl);
 }
 
 .p-about__title {
@@ -21,25 +13,74 @@
 
 .p-about__text {
   line-height: var(--line-height-base);
-  color: var(--color-text);
+  color: var(--color-white);
+  margin-bottom: var(--spacing-xl);
 }
 
 .p-about__button {
   text-align: center;
 }
 
-.p-about__world-map {
+/* アクセシビリティ: アニメーションを減らす設定に対応 */
+@media (prefers-reduced-motion: reduce) {
+  .p-about__world-map__overlay,
+  .p-about__content {
+    transition: none;
+  }
 }
 
-
-.p-about__world-map__image {
+.p-about__world-map {
+  position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
+}
+
+.p-about__world-map__image {
+  width: 100%;
+  height: 100%;
 }
 
 .p-about__world-map__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* 黒系マスク（オーバーレイ） */
+.p-about__world-map__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  z-index: 1;
+}
+
+/* アニメーション有効時 */
+.p-about__world-map.is-animated .p-about__world-map__overlay {
+  opacity: 1;
+}
+
+/* テキストコンテンツ */
+.p-about__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+  z-index: 2;
+}
+
+/* アニメーション有効時 */
+.p-about__world-map.is-animated .p-about__content {
+  opacity: 1;
+  transform: translate(-50%, -50%);
 }

@@ -1,26 +1,29 @@
 ---
 import ContactButton from '../components/ContactButton.astro';
 import Image from 'astro/components/Image.astro';
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import logo from './public/logo.svg';
+import { getLocalizedPath } from '../lib/i18n';
+import { getTranslation } from '../data/translations';
+import type { Locale } from '../lib/i18n';
 
 interface Props {
-  currentLang?: string;
+  locale?: Locale;
 }
 
-const { currentLang = 'ja' } = Astro.props;
+const { locale = 'ja' } = Astro.props;
+// 現在のパスから言語プレフィックスを除去
+const currentPath = Astro.url.pathname.replace(/^\/(ja|en)/, '') || '/';
+
+// 翻訳データを取得
+const headerText = getTranslation('header', locale);
 
 // Navigation items
 const navItems = [
-  { label: '上等カレーとは', href: '#' },
-  { label: 'フランチャイズ事業内容', href: '#' },
-  { label: 'サポート体制', href: '#' },
-  { label: 'よくある質問', href: '#' },
-];
-
-// Language options (将来のmicroCMS連携を見据えた構造)
-const languages = [
-  { code: 'ja', label: '日本語' },
-  { code: 'en', label: 'English' },
+  { label: headerText.nav.brand, href: getLocalizedPath('/brand', locale) },
+  { label: headerText.nav.franchise, href: getLocalizedPath('/franchise', locale) },
+  { label: headerText.nav.support, href: '#' },
+  { label: headerText.nav.faq, href: getLocalizedPath('/contact', locale) },
 ];
 ---
 
@@ -28,12 +31,12 @@ const languages = [
   <div class="l-header__inner">
     <!-- Logo -->
      <h1 class="l-header__logo">
-    <a href="/" class="l-header__logo-link">
-      <Image src={logo} alt="上等カレー" width={722} height={160} />
+    <a href={getLocalizedPath('/', locale)} class="l-header__logo-link">
+      <Image src={logo} alt={headerText.logoAlt} width={722} height={160} />
     </a>
     </h1>
     <!-- Desktop Navigation -->
-    <nav class="l-header__nav" aria-label="メインナビゲーション">
+    <nav class="l-header__nav" aria-label={headerText.ariaLabels.mainNav}>
       <ul class="l-header__nav-list">
         {navItems.map((item) => (
           <li class="l-header__nav-item">
@@ -43,33 +46,9 @@ const languages = [
           </li>
         ))}
 
-        <!-- Language Dropdown -->
+        <!-- Language Switcher -->
         <li class="l-header__nav-item">
-          <div class="l-header__language">
-            <button
-              class="l-header__language-toggle"
-              aria-expanded="false"
-              aria-haspopup="true"
-              aria-label="言語を選択"
-            >
-              言語
-            </button>
-            <div class="l-header__language-dropdown">
-              <ul class="l-header__language-list">
-                {languages.map((lang) => (
-                  <li class="l-header__language-item">
-                    <a
-                      href={`#lang=${lang.code}`}
-                      class="l-header__language-link"
-                      data-lang={lang.code}
-                    >
-                      {lang.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          <LanguageSwitcher currentLocale={locale} currentPath={currentPath} />
         </li>
       </ul>
        <!-- Contact Button (Desktop) -->
@@ -83,7 +62,7 @@ const languages = [
     <button
       class="l-header__menu-toggle"
       aria-expanded="false"
-      aria-label="メニューを開く"
+      aria-label={headerText.ariaLabels.openMenu}
       aria-controls="mobile-menu"
     >
       <span class="l-header__menu-toggle-icon">
@@ -94,19 +73,19 @@ const languages = [
     </button>
   </div>
 
-  <!-- Mobile Menu -->
+    <!-- Mobile Menu -->
   <div class="l-header__mobile-menu" id="mobile-menu">
     <div class="l-header__mobile-menu-header">
-      <a href="/" class="l-header__mobile-menu-logo">Logo</a>
+      <a href={getLocalizedPath('/', locale)} class="l-header__mobile-menu-logo">Logo</a>
       <button
         class="l-header__mobile-menu-close"
-        aria-label="メニューを閉じる"
+        aria-label={headerText.ariaLabels.closeMenu}
       >
         ×
       </button>
     </div>
 
-    <nav class="l-header__mobile-nav" aria-label="モバイルナビゲーション">
+    <nav class="l-header__mobile-nav" aria-label={headerText.ariaLabels.mobileNav}>
       <ul class="l-header__mobile-nav-list">
         {navItems.map((item) => (
           <li class="l-header__mobile-nav-item">
@@ -118,30 +97,9 @@ const languages = [
       </ul>
     </nav>
 
-    <!-- Mobile Language Dropdown -->
+    <!-- Mobile Language Switcher -->
     <div class="l-header__mobile-language">
-      <button
-        class="l-header__mobile-language-toggle"
-        aria-expanded="false"
-        aria-haspopup="true"
-      >
-        言語
-      </button>
-      <div class="l-header__mobile-language-dropdown">
-        <ul class="l-header__mobile-language-list">
-          {languages.map((lang) => (
-            <li class="l-header__mobile-language-item">
-              <a
-                href={`#lang=${lang.code}`}
-                class="l-header__mobile-language-link"
-                data-lang={lang.code}
-              >
-                {lang.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <LanguageSwitcher currentLocale={locale} currentPath={currentPath} />
     </div>
 
     <!-- Mobile Contact Button -->

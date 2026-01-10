@@ -1,15 +1,41 @@
 ---
 import SectionTitle from '../components/SectionTitle.astro';
 import ContactButton from '../components/ContactButton.astro';
-import { faqData } from '../scripts/contact-faq.js';
+import { getFaqs } from '../lib/microcms-faq';
+import { getLocalizedFaq } from '../lib/i18n';
+import { translations } from '../data/translations';
+import type { Locale } from '../lib/i18n';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'ja' } = Astro.props;
+const faqText = translations.contact.faq[locale];
+
+// microCMSからFAQを取得
+// フィールド: order, questionJa, answerJa, questionEn, answerEn
+let faqData: Array<{ question: string; answer: string }> = [];
+try {
+  const faqs = await getFaqs(locale);
+  // orderフィールドでソート（既にAPI側でソートされているが、念のため）
+  const sortedFaqs = [...faqs].sort((a, b) => (a.order || 0) - (b.order || 0));
+  // 言語に応じて質問と回答を出し分け
+  faqData = sortedFaqs.map((faq) => getLocalizedFaq(faq, locale));
+} catch (error) {
+  // microCMSが設定されていない場合のフォールバック
+  console.warn('microCMSからFAQを取得できませんでした。フォールバックデータを使用します。', error);
+  // フォールバック: 空の配列
+  faqData = [];
+}
 ---
 
-<section class="p-contact-faq">
+<section class="p-contact-faq l-section" data-bg="alt">
   <div class="l-container">
-    <div class="p-contact-faq__inner">
+    <div class="p-contact-faq__inner l-section__inner" data-gap="4xl">
       <SectionTitle
-        title="フランチャイズ出店に関するよくある質問"
-        subtitle="初期費用やトレーニング、サポート体制など、オーナー候補の方から多く寄せられるご質問をまとめました。"
+        title={faqText.title}
+        subtitle={faqText.subtitle}
         class="p-contact-faq__title"
       />
 
@@ -46,10 +72,10 @@ import { faqData } from '../scripts/contact-faq.js';
       </div>
 
       <div class="p-contact-faq__cta">
-        <h3 class="p-contact-faq__cta-title">まだ質問がありますか?</h3>
-        <p class="p-contact-faq__cta-text">こちらにないご質問も、お気軽にご相談ください。詳細について直接お話しさせていただきます。</p>
+        <h3 class="p-contact-faq__cta-title">{faqText.cta.title}</h3>
+        <p class="p-contact-faq__cta-text">{faqText.cta.text}</p>
         <div class="p-contact-faq__cta-button">
-          <ContactButton text="問い合わせをする" href="#contact-form" />
+          <ContactButton text={faqText.cta.button} href="#contact-form" />
         </div>
       </div>
     </div>

@@ -1,5 +1,14 @@
 ---
 import ContactButton from '../components/ContactButton.astro';
+import { getTranslation } from '../data/translations';
+import type { Locale } from '../lib/i18n';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'ja' } = Astro.props;
+const ctaText = getTranslation('cta', locale);
 ---
 
 <section class="l-cta-section">
@@ -7,30 +16,23 @@ import ContactButton from '../components/ContactButton.astro';
   <div class="l-cta-section__inner">
     <header class="l-cta-section__header">
     <h2 class="l-cta-section__title">
-      どんな小さな疑問でも、お気軽にご相談ください。
+      {ctaText.title}
     </h2>
     <div class="l-cta-section__description">
     <ul class="l-cta-section__list">
-      <li class="l-cta-section__item">
-        初期投資は具体的にいくら必要?
-      </li>
-      <li class="l-cta-section__item">
-        未経験でも本当に運営できる?
-      </li>
-      <li class="l-cta-section__item">
-        開業までどのくらいの期間がかかる?
-      </li>
-      <li class="l-cta-section__item">
-        実際の収益モデルはどうなっている?
-      </li>
+      {ctaText.questions.map((question) => (
+        <li class="l-cta-section__item">
+          {question}
+        </li>
+      ))}
     </ul>
     <p class="l-cta-section__text">
-      経験豊富なスタッフが、親身にお答えします。
+      {ctaText.text}
     </p>
     </div>
     </header>
     <div class="l-cta-section__button">
-      <ContactButton text="出店のご相談はこちら" />
+      <ContactButton text={ctaText.button} />
     </div>
     </div>
   </div>

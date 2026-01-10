@@ -23,6 +23,108 @@ All commands are run from the root of the project, from a terminal:
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
 
+## 📝 microCMS連携
+
+このプロジェクトはmicroCMSと連携してコンテンツを管理できます。日本語と英語の二言語対応に対応しています。
+
+### セットアップ手順
+
+1. **環境変数の設定**
+   - `.env.example`を参考に`.env`ファイルを作成
+   - microCMSのサービスドメインとAPIキーを設定：
+     ```
+     MICROCMS_SERVICE_DOMAIN=your-service-domain
+     MICROCMS_API_KEY=your-api-key
+     ```
+
+2. **microCMSでAPIエンドポイントを作成**
+   - microCMSの管理画面で必要なAPIエンドポイントを作成
+   - 詳細は「microCMSのAPIエンドポイント設計」セクションを参照
+
+3. **データ取得の使用例**
+   ```astro
+   ---
+   // src/sections/SectionContactFaq.astro
+   import { getFaqs } from '../lib/microcms-faq';
+   import { getLocalizedFaq } from '../lib/i18n';
+   import type { Locale } from '../lib/i18n';
+
+   const { locale = 'ja' } = Astro.props;
+   const faqs = await getFaqs(locale);
+   const localizedFaqs = faqs.map(faq => getLocalizedFaq(faq, locale));
+   ---
+
+   {localizedFaqs.map(faq => (
+     <div>
+       <h3>{faq.question}</h3>
+       <p>{faq.answer}</p>
+     </div>
+   ))}
+   ```
+
+### 利用可能な関数
+
+- `getContent<T>(endpoint, queries?)` - 単一コンテンツを取得
+- `getContents<T>(endpoint, queries?)` - コンテンツ一覧を取得
+- `getContentById<T>(endpoint, contentId, queries?)` - ID指定でコンテンツを取得
+- `getFaqs(locale)` - FAQ一覧を取得（言語別）
+- `getStores(locale)` - 店舗一覧を取得（言語別）
+- `getStoreCount()` - 店舗数を取得
+
+詳細は`src/lib/microcms.ts`を参照してください。
+
+### microCMSのAPIエンドポイント設計
+
+#### FAQ API (`faq`)
+
+**フィールド:**
+- `questionJa` (テキスト) - 日本語の質問
+- `answerJa` (テキストエリア) - 日本語の回答
+- `questionEn` (テキスト) - 英語の質問
+- `answerEn` (テキストエリア) - 英語の回答
+- `order` (数値) - 表示順序
+
+**使用箇所:**
+- `src/sections/SectionContactFaq.astro`
+
+#### Stores API (`stores`)
+
+**フィールド:**
+- `name` (テキスト) - 店舗名（日本語）
+- `nameEn` (テキスト) - 店舗名（英語）
+- `location` (テキスト) - 所在地（日本語）
+- `locationEn` (テキスト) - 所在地（英語）
+- `country` (テキスト) - 国名（日本語）
+- `countryEn` (テキスト) - 国名（英語）
+- `image` (画像) - 店舗画像
+- `order` (数値) - 表示順序
+
+**使用箇所:**
+- `src/sections/SectionBrandStores.astro`
+- `src/sections/SectionBrandPower.astro`（店舗数の計算）
+
+### 多言語対応
+
+このプロジェクトはURLベースの多言語対応を実装しています。
+
+- `/ja/` - 日本語ページ
+- `/en/` - 英語ページ
+- `/` - デフォルト（日本語にリダイレクト）
+
+**実装ファイル:**
+- `src/lib/i18n.ts` - 言語設定とユーティリティ関数
+- `src/middleware.ts` - 言語判定とリダイレクト処理
+- `src/components/LanguageSwitcher.astro` - 言語切り替えコンポーネント
+
+### 推奨：将来的にCMS化すべきコンテンツ
+
+以下のコンテンツは現時点ではハードコードのままですが、将来的にCMS化を検討することを推奨します：
+
+1. **連絡先情報** - 電話番号やメールアドレス（変更頻度が高い）
+2. **ナビゲーション** - メニュー項目（多言語対応で各言語のラベルが必要）
+3. **統計データ** - 数値（5000食、44店舗など、定期的に更新が必要）
+4. **ヒーローセクション** - キャンペーンやメッセージ変更に対応
+
 # Project Rules for Cursor
 
 ## 1. Goal (Outcome)

@@ -17,7 +17,7 @@ const { year, heading, description, imageSrc, imageAlt = '' } = Astro.props;
   <div class="p-brand-history__item-header">
     <div class="p-brand-history__item-year">{year}</div>
   </div>
-  <div class="p-brand-history__item-content">
+  <div class="p-brand-history__item-content" style="padding-inline-start: var(--spacing-lg);">
     <div class="p-brand-history__item-image">
       <Image src={imageSrc} alt={imageAlt} width={500} height={500} class="p-brand-history__item-image-img" />
     </div>

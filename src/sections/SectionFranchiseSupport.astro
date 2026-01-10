@@ -1,13 +1,22 @@
 ---
 import SectionTitle from '../components/SectionTitle.astro';
+import { translations } from '../data/translations';
+import type { Locale } from '../lib/i18n';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'ja' } = Astro.props;
+const supportText = translations.franchise.support[locale];
 ---
 
-<section class="p-franchise-support">
+<section class="p-franchise-support l-section" data-bg="white">
   <div class="l-container">
-    <div class="p-franchise-support__inner">
+    <div class="p-franchise-support__inner l-section__inner">
       <SectionTitle
-        title="充実したサポート体制"
-        subtitle="開業前の準備からオープン後の運営まで、専門チームが一貫して伴走します。"
+        title={supportText.title}
+        subtitle={supportText.subtitle}
         class="p-franchise-support__title"
       />
       <div class="p-franchise-support__content">
@@ -15,18 +24,12 @@ import SectionTitle from '../components/SectionTitle.astro';
           <div class="p-franchise-support__image-placeholder" aria-hidden="true"></div>
         </div>
         <div class="p-franchise-support__text-blocks">
-          <div class="p-franchise-support__block">
-            <h3 class="p-franchise-support__block-title">開業準備のトータルサポート</h3>
-            <p class="p-franchise-support__block-description">エリア選定から物件選び、資金計画、融資相談、事業計画書の作成まで、開業に必要なすべての準備をサポートします。</p>
-          </div>
-          <div class="p-franchise-support__block">
-            <h3 class="p-franchise-support__block-title">研修とトレーニングで不安をゼロに</h3>
-            <p class="p-franchise-support__block-description">カレー作りから接客、衛生管理、数値管理まで、実店舗に近い環境での研修プログラムを実施。飲食業未経験の方でも安心してスタートできます。</p>
-          </div>
-          <div class="p-franchise-support__block">
-            <h3 class="p-franchise-support__block-title">オープン後も続く伴走サポート</h3>
-            <p class="p-franchise-support__block-description">オープン後も現場コンサルティング、集客施策、メニュー改善提案、定期的な売上・数値レビューなど、継続的なサポートを提供します。</p>
-          </div>
+          {supportText.blocks.map((block) => (
+            <div class="p-franchise-support__block">
+              <h3 class="p-franchise-support__block-title">{block.title}</h3>
+              <p class="p-franchise-support__block-description">{block.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

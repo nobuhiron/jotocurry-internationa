@@ -1,13 +1,4 @@
 .p-brand-history {
-  padding-block: var(--spacing-4xl);
-  background-color: var(--color-white);
-}
-
-.p-brand-history__inner {
-  max-width: var(--layout-max-width-inner);
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-3xl);
 }
 
 .p-brand-history__title {
@@ -48,19 +39,34 @@
 .p-brand-history__timeline {
   display: grid;
   grid-template-columns: 1fr;
-  padding-inline-start: var(--spacing-xl);
+  position: relative;
 }
 
-@media (--lg) {
-  .p-brand-history__timeline {
-    padding-inline-start: var(--spacing-2xl);
-  }
+/* タイムライン全体の縦線 */
+.p-brand-history__timeline::before {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 0;
+  width: 2px;
+  /* 初期状態：最初のアイテムのドット位置まで表示（JavaScriptで動的に計算される） */
+  height: var(--timeline-initial-height, 92px);
+  background-color: var(--color-pale-beige);
+  transition: height 1.5s ease;
+  z-index: 0;
+}
+
+/* アニメーション有効時：線が下に伸びる（JavaScriptで動的に計算される） */
+.p-brand-history__timeline.is-animated::before {
+  height: var(--timeline-final-height);
 }
 
 .p-brand-history__item {
   position: relative;
   padding-block: var(--spacing-2xl);
   padding-inline-start: 0;
+  /* 全てのアイテムを初期状態で表示 */
+  opacity: 1;
 }
 
 @media (--lg) {
@@ -69,14 +75,9 @@
   }
 }
 
+/* 各アイテムの個別線は非表示（全体線を使用） */
 .p-brand-history__item::after {
-  content: '';
-  position: absolute;
-  left: 6px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background-color: var(--color-pale-beige);
+  display: none;
 }
 
 .p-brand-history__item-header {
@@ -85,7 +86,7 @@
   gap: var(--spacing-md);
   margin-block-start: calc(var(--spacing-2xl) + 6px);
   margin-block-end: var(--spacing-lg);
-  padding-inline-start: 0;
+  padding-inline-start: 24px;
   position: relative;
   z-index: 1;
 }
@@ -98,12 +99,43 @@
   background-color: var(--color-accent-warm);
   border-radius: var(--radius-xl);
   border: 2px solid var(--color-white);
+  /* ドットの中心を線の中心に合わせる */
+  /* 線は left: 6px, width: 2px なので中心は 7px */
+  /* ドットは width: 12px なので、左端を 1px にする */
+  position: absolute;
+  left: -5px;
+  /* 全てのドットを初期状態で表示 */
+  opacity: 1;
+  transform: scale(1);
+  transition: transform 0.6s ease;
+  z-index: 2;
 }
 
-@media (--lg) {
-  .p-brand-history__item-header {
-    padding-inline-start: 0;
-  }
+/* アニメーション有効時：各アイテムのドットが大きくなる */
+.p-brand-history__item.is-active .p-brand-history__item-header::before {
+  transform: scale(1.5);
+}
+
+/* ドットの周囲に円上の線を追加 */
+.p-brand-history__item-header::after {
+  content: '';
+  position: absolute;
+  left: 1px;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--color-accent-warm);
+  border-radius: 50%;
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  z-index: 1;
+}
+
+/* アニメーション有効時：各アイテムのドット周囲に円上の線が表示 */
+.p-brand-history__item.is-active .p-brand-history__item-header::after {
+  transform: translate(-50%, -50%) scale(2);
+  opacity: 0.6;
 }
 
 .p-brand-history__item-year {
@@ -119,8 +151,7 @@
 .p-brand-history__item-content {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-xl);
-  padding-inline-start: var(--spacing-lg);
+  gap: var(--spacing-2xl);
 }
 
 @media (--md) {
@@ -128,6 +159,7 @@
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-2xl);
     align-items: center;
+    padding-inline-start: var(--spacing-3xl);
   }
 }
 
@@ -159,4 +191,26 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: var(--radius-md);
+}
+
+/* アクセシビリティ: アニメーションを減らす設定に対応 */
+@media (prefers-reduced-motion: reduce) {
+  .p-brand-history__timeline::before,
+  .p-brand-history__item-header::before,
+  .p-brand-history__item-header::after {
+    transition: none;
+  }
+
+  .p-brand-history__item-header::before {
+    transform: scale(1);
+  }
+
+  .p-brand-history__item-header::after {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+
+  .p-brand-history__timeline::before {
+    height: var(--timeline-final-height, 100%);
+  }
 }

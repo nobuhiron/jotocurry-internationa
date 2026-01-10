@@ -3,35 +3,59 @@ import SectionTitle from '../components/SectionTitle.astro';
 import StatCard from '../components/StatCard.astro';
 import Button from '../components/Button.astro';
 import placeholderImage from '../assets/images/Placeholder Image.jpg';
+import { getStores, getStoreCount } from '../lib/microcms-stores';
+import { getTranslation } from '../data/translations';
+import type { Locale } from '../lib/i18n';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'ja' } = Astro.props;
+const brandPowerText = getTranslation('brandPower', locale);
+
+// 店舗数を取得（フォールバック値あり）
+let domesticStoreCount = 44; // デフォルト値
+let overseasStoreCount = 11; // デフォルト値
+
+try {
+  const stores = await getStores(locale);
+  // 国内店舗と海外店舗を分ける（countryフィールドで判定）
+  // 注意: 実際の実装では、microCMSでcountryフィールドに「日本」や「Japan」などが入っているかで判定
+  domesticStoreCount = stores.filter((store) =>
+    store.country === '日本' || store.country === 'Japan' || store.countryEn === 'Japan'
+  ).length;
+  overseasStoreCount = stores.length - domesticStoreCount;
+} catch (error) {
+  console.warn('microCMSから店舗数を取得できませんでした。デフォルト値を使用します。', error);
+}
 ---
 
-<section class="p-brand-power">
+<section class="p-brand-power l-section" data-bg="white">
   <div class="l-container">
-    <div class="p-brand-power__inner">
+    <div class="p-brand-power__inner l-section__inner">
       <SectionTitle
-        title="数字が証明する上等カレーのブランド力"
+        title={brandPowerText.title}
         class="p-brand-power__title"
       />
-      <p class="p-brand-power__description">
-        40年で築いた確かな実績。これらの数字は、高い回転数による安定した収益と、グローバル展開による将来の成長性を裏付けています。
-      </p>
+      <p class="p-brand-power__description">{brandPowerText.description}</p>
       <div class="p-brand-power__stats">
         <StatCard
-          value="5000"
-          unit="食"
-          label="1日の平均提供食数"
+          value={brandPowerText.stats.meals.value}
+          unit={brandPowerText.stats.meals.unit}
+          label={brandPowerText.stats.meals.label}
           class="p-brand-power__stat"
         />
         <StatCard
-          value="44"
-          unit="店舗"
-          label="国内展開店舗数"
+          value={String(domesticStoreCount)}
+          unit={brandPowerText.stats.domesticStores.unit}
+          label={brandPowerText.stats.domesticStores.label}
           class="p-brand-power__stat"
         />
         <StatCard
-          value="11"
-          unit="店舗"
-          label="海外展開店舗数"
+          value={String(overseasStoreCount)}
+          unit={brandPowerText.stats.overseasStores.unit}
+          label={brandPowerText.stats.overseasStores.label}
           class="p-brand-power__stat"
         />
       </div>
@@ -45,7 +69,7 @@ import placeholderImage from '../assets/images/Placeholder Image.jpg';
             <div class="p-brand-power__slide">
               <img
                 src={placeholderImage.src}
-                alt="店舗のれん"
+                alt={locale === 'en' ? 'Store noren' : '店舗のれん'}
                 class="p-brand-power__slide-image"
               />
             </div>
@@ -54,7 +78,7 @@ import placeholderImage from '../assets/images/Placeholder Image.jpg';
             <div class="p-brand-power__slide">
               <img
                 src={placeholderImage.src}
-                alt="店舗のれん"
+                alt={locale === 'en' ? 'Store noren' : '店舗のれん'}
                 class="p-brand-power__slide-image"
               />
             </div>
@@ -63,7 +87,7 @@ import placeholderImage from '../assets/images/Placeholder Image.jpg';
             <div class="p-brand-power__slide">
               <img
                 src={placeholderImage.src}
-                alt="店舗のれん"
+                alt={locale === 'en' ? 'Store noren' : '店舗のれん'}
                 class="p-brand-power__slide-image"
               />
             </div>
@@ -72,7 +96,7 @@ import placeholderImage from '../assets/images/Placeholder Image.jpg';
             <div class="p-brand-power__slide">
               <img
                 src={placeholderImage.src}
-                alt="店舗のれん"
+                alt={locale === 'en' ? 'Store noren' : '店舗のれん'}
                 class="p-brand-power__slide-image"
               />
             </div>
@@ -81,7 +105,7 @@ import placeholderImage from '../assets/images/Placeholder Image.jpg';
             <div class="p-brand-power__slide">
               <img
                 src={placeholderImage.src}
-                alt="店舗のれん"
+                alt={locale === 'en' ? 'Store noren' : '店舗のれん'}
                 class="p-brand-power__slide-image"
               />
             </div>
@@ -90,7 +114,7 @@ import placeholderImage from '../assets/images/Placeholder Image.jpg';
             <div class="p-brand-power__slide">
               <img
                 src={placeholderImage.src}
-                alt="店舗のれん"
+                alt={locale === 'en' ? 'Store noren' : '店舗のれん'}
                 class="p-brand-power__slide-image"
               />
             </div>
@@ -102,7 +126,7 @@ import placeholderImage from '../assets/images/Placeholder Image.jpg';
   <div class="l-container">
     <div class="p-brand-power__button-wrapper">
       <Button
-        text="ブランドストーリーを見る"
+        text={brandPowerText.button}
         variant="secondary"
         icon="→"
         class="p-brand-power__button"

@@ -1,0 +1,36 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SectionPageHero from '../../sections/SectionPageHero.astro';
+import SectionFranchiseMechanisms from '../../sections/SectionFranchiseMechanisms.astro';
+import SectionFranchiseSupport from '../../sections/SectionFranchiseSupport.astro';
+import SectionFranchiseVoices from '../../sections/SectionFranchiseVoices.astro';
+import { getTranslation, translations } from '../../data/translations';
+import type { Locale } from '../../lib/i18n';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'ja' } },
+    { params: { lang: 'en' } },
+  ];
+}
+
+const { lang } = Astro.params;
+const locale = (lang as Locale) || 'ja';
+const franchiseData = translations.franchise;
+const franchisePageText = franchiseData.page[locale];
+const franchiseTranslations = getTranslation('franchise', locale) as {
+  mechanisms: typeof translations.franchise.mechanisms[typeof locale];
+  support: typeof translations.franchise.support[typeof locale];
+  voices: typeof translations.franchise.voices[typeof locale];
+};
+---
+
+	<Layout title={franchisePageText.title} locale={locale}>
+	<SectionPageHero
+		title={franchisePageText.heroTitle}
+		subtitle={franchisePageText.heroSubtitle}
+	/>
+	<SectionFranchiseMechanisms locale={locale} />
+	<SectionFranchiseSupport locale={locale} />
+	<SectionFranchiseVoices locale={locale} />
+</Layout>

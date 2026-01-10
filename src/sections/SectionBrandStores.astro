@@ -1,44 +1,82 @@
 ---
 import SectionTitle from '../components/SectionTitle.astro';
+import { getStores } from '../lib/microcms-stores';
+import { getLocalizedStore } from '../lib/i18n';
+import { translations } from '../data/translations';
+import type { Locale } from '../lib/i18n';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'ja' } = Astro.props;
+const storesText = translations.brand.stores[locale];
+
+// microCMSから店舗情報を取得
+let stores: Array<{ name: string; location: string; country: string; image?: { url: string; width: number; height: number } }> = [];
+try {
+  const storesData = await getStores(locale);
+  stores = storesData.map((store) => ({
+    ...getLocalizedStore(store, locale),
+    image: store.image,
+  }));
+} catch (error) {
+  // microCMSが設定されていない場合のフォールバック
+  console.warn('microCMSから店舗情報を取得できませんでした。フォールバックデータを使用します。', error);
+  stores = [];
+}
 ---
 
-<section class="p-brand-stores">
+<section class="p-brand-stores l-section" data-bg="white">
   <div class="l-container">
-    <div class="p-brand-stores__inner">
+    <div class="p-brand-stores__inner l-section__inner">
       <SectionTitle
-        title="世界の店舗"
+        title={storesText.title}
         class="p-brand-stores__title"
       />
-      <div class="p-brand-stores__carousel splide" id="brand-stores-carousel">
-        <div class="splide__track">
-          <ul class="splide__list">
-            <li class="splide__slide">
-              <div class="p-brand-stores__slide">
-                <div class="p-brand-stores__slide-image">
-                  <div class="p-brand-stores__slide-image-placeholder" aria-hidden="true"></div>
-                </div>
-                <p class="p-brand-stores__slide-caption">ストリート</p>
-              </div>
-            </li>
-            <li class="splide__slide">
-              <div class="p-brand-stores__slide">
-                <div class="p-brand-stores__slide-image">
-                  <div class="p-brand-stores__slide-image-placeholder" aria-hidden="true"></div>
-                </div>
-                <p class="p-brand-stores__slide-caption">ロケーション</p>
-              </div>
-            </li>
-            <li class="splide__slide">
-              <div class="p-brand-stores__slide">
-                <div class="p-brand-stores__slide-image">
-                  <div class="p-brand-stores__slide-image-placeholder" aria-hidden="true"></div>
-                </div>
-                <p class="p-brand-stores__slide-caption">ストア</p>
-              </div>
-            </li>
-          </ul>
+      {stores.length > 0 ? (
+        <div class="p-brand-stores__carousel splide" id="brand-stores-carousel">
+          <div class="splide__track">
+            <ul class="splide__list">
+              {stores.map((store) => (
+                <li class="splide__slide">
+                  <div class="p-brand-stores__slide">
+                    <div class="p-brand-stores__slide-image">
+                      {store.image ? (
+                        <img
+                          src={store.image.url}
+                          alt={store.name}
+                          width={store.image.width}
+                          height={store.image.height}
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div class="p-brand-stores__slide-image-placeholder" aria-hidden="true"></div>
+                      )}
+                    </div>
+                    <p class="p-brand-stores__slide-caption">{store.name}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </div>
+      ) : (
+        <div class="p-brand-stores__carousel splide" id="brand-stores-carousel">
+          <div class="splide__track">
+            <ul class="splide__list">
+              <li class="splide__slide">
+                <div class="p-brand-stores__slide">
+                  <div class="p-brand-stores__slide-image">
+                    <div class="p-brand-stores__slide-image-placeholder" aria-hidden="true"></div>
+                  </div>
+                  <p class="p-brand-stores__slide-caption">{storesText.fallbackText}</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      )}
     </div>
   </div>
 </section>

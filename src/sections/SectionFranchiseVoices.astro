@@ -1,45 +1,38 @@
 ---
 import SectionTitle from '../components/SectionTitle.astro';
+import { translations } from '../data/translations';
+import type { Locale } from '../lib/i18n';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'ja' } = Astro.props;
+const voicesText = translations.franchise.voices[locale];
 ---
 
-<section class="p-franchise-voices">
+<section class="p-franchise-voices l-section" data-bg="white">
   <div class="l-container">
-    <div class="p-franchise-voices__inner">
+    <div class="p-franchise-voices__inner l-section__inner">
       <SectionTitle
-        title="出店を決めたフランチャイズオーナーの声"
-        subtitle="なぜ上等カレーへの出店を決めたのか。開業前の不安や、実際の運営の手応えなどリアルな声をご紹介。"
+        title={voicesText.title}
+        subtitle={voicesText.subtitle}
         class="p-franchise-voices__title"
       />
       <div class="p-franchise-voices__carousel splide" id="franchise-voices-carousel">
         <div class="splide__track">
           <ul class="splide__list">
-            <li class="splide__slide">
-              <div class="p-franchise-voices__slide">
-                <p class="p-franchise-voices__text">テキストテキスト</p>
-                <div class="p-franchise-voices__profile">
-                  <div class="p-franchise-voices__avatar" aria-hidden="true"></div>
-                  <p class="p-franchise-voices__store-name">店舗名店舗名店舗名</p>
+            {voicesText.testimonials.map((testimonial) => (
+              <li class="splide__slide">
+                <div class="p-franchise-voices__slide">
+                  <p class="p-franchise-voices__text">{testimonial.text}</p>
+                  <div class="p-franchise-voices__profile">
+                    <div class="p-franchise-voices__avatar" aria-hidden="true"></div>
+                    <p class="p-franchise-voices__store-name">{testimonial.storeName}</p>
+                  </div>
                 </div>
-              </div>
-            </li>
-            <li class="splide__slide">
-              <div class="p-franchise-voices__slide">
-                <p class="p-franchise-voices__text">テキストテキスト</p>
-                <div class="p-franchise-voices__profile">
-                  <div class="p-franchise-voices__avatar" aria-hidden="true"></div>
-                  <p class="p-franchise-voices__store-name">店舗名店舗名店舗名</p>
-                </div>
-              </div>
-            </li>
-            <li class="splide__slide">
-              <div class="p-franchise-voices__slide">
-                <p class="p-franchise-voices__text">テキストテキスト</p>
-                <div class="p-franchise-voices__profile">
-                  <div class="p-franchise-voices__avatar" aria-hidden="true"></div>
-                  <p class="p-franchise-voices__store-name">店舗名店舗名店舗名</p>
-                </div>
-              </div>
-            </li>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

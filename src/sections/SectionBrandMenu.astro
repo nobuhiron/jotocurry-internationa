@@ -3,82 +3,46 @@ import SectionTitle from '../components/SectionTitle.astro';
 import Image from 'astro/components/Image.astro';
 import signatureCurry from '../assets/images/signature-curry.jpg';
 import popularMenu1 from '../assets/images/menu-item-1.jpg';
+import { translations } from '../data/translations';
+import type { Locale } from '../lib/i18n';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'ja' } = Astro.props;
+const menuText = translations.brand.menu[locale];
 ---
 
-<section class="p-brand-menu">
+<section class="p-brand-menu l-section" data-bg="white">
   <div class="l-container">
-    <div class="p-brand-menu__inner">
+    <div class="p-brand-menu__inner l-section__inner" data-gap="4xl">
       <SectionTitle
-        title="幅広いニーズに応える豊富なメニュー"
+        title={menuText.title}
         class="p-brand-menu__title"
       />
       <div class="p-brand-menu__content">
-        <p class="p-brand-menu__description">
-          上等カレーは、お客様の様々なニーズにお応えできるよう、豊富なメニューをご用意しています。伝統的なカツカレーから、新しい味わいまで、幅広いラインナップでお楽しみいただけます。
-        </p>
+        <p class="p-brand-menu__description">{menuText.description}</p>
         <div class="p-brand-menu__image">
           <div class="p-brand-menu__signature-curry">
-            <Image src={signatureCurry} alt="上等カレーのメニュー" width={500} height={500} />
+            <Image src={signatureCurry} alt={menuText.imageAlt} width={500} height={500} />
           </div>
         </div>
       </div>
       <div class="p-brand-menu__popular">
-        <h3 class="p-brand-menu__popular-title">人気メニュー紹介</h3>
+        <h3 class="p-brand-menu__popular-title">{menuText.popularTitle}</h3>
         <div class="p-brand-menu__popular-grid">
-          <div class="p-brand-menu__popular-card">
-            <div class="p-brand-menu__popular-card-image">
-              <Image src={popularMenu1} alt="エビフライカレー" width={500} height={500} />
+          {menuText.menuItems.map((item) => (
+            <div class="p-brand-menu__popular-card">
+              <div class="p-brand-menu__popular-card-image">
+                <Image src={popularMenu1} alt={item.alt} width={500} height={500} />
+              </div>
+              <div class="p-brand-menu__popular-card-content">
+                <span class="p-brand-menu__popular-card-category">{item.category}</span>
+                <h4 class="p-brand-menu__popular-card-name">{item.name}</h4>
+              </div>
             </div>
-            <div class="p-brand-menu__popular-card-content">
-              <span class="p-brand-menu__popular-card-category">定番</span>
-              <h4 class="p-brand-menu__popular-card-name">エビフライカレー</h4>
-            </div>
-          </div>
-          <div class="p-brand-menu__popular-card">
-            <div class="p-brand-menu__popular-card-image">
-              <Image src={popularMenu1} alt="チーズカレー" width={500} height={500} />
-            </div>
-            <div class="p-brand-menu__popular-card-content">
-              <span class="p-brand-menu__popular-card-category">女性人気</span>
-              <h4 class="p-brand-menu__popular-card-name">チーズカレー</h4>
-            </div>
-          </div>
-          <div class="p-brand-menu__popular-card">
-            <div class="p-brand-menu__popular-card-image">
-              <Image src={popularMenu1} alt="オムカレー" width={500} height={500} />
-            </div>
-            <div class="p-brand-menu__popular-card-content">
-              <span class="p-brand-menu__popular-card-category">カテゴリー名</span>
-              <h4 class="p-brand-menu__popular-card-name">オムカレー</h4>
-            </div>
-          </div>
-          <div class="p-brand-menu__popular-card">
-            <div class="p-brand-menu__popular-card-image">
-              <Image src={popularMenu1} alt="グリーンカレー" width={500} height={500} />
-            </div>
-            <div class="p-brand-menu__popular-card-content">
-              <span class="p-brand-menu__popular-card-category">カテゴリー名</span>
-              <h4 class="p-brand-menu__popular-card-name">グリーンカレー</h4>
-            </div>
-          </div>
-          <div class="p-brand-menu__popular-card">
-            <div class="p-brand-menu__popular-card-image">
-              <Image src={popularMenu1} alt="エビフライカレー" width={500} height={500} />
-            </div>
-            <div class="p-brand-menu__popular-card-content">
-              <span class="p-brand-menu__popular-card-category">カテゴリー名</span>
-              <h4 class="p-brand-menu__popular-card-name">エビフライカレー</h4>
-            </div>
-          </div>
-          <div class="p-brand-menu__popular-card">
-            <div class="p-brand-menu__popular-card-image">
-              <Image src={popularMenu1} alt="エビフライカレー" width={500} height={500} />
-            </div>
-            <div class="p-brand-menu__popular-card-content">
-              <span class="p-brand-menu__popular-card-category">カテゴリー名</span>
-              <h4 class="p-brand-menu__popular-card-name">エビフライカレー</h4>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

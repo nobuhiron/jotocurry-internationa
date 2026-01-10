@@ -1,14 +1,23 @@
 ---
 import SectionTitle from '../components/SectionTitle.astro';
+import { translations } from '../data/translations';
+import type { Locale } from '../lib/i18n';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'ja' } = Astro.props;
+const formText = translations.contact.form[locale];
 ---
 
-<section class="p-contact-form">
+<section class="p-contact-form l-section" data-bg="white">
   <div class="l-container">
-    <div class="p-contact-form__inner">
+    <div class="p-contact-form__inner l-section__inner" data-gap="4xl">
       <div class="p-contact-form__info">
         <SectionTitle
-          title="フランチャイズに関するお問い合わせ"
-          subtitle="出店をご検討中の方は、下記フォームよりお気軽にご相談ください。"
+          title={formText.title}
+          subtitle={formText.subtitle}
           class="p-contact-form__title"
         />
 
@@ -29,7 +38,9 @@ import SectionTitle from '../components/SectionTitle.astro';
           <div class="p-contact-form__contact-item">
             <span class="p-contact-form__contact-icon" aria-hidden="true">📍</span>
             <address class="p-contact-form__contact-address">
-              〒541-0052 大阪府大阪市中央区安土町3-2-16長野ビル3F
+              {locale === 'ja'
+                ? '〒541-0052 大阪府大阪市中央区安土町3-2-16長野ビル3F'
+                : '3F Nagano Building, 3-2-16 Azuchi-cho, Chuo-ku, Osaka-shi, Osaka 541-0052, Japan'}
             </address>
           </div>
         </div>
@@ -39,7 +50,7 @@ import SectionTitle from '../components/SectionTitle.astro';
         <form class="p-contact-form__form" id="contact-form" action="#" method="post">
           <div class="p-contact-form__row">
             <div class="p-contact-form__field">
-              <label for="last-name" class="p-contact-form__label">姓</label>
+              <label for="last-name" class="p-contact-form__label">{formText.fields.lastName}</label>
               <input
                 type="text"
                 id="last-name"
@@ -49,7 +60,7 @@ import SectionTitle from '../components/SectionTitle.astro';
               />
             </div>
             <div class="p-contact-form__field">
-              <label for="first-name" class="p-contact-form__label">名</label>
+              <label for="first-name" class="p-contact-form__label">{formText.fields.firstName}</label>
               <input
                 type="text"
                 id="first-name"
@@ -61,52 +72,52 @@ import SectionTitle from '../components/SectionTitle.astro';
           </div>
 
           <div class="p-contact-form__field">
-            <label for="email" class="p-contact-form__label">メール</label>
+            <label for="email" class="p-contact-form__label">{formText.fields.email}</label>
             <input
               type="email"
               id="email"
               name="email"
               class="p-contact-form__input"
-              placeholder="example@example.com"
+              placeholder={formText.fields.emailPlaceholder}
               required
             />
           </div>
 
           <div class="p-contact-form__field">
-            <label for="area" class="p-contact-form__label">展開予定エリア</label>
+            <label for="area" class="p-contact-form__label">{formText.fields.area}</label>
             <select
               id="area"
               name="area"
               class="p-contact-form__select"
               required
             >
-              <option value="">選択してください</option>
-              <option value="asia">アジア</option>
-              <option value="europe">ヨーロッパ</option>
-              <option value="americas">南北アメリカ</option>
-              <option value="oceania">オセアニア</option>
-              <option value="other">その他</option>
+              <option value="">{formText.fields.areaPlaceholder}</option>
+              <option value="asia">{formText.fields.areaOptions.asia}</option>
+              <option value="europe">{formText.fields.areaOptions.europe}</option>
+              <option value="americas">{formText.fields.areaOptions.americas}</option>
+              <option value="oceania">{formText.fields.areaOptions.oceania}</option>
+              <option value="other">{formText.fields.areaOptions.other}</option>
             </select>
           </div>
 
           <div class="p-contact-form__field">
-            <label for="purpose" class="p-contact-form__label">お問い合わせ目的</label>
+            <label for="purpose" class="p-contact-form__label">{formText.fields.purpose}</label>
             <select
               id="purpose"
               name="purpose"
               class="p-contact-form__select"
               required
             >
-              <option value="">選択してください</option>
-              <option value="franchise">フランチャイズについて</option>
-              <option value="wholesale">卸について</option>
-              <option value="media">メディア取材について</option>
-              <option value="other">その他</option>
+              <option value="">{formText.fields.purposePlaceholder}</option>
+              <option value="franchise">{formText.fields.purposeOptions.franchise}</option>
+              <option value="wholesale">{formText.fields.purposeOptions.wholesale}</option>
+              <option value="media">{formText.fields.purposeOptions.media}</option>
+              <option value="other">{formText.fields.purposeOptions.other}</option>
             </select>
           </div>
 
           <fieldset class="p-contact-form__fieldset">
-            <legend class="p-contact-form__legend">現在のご状況を教えてください</legend>
+            <legend class="p-contact-form__legend">{formText.fields.situation}</legend>
             <div class="p-contact-form__radio-group">
               <div class="p-contact-form__radio-item">
                 <input
@@ -117,7 +128,7 @@ import SectionTitle from '../components/SectionTitle.astro';
                   class="p-contact-form__radio"
                   required
                 />
-                <label for="situation-1" class="p-contact-form__radio-label">飲食店オーナーで、新規出店を検討</label>
+                <label for="situation-1" class="p-contact-form__radio-label">{formText.fields.situationOptions.restaurantOwner}</label>
               </div>
               <div class="p-contact-form__radio-item">
                 <input
@@ -128,7 +139,7 @@ import SectionTitle from '../components/SectionTitle.astro';
                   class="p-contact-form__radio"
                   required
                 />
-                <label for="situation-2" class="p-contact-form__radio-label">既存店の業態転換を検討</label>
+                <label for="situation-2" class="p-contact-form__radio-label">{formText.fields.situationOptions.conversion}</label>
               </div>
               <div class="p-contact-form__radio-item">
                 <input
@@ -139,7 +150,7 @@ import SectionTitle from '../components/SectionTitle.astro';
                   class="p-contact-form__radio"
                   required
                 />
-                <label for="situation-3" class="p-contact-form__radio-label">デベロッパーとして検討</label>
+                <label for="situation-3" class="p-contact-form__radio-label">{formText.fields.situationOptions.developer}</label>
               </div>
               <div class="p-contact-form__radio-item">
                 <input
@@ -150,19 +161,19 @@ import SectionTitle from '../components/SectionTitle.astro';
                   class="p-contact-form__radio"
                   required
                 />
-                <label for="situation-4" class="p-contact-form__radio-label">個人として出店を検討</label>
+                <label for="situation-4" class="p-contact-form__radio-label">{formText.fields.situationOptions.individual}</label>
               </div>
             </div>
           </fieldset>
 
           <div class="p-contact-form__field">
-            <label for="message" class="p-contact-form__label">メッセージ</label>
+            <label for="message" class="p-contact-form__label">{formText.fields.message}</label>
             <textarea
               id="message"
               name="message"
               class="p-contact-form__textarea"
               rows="6"
-              placeholder="例)出店を検討している国・エリア、オープン希望時期、ご質問などをご自由にご記入ください。"
+              placeholder={formText.fields.messagePlaceholder}
             ></textarea>
           </div>
 
@@ -175,7 +186,16 @@ import SectionTitle from '../components/SectionTitle.astro';
               required
             />
             <label for="privacy" class="p-contact-form__checkbox-label">
-              <a href="#" class="p-contact-form__privacy-link">プライバシーポリシー</a>に同意します
+              {locale === 'ja' ? (
+                <>
+                  <a href="#" class="p-contact-form__privacy-link">{formText.fields.privacy}</a>
+                  {formText.fields.privacyAgree}
+                </>
+              ) : (
+                <>
+                  {formText.fields.privacyAgree} <a href="#" class="p-contact-form__privacy-link">{formText.fields.privacy}</a>
+                </>
+              )}
             </label>
           </div>
 
@@ -184,7 +204,7 @@ import SectionTitle from '../components/SectionTitle.astro';
               type="submit"
               class="c-button c-button--primary p-contact-form__submit-button"
             >
-              <span class="c-button__text">無料相談を申し込む</span>
+              <span class="c-button__text">{formText.fields.submit}</span>
             </button>
           </div>
         </form>

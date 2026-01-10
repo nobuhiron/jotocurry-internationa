@@ -6,10 +6,7 @@
 }
 
 .p-contact-form__inner {
-  max-width: var(--layout-max-width-inner);
-  display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-4xl);
 }
 
 @media (--lg) {

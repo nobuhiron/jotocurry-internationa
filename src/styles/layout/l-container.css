@@ -1,7 +1,7 @@
 @import '../global/variables.css';
 
 .l-container {
-  width: min(100%, var(--layout-max-width));
+  /* width: min(100%, var(--layout-max-width)); */
   padding-inline: clamp(
     var(--layout-padding-sp),
     5vw,

@@ -1,13 +1,8 @@
 .p-brand-stores {
-  padding-block: var(--spacing-4xl);
-  background-color: var(--color-white);
 }
 
 .p-brand-stores__inner {
-  max-width: var(--layout-max-width-inner);
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-3xl);
+  margin-inline-start: auto;
 }
 
 .p-brand-stores__title {

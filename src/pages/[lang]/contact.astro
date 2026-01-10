@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SectionPageHero from '../../sections/SectionPageHero.astro';
+import SectionContactForm from '../../sections/SectionContactForm.astro';
+import SectionContactFaq from '../../sections/SectionContactFaq.astro';
+import { translations } from '../../data/translations';
+import type { Locale } from '../../lib/i18n';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'ja' } },
+    { params: { lang: 'en' } },
+  ];
+}
+
+const { lang } = Astro.params;
+const locale = (lang as Locale) || 'ja';
+const contactPageText = translations.contact.page[locale];
+---
+
+<Layout title={contactPageText.title} locale={locale}>
+	<SectionPageHero
+		title={contactPageText.heroTitle}
+		subtitle={contactPageText.heroSubtitle}
+	/>
+	<SectionContactForm locale={locale} />
+	<SectionContactFaq locale={locale} />
+</Layout>

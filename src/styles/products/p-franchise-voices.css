@@ -1,14 +1,9 @@
 .p-franchise-voices {
-  padding-block: var(--spacing-4xl);
-  background-color: var(--color-white);
   overflow: hidden;
 }
 
 .p-franchise-voices__inner {
-  max-width: var(--layout-max-width-inner);
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-3xl);
+  margin-inline: auto;
 }
 
 .p-franchise-voices__title {

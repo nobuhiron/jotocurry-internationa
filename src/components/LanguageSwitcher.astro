@@ -1,0 +1,129 @@
+---
+import type { Locale } from '../lib/i18n';
+import { getLocalizedPath } from '../lib/i18n';
+import { SUPPORTED_LOCALES } from '../lib/i18n';
+
+interface Props {
+  currentLocale: Locale;
+  currentPath: string;
+}
+
+const { currentLocale, currentPath } = Astro.props;
+
+const languages = [
+  { code: 'ja' as Locale, label: '日本語' },
+  { code: 'en' as Locale, label: 'English' },
+];
+---
+
+<div class="c-language-switcher">
+  <button
+    class="c-language-switcher__toggle"
+    aria-expanded="false"
+    aria-haspopup="true"
+    aria-label="言語を選択"
+  >
+    <span class="c-language-switcher__current">
+      {languages.find((lang) => lang.code === currentLocale)?.label || '日本語'}
+    </span>
+    <span class="c-language-switcher__icon" aria-hidden="true">▼</span>
+  </button>
+  <div class="c-language-switcher__dropdown">
+    <ul class="c-language-switcher__list">
+      {languages.map((lang) => {
+        const isActive = lang.code === currentLocale;
+        const localizedPath = getLocalizedPath(currentPath, lang.code);
+        return (
+          <li class="c-language-switcher__item">
+            <a
+              href={localizedPath}
+              class={`c-language-switcher__link ${isActive ? 'is-active' : ''}`}
+              data-lang={lang.code}
+              aria-current={isActive ? 'page' : undefined}
+            >
+              {lang.label}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+</div>
+
+<style>
+  .c-language-switcher {
+    position: relative;
+  }
+
+  .c-language-switcher__toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    color: inherit;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+  }
+
+  .c-language-switcher__toggle:hover {
+    opacity: 0.8;
+  }
+
+  .c-language-switcher__icon {
+    font-size: 0.75em;
+  }
+
+  .c-language-switcher__dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.5rem;
+    min-width: 120px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+  }
+
+  .c-language-switcher:hover .c-language-switcher__dropdown,
+  .c-language-switcher__toggle[aria-expanded="true"] + .c-language-switcher__dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .c-language-switcher__list {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+
+  .c-language-switcher__item {
+    margin: 0;
+  }
+
+  .c-language-switcher__link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: inherit;
+    text-decoration: none;
+    transition: background-color 0.2s;
+  }
+
+  .c-language-switcher__link:hover {
+    background-color: #f5f5f5;
+  }
+
+  .c-language-switcher__link.is-active {
+    background-color: #f0f0f0;
+    font-weight: 500;
+  }
+</style>

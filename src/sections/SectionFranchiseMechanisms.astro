@@ -1,39 +1,48 @@
 ---
 import SectionTitle from '../components/SectionTitle.astro';
 import FranchiseMechanismCard from '../components/FranchiseMechanismCard.astro';
+import { translations } from '../data/translations';
+import type { Locale } from '../lib/i18n';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'ja' } = Astro.props;
+const mechanismsText = translations.franchise.mechanisms[locale];
 ---
 
-<section class="p-franchise-mechanisms">
+<section class="p-franchise-mechanisms l-section" data-bg="white">
   <div class="l-container">
-    <div class="p-franchise-mechanisms__inner">
+    <div class="p-franchise-mechanisms__inner l-section__inner">
       <SectionTitle
-        title="安定した利益を生む4つの仕組み"
-        subtitle="少人数のスタッフでも安定した売上をつくれるように、効率的で再現性の高い調理システムを構築しています。"
+        title={mechanismsText.title}
+        subtitle={mechanismsText.subtitle}
         class="p-franchise-mechanisms__title"
       />
       <div class="p-franchise-mechanisms__cards">
         <FranchiseMechanismCard
           icon='<svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-          title="シンプルな調理で味の再現性を担保"
-          description="厨房設備投資や店舗スタッフへの負担を軽減できるシンプルで再現性のある調理と提供手順。ブランドの魂である『秘伝のエキス』を調合したルーは、セントラルキッチンから完璧な状態で供給されます。店舗では温めるだけで、どの国でもブレない最高品質の味を再現できます。"
+          title={mechanismsText.cards[0].title}
+          description={mechanismsText.cards[0].description}
           class="p-franchise-mechanisms__card"
         />
         <FranchiseMechanismCard
           icon='<svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><polyline points="12 6 12 12 16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-          title="高回転運営で売上最大化"
-          description="オーダーから提供までがハイスピードで可能なため、ランチタイムなどのピーク時でも回転率を上げることができます。席数が限られた立地でも、売上最大化を狙えるオペレーションです。"
+          title={mechanismsText.cards[1].title}
+          description={mechanismsText.cards[1].description}
           class="p-franchise-mechanisms__card"
         />
         <FranchiseMechanismCard
           icon='<svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="3 6 5 6 21 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-          title="少ないロスで収益性向上"
-          description="廃棄物の量も少ないため、原価管理がしやすく、収益性の向上にもつながります。売上だけでなく利益額を見通しやすくなることで、安心して出店計画や設備投資を検討いただけます。"
+          title={mechanismsText.cards[2].title}
+          description={mechanismsText.cards[2].description}
           class="p-franchise-mechanisms__card"
         />
         <FranchiseMechanismCard
           icon='<svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 2v6l-2 14h2l2-14V2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 2v6l2 14h-2l-2-14V2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-          title="現地メニュー開発でリピート獲得"
-          description="現地の嗜好に合わせたオリジナルメニューの開発が可能です。既存メニューとの差別化や季節限定商品として、リピート促進にも活用いただけます。要望に応じて、日本の人気メニューのレシピについても共有します。"
+          title={mechanismsText.cards[3].title}
+          description={mechanismsText.cards[3].description}
           class="p-franchise-mechanisms__card"
         />
       </div>

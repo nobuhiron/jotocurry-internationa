@@ -1,13 +1,4 @@
 .p-brand-unique {
-  padding-block: var(--spacing-4xl);
-  background-color: var(--color-white);
-}
-
-.p-brand-unique__inner {
-  max-width: var(--layout-max-width-inner);
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-3xl);
 }
 
 .p-brand-unique__title {

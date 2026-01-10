@@ -2,49 +2,43 @@
 import SectionTitle from '../components/SectionTitle.astro';
 import ReasonCard from '../components/ReasonCard.astro';
 import Button from '../components/Button.astro';
+import { getTranslation } from '../data/translations';
+import type { Locale } from '../lib/i18n';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'ja' } = Astro.props;
+const reasonsText = getTranslation('reasons', locale);
 ---
 
-<section class="p-reasons">
+<section class="p-reasons l-section" data-bg="alt">
   <div class="l-container">
-    <div class="p-reasons__inner">
+    <div class="p-reasons__inner l-section__inner">
       <SectionTitle
-        title="フランチャイズオーナーに選ばれる3つの理由"
+        title={reasonsText.title}
         class="p-reasons__title"
       />
       <div class="p-reasons__cards">
-        <ReasonCard
-          number="01"
-          title="世界的な日本カレー人気"
-          description="日本カレーは、寿司やラーメンに続く成長市場として、世界中で注目されています。今こそ、この機会を逃さないでください。"
-          icon="📈"
-          class="p-reasons__card"
-        />
-        <ReasonCard
-          number="02"
-          title="シンプルで効率的なオペレーション"
-          description="未経験者でも安心して運営できる、少人数・効率的なオペレーション。食材ロスやコストを抑え、安定した収益を実現します。"
-          icon="🏢"
-          class="p-reasons__card"
-        />
-        <ReasonCard
-          number="03"
-          title="多彩な展開で収益を最大化"
-          description="地域に合わせたメニュー開発や、カレーパン、レトルトなどの物販展開により、収益を最大化。40年の実績に基づくノウハウでサポートします。"
-          icon="💼"
-          class="p-reasons__card"
-        />
+        {reasonsText.cards.map((card) => (
+          <ReasonCard
+            number={card.number}
+            title={card.title}
+            description={card.description}
+            icon={card.icon}
+            class="p-reasons__card"
+          />
+        ))}
       </div>
       <div class="p-reasons__buttons">
-        <Button
-          text="収益モデルとサポート体制を見る"
-          variant="secondary"
-          class="p-reasons__button"
-        />
-        <Button
-          text="オーナーの声を見る"
-          variant="secondary"
-          class="p-reasons__button"
-        />
+        {reasonsText.buttons.map((buttonText) => (
+          <Button
+            text={buttonText}
+            variant="secondary"
+            class="p-reasons__button"
+          />
+        ))}
       </div>
     </div>
   </div>
