@@ -17,6 +17,9 @@ const faqText = translations.contact.faq[locale];
 // フィールド: order, questionJa, answerJa, questionEn, answerEn
 let faqData: Array<{ question: string; answer: string }> = [];
 try {
+  console.log('[FAQ] locale=', locale);
+  console.log('[FAQ] domain=', import.meta.env.MICROCMS_SERVICE_DOMAIN);
+  console.log('[FAQ] key length=', (import.meta.env.MICROCMS_API_KEY ?? '').length);
   const faqs = await getFaqs(locale);
   // orderフィールドでソート（既にAPI側でソートされているが、念のため）
   const sortedFaqs = [...faqs].sort((a, b) => (a.order || 0) - (b.order || 0));
