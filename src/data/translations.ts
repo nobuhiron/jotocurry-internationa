@@ -551,8 +551,14 @@ export const translations = {
       },
       en: {
         title: 'Rich Menu to Meet Diverse Needs',
-        description:
-          'Joto Curry offers a rich menu to meet the diverse needs of our customers. From traditional katsu curry to new flavors, you can enjoy a wide lineup.',
+        paragraphs: [
+          {
+            text: 'Joto Curry’s signature menu is “Katsu Curry.” The combination of crispy bread and deep sweet-spicy curry sauce is popular across countries and generations.',
+          },
+          {
+            text: 'No complicated preparation is needed based on the basic curry. You can provide customers with a rich selection of toppings and spicy adjustments. Simple operations allow for efficient store management. Additionally, we support the development of original menus tailored to local characteristics, creating unique strengths for your store.',
+          },
+        ],
         popularTitle: 'Popular Menu',
         menuItems: [
           {
