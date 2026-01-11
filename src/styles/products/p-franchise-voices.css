@@ -2,16 +2,9 @@
   overflow: hidden;
 }
 
-.p-franchise-voices__inner {
-  margin-inline: auto;
-}
-
-.p-franchise-voices__title {
-}
-
 .p-franchise-voices__carousel {
-  width: 100vw;
-  margin-inline-start: calc(50% - 50vw);
+  /* padding-inline-start: 24px; */
+  width: 100cqw;
 }
 
 .p-franchise-voices__slide {
@@ -21,7 +14,7 @@
   padding: var(--spacing-xl);
   background-color: var(--color-white);
   border-radius: var(--radius-md);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--color-light-gray);
   height: 100%;
 }
 
@@ -42,10 +35,19 @@
 .p-franchise-voices__avatar {
   width: 48px;
   height: 48px;
-  border-radius: var(--radius-xl);
-  background-color: var(--color-light-beige);
-  background-image: linear-gradient(135deg, var(--color-light-beige) 0%, var(--color-beige) 100%);
+  border-radius: var(--radius-full);
+  background-color: var(--color-light-gray);
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.p-franchise-voices__avatar svg {
+  width: 24px;
+  height: 24px;
+  opacity: 0.6;
 }
 
 .p-franchise-voices__store-name {
@@ -54,4 +56,3 @@
   color: var(--color-text);
   margin: 0;
 }
-

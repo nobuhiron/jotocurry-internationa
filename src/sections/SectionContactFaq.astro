@@ -1,8 +1,9 @@
 ---
 import SectionTitle from '../components/SectionTitle.astro';
-import ContactButton from '../components/ContactButton.astro';
+import Button from '../components/Button.astro';
 import { getFaqs } from '../lib/microcms-faq';
 import { getLocalizedFaq } from '../lib/i18n';
+import { getLocalizedPath } from '../lib/i18n';
 import { translations } from '../data/translations';
 import type { Locale } from '../lib/i18n';
 
@@ -17,9 +18,6 @@ const faqText = translations.contact.faq[locale];
 // フィールド: order, questionJa, answerJa, questionEn, answerEn
 let faqData: Array<{ question: string; answer: string }> = [];
 try {
-  console.log('[FAQ] locale=', locale);
-  console.log('[FAQ] domain=', import.meta.env.MICROCMS_SERVICE_DOMAIN);
-  console.log('[FAQ] key length=', (import.meta.env.MICROCMS_API_KEY ?? '').length);
   const faqs = await getFaqs(locale);
   // orderフィールドでソート（既にAPI側でソートされているが、念のため）
   const sortedFaqs = [...faqs].sort((a, b) => (a.order || 0) - (b.order || 0));
@@ -33,7 +31,7 @@ try {
 }
 ---
 
-<section class="p-contact-faq l-section" data-bg="alt">
+<section class="p-contact-faq l-section" data-bg="alt" id="section-contact-faq">
   <div class="l-container">
     <div class="p-contact-faq__inner l-section__inner" data-gap="4xl">
       <SectionTitle
@@ -78,7 +76,7 @@ try {
         <h3 class="p-contact-faq__cta-title">{faqText.cta.title}</h3>
         <p class="p-contact-faq__cta-text">{faqText.cta.text}</p>
         <div class="p-contact-faq__cta-button">
-          <ContactButton text={faqText.cta.button} href="#contact-form" />
+          <Button text={faqText.cta.button} variant="primary" href={getLocalizedPath('/contact#section-contact-form', locale)} />
         </div>
       </div>
     </div>

@@ -48,6 +48,26 @@ export interface FaqContent extends MicroCMSContent {
 }
 
 /**
+ * 統計情報用の型定義
+ */
+export interface StatsContent extends MicroCMSContent {
+  mealsValue: number;
+  domesticStoreCount: number;
+  overseasStoreCount: number;
+}
+
+/**
+ * フランチャイズボイス（お客様の声）用の型定義
+ */
+export interface TestimonialContent extends MicroCMSContent {
+  textJa: string;
+  textEn: string;
+  storeNameJa: string;
+  storeNameEn: string;
+  image?: MicroCMSImage;
+}
+
+/**
  * 多言語対応コンテンツの基本型
  */
 export interface MultilingualContent extends MicroCMSContent {

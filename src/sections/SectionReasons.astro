@@ -3,6 +3,7 @@ import SectionTitle from '../components/SectionTitle.astro';
 import ReasonCard from '../components/ReasonCard.astro';
 import Button from '../components/Button.astro';
 import { getTranslation } from '../data/translations';
+import { getLocalizedPath } from '../lib/i18n';
 import type { Locale } from '../lib/i18n';
 
 interface Props {
@@ -13,32 +14,38 @@ const { locale = 'ja' } = Astro.props;
 const reasonsText = getTranslation('reasons', locale);
 ---
 
-<section class="p-reasons l-section" data-bg="alt">
+<section class="p-reasons l-section" data-bg="alt" id="section-reasons">
   <div class="l-container">
     <div class="p-reasons__inner l-section__inner">
       <SectionTitle
         title={reasonsText.title}
         class="p-reasons__title"
+        align="center"
       />
       <div class="p-reasons__cards">
-        {reasonsText.cards.map((card) => (
+        {reasonsText.cards.map((card, index) => (
           <ReasonCard
             number={card.number}
             title={card.title}
             description={card.description}
-            icon={card.icon}
+            icon={`/benefits-icon-${index + 1}.svg`}
             class="p-reasons__card"
           />
         ))}
       </div>
       <div class="p-reasons__buttons">
-        {reasonsText.buttons.map((buttonText) => (
-          <Button
-            text={buttonText}
-            variant="secondary"
-            class="p-reasons__button"
-          />
-        ))}
+        <Button
+          text={reasonsText.buttons[0]}
+          variant="secondary"
+          class="p-reasons__button"
+          href={getLocalizedPath(`/franchise#section-franchise-support`, locale)}
+        />
+        <Button
+          text={reasonsText.buttons[1]}
+          variant="secondary"
+          class="p-reasons__button"
+          href={getLocalizedPath(`/franchise#section-franchise-voices`, locale)}
+        />
       </div>
     </div>
   </div>

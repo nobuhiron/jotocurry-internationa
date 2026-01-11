@@ -1,17 +1,15 @@
 .c-button {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--spacing-sm);
+  width: 100%;
+  max-width: 360px;
   padding-block: var(--spacing-md);
   padding-inline: var(--spacing-xl);
   border-radius: var(--radius-sm);
   font-weight: var(--fw-semibold);
-  transition: opacity 0.3s ease;
-}
-
-.c-button:hover {
-  opacity: 0.8;
+  transition: opacity 0.3s ease, background-color 0.2s ease, transform 0.1s ease;
 }
 
 .c-button:focus-visible {
@@ -19,15 +17,30 @@
   outline-offset: 2px;
 }
 
-.c-button--primary {
-  background-color: #ff6b35;
+.c-button[data-variant='primary'] {
+  background-color: var(--color-accent-warm);
   color: var(--color-white);
+  font-family: var(--font-jp--sanserif);
+  font-weight: var(--fw-medium);
+  border: none;
 }
 
-.c-button--secondary {
-  background-color: var(--color-white);
-  color: var(--color-black);
-  border: 1px solid var(--color-gray);
+.c-button[data-variant='primary']:hover {
+  background-color: var(--color-dark-brown);
+}
+
+.c-button[data-variant='primary']:active {
+  transform: scale(0.98);
+}
+
+.c-button[data-variant='secondary'] {
+  background-color: var(--color-text-on_dark);
+  color: var(--color-accent-cool);
+  border: 1px solid var(--color-accent-cool);
+}
+
+.c-button[data-variant='secondary']:hover {
+  opacity: 0.8;
 }
 
 .c-button__icon {
@@ -37,4 +50,3 @@
 .c-button__text {
   display: inline-block;
 }
-

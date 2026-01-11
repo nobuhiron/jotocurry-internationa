@@ -3,13 +3,29 @@ interface Props {
   title: string;
   subtitle?: string;
   class?: string;
+  align?: 'left' | 'center';
+  color?: 'white' | 'black';
 }
 
-const { title, subtitle, class: className = '' } = Astro.props;
+const {
+  title,
+  subtitle,
+  class: className = '',
+  align = 'left',
+  color = 'black'
+} = Astro.props;
+
+const alignClass = align === 'center' ? 'c-section-title--center' : '';
+const colorClass = color === 'white' ? 'c-section-title--white' : 'c-section-title--black';
+const classes = `c-section-title ${alignClass} ${colorClass} ${className}`.trim();
 ---
 
-<div class={`c-section-title ${className}`}>
-  <h2 class="c-section-title__title">{title}</h2>
+<div
+  class={classes}
+  data-align={align}
+  data-color={color}
+>
+  <h2 class="c-section-title__title" set:html={title} />
   {subtitle && (
     <p class="c-section-title__subtitle">{subtitle}</p>
   )}

@@ -14,21 +14,26 @@ const { locale = 'ja' } = Astro.props;
 const menuText = translations.brand.menu[locale];
 ---
 
-<section class="p-brand-menu l-section" data-bg="white">
+<section class="p-brand-menu l-section" data-bg="white" id="section-brand-menu">
   <div class="l-container">
     <div class="p-brand-menu__inner l-section__inner" data-gap="4xl">
+
+      <div class="p-brand-menu__header">
       <SectionTitle
         title={menuText.title}
         class="p-brand-menu__title"
       />
-      <div class="p-brand-menu__content">
-        <p class="p-brand-menu__description">{menuText.description}</p>
+      <div class="p-brand-menu__description">
+              {menuText.paragraphs.map((paragraph) => (
+          <p class="p-brand-menu__paragraph">{paragraph.text}</p>
+        ))}
+        </div>
         <div class="p-brand-menu__image">
-          <div class="p-brand-menu__signature-curry">
+            </div>
+      </div>
+<div class="p-brand-menu__image">
             <Image src={signatureCurry} alt={menuText.imageAlt} width={500} height={500} />
           </div>
-        </div>
-      </div>
       <div class="p-brand-menu__popular">
         <h3 class="p-brand-menu__popular-title">{menuText.popularTitle}</h3>
         <div class="p-brand-menu__popular-grid">
@@ -45,6 +50,9 @@ const menuText = translations.brand.menu[locale];
           ))}
         </div>
       </div>
+      </div>
+            </div>
+            </div>
     </div>
   </div>
 </section>

@@ -13,14 +13,15 @@ export default function initFranchiseVoices() {
 
   new Splide(carouselElement, {
     type: 'loop',
-    perPage: 1,
+    perPage: 3,
     perMove: 1,
     gap: '1.5rem',
     pagination: true,
     arrows: true,
+    mediaQuery: 'max',
     breakpoints: {
-      768: {
-        perPage: 2,
+      767: {
+        perPage: 1.5,
       },
     },
   }).mount();

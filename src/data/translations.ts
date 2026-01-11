@@ -7,8 +7,7 @@ export const translations = {
   hero: {
     ja: {
       badge: '海外フランチャイズオーナー募集中',
-      title:
-        '大阪発の<br class="is-lg">甘辛カツカレーを、<br class="u-hidden-lg">あなたの街で。',
+      title: '大阪発の<br class="is-sm">甘辛カツカレーを、<br>あなたの街で。',
       features: [
         '✔ 40年の実績',
         '✔︎ シンプル運営',
@@ -22,9 +21,8 @@ export const translations = {
       },
     },
     en: {
-      badge: 'International Franchise Owners Wanted',
-      title:
-        'Osaka\'s Sweet & Spicy<br class="is-lg">Katsu Curry,<br class="u-hidden-lg">in Your City.',
+      badge: 'Franchise Owners Wanted',
+      title: "Osaka's Sweet & Spicy Katsu Curry,<br>in Your City.",
       features: [
         '✔ 40 Years of Experience',
         '✔ Simple Operations',
@@ -40,7 +38,7 @@ export const translations = {
   },
   about: {
     ja: {
-      title: '大阪生まれの甘辛カレーは、今、世界へ広がっています。',
+      title: '大阪生まれの甘辛カレーは、<br>今、世界へ広がっています。',
       description:
         '日本の食文化、特にカツカレーを世界に広めることをミッションとして、2004年に「TOKUMASA INTERNATIONAL」を設立しました。日本カレーは、寿司やラーメンに続く、世界で注目される日本の食文化です。この機会に、ぜひフランチャイズオーナーとして、あなたの街で上等カレーを展開してみませんか。',
       button: 'まずは無料オンライン相談',
@@ -80,7 +78,6 @@ export const translations = {
         'Solid achievements built over 40 years. These numbers demonstrate stable revenue from high turnover and future growth potential through global expansion.',
       stats: {
         meals: {
-          value: '5000',
           unit: 'meals',
           label: 'Average Daily Meals Served',
         },
@@ -98,31 +95,28 @@ export const translations = {
   },
   reasons: {
     ja: {
-      title: 'フランチャイズオーナーに選ばれる3つの理由',
+      title: 'フランチャイズオーナーに<br class="is-sm">選ばれる3つの理由',
       cards: [
         {
           number: '01',
           title: '世界的な日本カレー人気',
           description:
             '日本カレーは、寿司やラーメンに続く成長市場として、世界中で注目されています。今こそ、この機会を逃さないでください。',
-          icon: '📈',
         },
         {
           number: '02',
-          title: 'シンプルで効率的なオペレーション',
+          title: 'シンプルで効率的な<br>オペレーション',
           description:
             '未経験者でも安心して運営できる、少人数・効率的なオペレーション。食材ロスやコストを抑え、安定した収益を実現します。',
-          icon: '🏢',
         },
         {
           number: '03',
           title: '多彩な展開で収益を最大化',
           description:
             '地域に合わせたメニュー開発や、カレーパン、レトルトなどの物販展開により、収益を最大化。40年の実績に基づくノウハウでサポートします。',
-          icon: '💼',
         },
       ],
-      buttons: ['収益モデルとサポート体制を見る', 'オーナーの声を見る'],
+      buttons: ['サポート体制を見る', 'オーナーの声を見る'],
     },
     en: {
       title: '3 Reasons Why Franchise Owners Choose Us',
@@ -132,27 +126,25 @@ export const translations = {
           title: 'Global Popularity of Japanese Curry',
           description:
             "Japanese curry is attracting attention worldwide as a growing market following sushi and ramen. Don't miss this opportunity now.",
-          icon: '📈',
         },
         {
           number: '02',
           title: 'Simple and Efficient Operations',
           description:
             'Small-scale, efficient operations that even inexperienced people can manage with confidence. Reduce food waste and costs to achieve stable profits.',
-          icon: '🏢',
         },
         {
           number: '03',
           title: 'Maximize Revenue with Diverse Expansion',
           description:
             'Maximize revenue through menu development tailored to local regions and product sales such as curry bread and retort products. We support you with know-how based on 40 years of experience.',
-          icon: '💼',
         },
       ],
-      buttons: [
-        'View Revenue Model & Support System',
-        'View Owner Testimonials',
-      ],
+      buttons: ['View Support System', 'View Owner Voices'],
+      buttonLinks: {
+        support: 'support',
+        testimonials: 'testimonials',
+      },
     },
   },
   header: {
@@ -358,6 +350,7 @@ export const translations = {
               'オープン後も現場コンサルティング、集客施策、メニュー改善提案、定期的な売上・数値レビューなど、継続的なサポートを提供します。',
           },
         ],
+        imageAlt: '充実したサポート体制',
       },
       en: {
         title: 'Comprehensive Support System',
@@ -380,6 +373,7 @@ export const translations = {
               'After opening, we provide continuous support including on-site consulting, customer acquisition strategies, menu improvement proposals, and regular sales and numerical reviews.',
           },
         ],
+        imageAlt: 'Comprehensive Support System',
       },
     },
     voices: {
@@ -440,25 +434,30 @@ export const translations = {
     },
     origin: {
       ja: {
-        title: '上等カレーの起源と味へのこだわり',
+        title: '上等カレーの起源と<br class="is-sm">味へのこだわり',
+        blockTitles: [
+          '原点は、一杯のカレーうどん',
+          'こだわりの素材と職人技が生む、<br class="is-sm">"上等"な味わい',
+        ],
         paragraphs: [
           {
-            text: '上等カレーの起源は、カレーうどんから始まりました。伝統的なうどんに、独自に開発したカレースープを組み合わせることで、新しい味の世界を切り開きました。',
+            text: '上等カレーを運営すると得正は、1983年に「手打ちうどん 得正」として創業。生粋のカレー愛好家でもある創業者・瀬戸口勝幸は、名物「得正カレーうどん」を生み出しました。',
           },
           {
-            text: 'このカレーうどんは、多くのお客様に愛され、上等カレーの基礎となっています。',
+            text: 'この味を、もっと多くの人に、もっと手軽かつスピーディに届けたい——。その想いから、コンセプトはカレーうどんからカレーライスへと進化し、1995年、上等カレーの1号店が誕生しました。',
           },
           {
-            text: '味へのこだわりは、経験豊富なシェフたちの手によって受け継がれています。一つの鍋を丁寧に仕上げ、時間をかけて味を引き出す。その伝統的な手法は、今も変わらず続いています。',
+            text: '厳選した国産牛、玉ねぎ、こだわりのスパイス、そしてごく一部の職人だけが知る“秘伝エキス”によって生まれる甘みとスパイスの絶妙なバランス。',
           },
           {
-            text: '手間ひまかけて作り上げたカレーは、深い味わいと豊かな香りが特徴です。',
+            text: '上等カレーはその名のとおり、「上等」と呼ぶにふさわしい本格的なカレー体験をお届けすることに、変わらぬこだわりを持ち続けています。',
           },
         ],
         imageAlt: '上等カレーの起源',
       },
       en: {
         title: 'The Origin of Joto Curry and Our Commitment to Flavor',
+        blockTitles: ['Origin of Curry Udon', 'Popularity of Curry Udon'],
         paragraphs: [
           {
             text: 'The origin of Joto Curry began with curry udon. By combining traditional udon with our uniquely developed curry soup, we opened up a new world of flavors.',
@@ -481,16 +480,16 @@ export const translations = {
         title: '唯一無二の味づくり',
         blocks: [
           {
-            title: '厳選スパイス、手間ひまかけて',
-            text: '上等カレーの味の秘密は、厳選されたスパイスにあります。世界中から選び抜かれたスパイスを、独自の配合で調合。時間をかけてじっくりと煮込むことで、深い味わいと豊かな香りが生まれます。',
+            title: '甘み、スパイス、旨みが織り成す<br class="is-sm">ハーモニー',
+            text: 'ひと口目のやさしい甘み。 食べ進めるほどに広がる香り高いスパイスと深い旨み。 そして最後に残る、豊かな余韻。 計算し尽くされた三層の味わいが、 お客様の「また食べたい」を生み出します。',
           },
           {
-            title: '4枚で完成するこだわり',
-            text: '上等カレーのレシピは、4枚のシートにまとめられています。シンプルでありながら、一つ一つの工程にこだわりが詰まっています。この4枚のシートが、世界中の店舗で同じ味を実現する鍵となっています。',
+            title: '素材と技術が生む深いコク',
+            text: '厳選した国産牛と玉ねぎ。 独自ブレンドのスパイス。 加圧調理と低温熟成。 40年かけて完成させた製法が、 他では真似できない深いコクを生み出します。 この確立された製法により、 未経験でも本格的な味を安定して提供できます。。',
           },
           {
-            title: '人から人へ受け継がれる',
-            text: '上等カレーの味は、レシピだけでなく、経験豊富なシェフたちの技術と情熱によって受け継がれています。先輩から後輩へ、そして次の世代へ。この伝統は、今も脈々と受け継がれています。',
+            title: '三人だけが知る秘伝のエキス',
+            text: '上等カレーの味の決め手となるのは、大阪で職人の手により丁寧に作られる秘伝のエキスです。そのレシピは創業者を含むわずか三人だけが知る門外不出のもの。甘味、辛味、旨味が絶妙に調和したこの味こそが、上等カレーの真髄です。この厳格な品質管理が、すべての店舗で 変わらぬ本物の味を保証します。',
           },
         ],
       },
@@ -515,8 +514,14 @@ export const translations = {
     menu: {
       ja: {
         title: '幅広いニーズに応える豊富なメニュー',
-        description:
-          '上等カレーは、お客様の様々なニーズにお応えできるよう、豊富なメニューをご用意しています。伝統的なカツカレーから、新しい味わいまで、幅広いラインナップでお楽しみいただけます。',
+        paragraphs: [
+          {
+            text: '上等カレーの看板メニューは「カツカレー」。サクサクの衣とコク深い甘辛ルーの組み合わせは、 国や世代を問わず高い支持を集めています。',
+          },
+          {
+            text: '基本のカレーをベースに、複雑な仕込みは不要。 トッピングや辛さ調整だけで、お客様に豊富な選択肢を提供できます。 シンプルなオペレーションで、効率的な店舗運営が可能です。さらに、地域特性に合わせたオリジナルメニューの開発もサポート。 あなたの店舗ならではの強みを生み出せます。',
+          },
+        ],
         popularTitle: '人気メニュー紹介',
         menuItems: [
           {
@@ -580,7 +585,7 @@ export const translations = {
       ja: {
         title: '上等カレーの世界への歩み',
         intro:
-          '40年以上の経験により、安定したフランチャイズ運営が可能です。1983年に大阪の小さな店から始まった上等カレーは、今や国内外に展開するグローバルブランドへと成長しました。この着実な成長の歴史が、あなたの成功を支えます。',
+          '40年以上の実績を持つブランドだからこそ、安定したフランチャイズ運営が可能です。1983年、大阪の小さな店舗から始まった上等カレーは、 今や国内外に展開するグローバルブランドへ。この確かな成長の歴史が、あなたの成功を支えます。',
         button: 'フランチャイズのご相談はこちら',
         timeline: [
           {

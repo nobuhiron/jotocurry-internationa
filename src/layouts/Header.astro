@@ -1,5 +1,5 @@
 ---
-import ContactButton from '../components/ContactButton.astro';
+import Button from '../components/Button.astro';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import { getLocalizedPath } from '../lib/i18n';
 import { getTranslation } from '../data/translations';
@@ -15,24 +15,25 @@ const currentPath = Astro.url.pathname.replace(/^\/(ja|en)/, '') || '/';
 
 // 翻訳データを取得
 const headerText = getTranslation('header', locale);
+const footerText = getTranslation('footer', locale);
 
 // Navigation items
 const navItems = [
   { label: headerText.nav.brand, href: getLocalizedPath('/brand', locale) },
   { label: headerText.nav.franchise, href: getLocalizedPath('/franchise', locale) },
-  { label: headerText.nav.support, href: '#' },
-  { label: headerText.nav.faq, href: getLocalizedPath('/contact', locale) },
+  { label: headerText.nav.support, href: getLocalizedPath('/franchise#section-franchise-support', locale) },
+  { label: headerText.nav.faq, href: getLocalizedPath('/contact#section-contact-faq', locale) },
 ];
 ---
 
 <header class="l-header">
   <div class="l-header__inner">
     <!-- Logo -->
-     <h1 class="l-header__logo">
-    <a href={getLocalizedPath('/', locale)} class="l-header__logo-link">
-      <img src="/logo.svg" alt={headerText.logoAlt} width={722} height={160} />
-    </a>
-    </h1>
+    <div class="l-header__logo">
+      <a href={getLocalizedPath('/', locale)} class="l-header__logo-link">
+        <img src="/logo.svg" alt={headerText.logoAlt} width={722} height={160} />
+      </a>
+    </div>
     <!-- Desktop Navigation -->
     <nav class="l-header__nav" aria-label={headerText.ariaLabels.mainNav}>
       <ul class="l-header__nav-list">
@@ -49,10 +50,14 @@ const navItems = [
           <LanguageSwitcher currentLocale={locale} currentPath={currentPath} />
         </li>
       </ul>
-       <!-- Contact Button (Desktop) -->
-      <div class=" l-header__contact">
-      <ContactButton />
-    </div>
+      <!-- Contact Button (Desktop) -->
+      <div class="l-header__contact">
+        <Button
+          text={footerText.nav.contact}
+          variant="primary"
+          href={getLocalizedPath('/contact#section-contact-form', locale)}
+        />
+      </div>
     </nav>
 
 
@@ -62,6 +67,7 @@ const navItems = [
       aria-expanded="false"
       aria-label={headerText.ariaLabels.openMenu}
       aria-controls="mobile-menu"
+      onclick="toggleMobileMenu()"
     >
       <span class="l-header__menu-toggle-icon">
         <span></span>
@@ -71,13 +77,19 @@ const navItems = [
     </button>
   </div>
 
-    <!-- Mobile Menu -->
+  <!-- Mobile Menu Overlay -->
+  <div class="l-header__mobile-menu-overlay" id="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
+
+  <!-- Mobile Menu -->
   <div class="l-header__mobile-menu" id="mobile-menu">
     <div class="l-header__mobile-menu-header">
-      <a href={getLocalizedPath('/', locale)} class="l-header__mobile-menu-logo">Logo</a>
+      <a href={getLocalizedPath('/', locale)} class="l-header__mobile-menu-logo">
+        <img src="/logo.svg" alt={headerText.logoAlt} width={722} height={160} />
+      </a>
       <button
         class="l-header__mobile-menu-close"
         aria-label={headerText.ariaLabels.closeMenu}
+        onclick="closeMobileMenu()"
       >
         ×
       </button>
@@ -102,13 +114,15 @@ const navItems = [
 
     <!-- Mobile Contact Button -->
     <div class="l-header__mobile-contact">
-      <ContactButton />
+      <Button
+        text={footerText.nav.contact}
+        variant="primary"
+        href={getLocalizedPath('/contact#section-contact-form', locale)}
+      />
     </div>
   </div>
 </header>
 
-<script>
-  import initHeader from '../assets/js/header.js';
-  initHeader();
-</script>
+<script is:inline src="/header.js"></script>
+
 

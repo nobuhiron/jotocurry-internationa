@@ -20,10 +20,10 @@ const { number, title, description, icon, class: className = '' } = Astro.props;
 </div>
     {icon && (
       <span class="c-reason-card__icon" aria-hidden="true">
-        {icon}
+        <img src={icon} alt="" />
       </span>
     )}
-      <h3 class="c-reason-card__title">{title}</h3>
+      <h3 class="c-reason-card__title" set:html={title} />
   </div>
   <p class="c-reason-card__description">{description}</p>
 </div>

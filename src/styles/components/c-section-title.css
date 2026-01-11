@@ -1,13 +1,27 @@
-.c-section-title {
-  text-align: left;
-}
-
 .c-section-title__title {
   font-size: clamp(24px, 4vw, 32px);
   font-weight: var(--fw-bold);
-  line-height: 1.3;
+  line-height: 1.7;
   font-family: var(--font-jp--serif);
 }
+
+/* Align modifiers */
+.c-section-title--center,
+[data-align='center'] {
+  text-align: center;
+}
+
+/* Color modifiers */
+.c-section-title--white .c-section-title__title,
+[data-color='white'] .c-section-title__title {
+  color: var(--color-text-on_dark);
+}
+
+.c-section-title--black .c-section-title__title,
+[data-color='black'] .c-section-title__title {
+  color: var(--color-text);
+}
+
 
 .c-section-title__subtitle {
   font-size: clamp(1rem, 2vw, 1.25rem);

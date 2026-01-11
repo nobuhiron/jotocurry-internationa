@@ -1,6 +1,8 @@
 ---
 import SectionTitle from '../components/SectionTitle.astro';
 import { translations } from '../data/translations';
+import { getTestimonials } from '../lib/microcms-testimonials';
+import { getLocalizedTestimonial } from '../lib/i18n';
 import type { Locale } from '../lib/i18n';
 
 interface Props {
@@ -9,9 +11,26 @@ interface Props {
 
 const { locale = 'ja' } = Astro.props;
 const voicesText = translations.franchise.voices[locale];
+
+// microCMSからフランチャイズボイスを取得
+let testimonials: Array<{ text: string; storeName: string; image?: { url: string; width: number; height: number } }> = [];
+try {
+  const testimonialsData = await getTestimonials(locale);
+  testimonials = testimonialsData.map((testimonial) => ({
+    ...getLocalizedTestimonial(testimonial, locale),
+    image: testimonial.image,
+  }));
+} catch (error) {
+  // microCMSが設定されていない場合のフォールバック
+  console.warn('microCMSからフランチャイズボイスを取得できませんでした。フォールバックデータを使用します。', error);
+  testimonials = voicesText.testimonials.map((testimonial) => ({
+    text: testimonial.text,
+    storeName: testimonial.storeName,
+  }));
+}
 ---
 
-<section class="p-franchise-voices l-section" data-bg="white">
+<section class="p-franchise-voices l-section" data-bg="white" id="section-franchise-voices">
   <div class="l-container">
     <div class="p-franchise-voices__inner l-section__inner">
       <SectionTitle
@@ -22,12 +41,27 @@ const voicesText = translations.franchise.voices[locale];
       <div class="p-franchise-voices__carousel splide" id="franchise-voices-carousel">
         <div class="splide__track">
           <ul class="splide__list">
-            {voicesText.testimonials.map((testimonial) => (
+            {testimonials.map((testimonial) => (
               <li class="splide__slide">
                 <div class="p-franchise-voices__slide">
                   <p class="p-franchise-voices__text">{testimonial.text}</p>
                   <div class="p-franchise-voices__profile">
-                    <div class="p-franchise-voices__avatar" aria-hidden="true"></div>
+                    <div class="p-franchise-voices__avatar" aria-hidden="true">
+                      {testimonial.image ? (
+                        <img
+                          src={testimonial.image.url}
+                          alt={testimonial.storeName}
+                          width={testimonial.image.width}
+                          height={testimonial.image.height}
+                          loading="lazy"
+                        />
+                      ) : (
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                          <circle cx="18" cy="6" r="4" opacity="0.7"/>
+                          <path d="M2 20L8 12L14 16L20 10V20H2Z" opacity="0.5"/>
+                        </svg>
+                      )}
+                    </div>
                     <p class="p-franchise-voices__store-name">{testimonial.storeName}</p>
                   </div>
                 </div>

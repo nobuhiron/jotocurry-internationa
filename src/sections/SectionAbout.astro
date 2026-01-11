@@ -1,8 +1,10 @@
 ---
 import Button from '../components/Button.astro';
 import Image from 'astro/components/Image.astro';
+import SectionTitle from '../components/SectionTitle.astro';
 import mapImage from '../assets/images/map.jpg';
 import { getTranslation } from '../data/translations';
+import { getLocalizedPath } from '../lib/i18n';
 import type { Locale } from '../lib/i18n';
 
 interface Props {
@@ -13,25 +15,26 @@ const { locale = 'ja' } = Astro.props;
 const aboutText = getTranslation('about', locale);
 ---
 
-<section class="p-about l-section" data-bg="white">
-  <div class="l-container">
-    <div class="p-about__inner l-section__inner" data-gap="4xl">
-      <h2 class="p-about__title">{aboutText.title}</h2>
-    </div>
-  </div>
+<section class="p-about l-section" data-bg="white" id="section-about">
   <div class="p-about__world-map">
+    <div class="p-about__world-map__overlay"></div>
     <div class="p-about__world-map__image" aria-label={locale === 'en' ? 'World map' : '世界地図'}>
       <Image src={mapImage} alt={locale === 'en' ? 'World map' : '世界地図'} />
     </div>
-    <div class="p-about__world-map__overlay"></div>
+    <div class="l-container p-about__container">
     <div class="p-about__content">
+      <div class="p-about__header">
+      <SectionTitle title={aboutText.title} align="center" color="white" />
       <p class="p-about__text">{aboutText.description}</p>
+      </div>
       <div class="p-about__button">
         <Button
           text={aboutText.button}
           variant="primary"
+          href={getLocalizedPath('/contact#section-contact-form', locale)}
         />
       </div>
+    </div>
     </div>
   </div>
 </section>

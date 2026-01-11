@@ -21,19 +21,16 @@
   .p-franchise-support__content {
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-4xl);
+    align-items: center;
   }
 }
 
 .p-franchise-support__image {
+  aspect-ratio: 1/1;
   width: 100%;
-}
-
-.p-franchise-support__image-placeholder {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  background-color: var(--color-light-beige);
-  border-radius: var(--radius-md);
-  background-image: linear-gradient(135deg, var(--color-light-beige) 0%, var(--color-beige) 100%);
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
 }
 
 .p-franchise-support__text-blocks {

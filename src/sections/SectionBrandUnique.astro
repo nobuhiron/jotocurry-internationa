@@ -2,16 +2,22 @@
 import SectionTitle from '../components/SectionTitle.astro';
 import { translations } from '../data/translations';
 import type { Locale } from '../lib/i18n';
-
+import curryLadleImage from '../assets/images/curry_ladle_1260w.jpg';
+import ingredientsImage from '../assets/images/ingredients_1260w.jpg';
+import curryPasteImage from '../assets/images/curry_paste_1260w.jpg';
+import Image from 'astro/components/Image.astro';
 interface Props {
   locale?: Locale;
 }
 
 const { locale = 'ja' } = Astro.props;
 const uniqueText = translations.brand.unique[locale];
+
+const images = [curryLadleImage, ingredientsImage, curryPasteImage];
+const imageAlts = ['カレースプーン', '食材', 'カレーペースト'];
 ---
 
-<section class="p-brand-unique l-section" data-bg="white">
+<section class="p-brand-unique l-section" data-bg="white" id="section-brand-unique">
   <div class="l-container">
     <div class="p-brand-unique__inner l-section__inner">
       <SectionTitle
@@ -20,23 +26,38 @@ const uniqueText = translations.brand.unique[locale];
       />
       <div class="p-brand-unique__content">
         <div class="p-brand-unique__text-column">
-          {uniqueText.blocks.map((block) => (
+          {uniqueText.blocks.map((block, index) => (
             <div class="p-brand-unique__text-block">
-              <div class="p-brand-unique__text-block-line"></div>
               <div class="p-brand-unique__text-block-content">
-                <h3 class="p-brand-unique__text-block-title">{block.title}</h3>
+                <h3 class="p-brand-unique__text-block-title" set:html={block.title}></h3>
                 <p class="p-brand-unique__text-block-text">{block.text}</p>
+                {images[index] && (
+                  <div class="p-brand-unique__image">
+                    <Image src={images[index]} alt={imageAlts[index]} width={1260} height={709} />
+                  </div>
+                )}
               </div>
             </div>
           ))}
         </div>
         <div class="p-brand-unique__image-column">
-          <div class="p-brand-unique__image">
-            <div class="p-brand-unique__image-placeholder" aria-hidden="true"></div>
-          </div>
+          {images.map((image, index) => (
+            <div class="p-brand-unique__image">
+              <Image src={image} alt={imageAlts[index]} width={1260} height={709} />
+            </div>
+          ))}
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<script>
+  import initBrandUniqueOpacity from '../scripts/brand-unique-opacity.js';
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBrandUniqueOpacity);
+  } else {
+    initBrandUniqueOpacity();
+  }
+</script>

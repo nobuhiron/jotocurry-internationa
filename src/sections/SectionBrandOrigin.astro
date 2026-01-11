@@ -14,7 +14,7 @@ const { locale = 'ja' } = Astro.props;
 const originText = translations.brand.origin[locale];
 ---
 
-<section class="p-brand-origin l-section" data-bg="white">
+<section class="p-brand-origin l-section" data-bg="white" id="section-brand-origin">
   <div class="l-container">
     <div class="p-brand-origin__inner l-section__inner">
       <SectionTitle
@@ -22,25 +22,27 @@ const originText = translations.brand.origin[locale];
         class="p-brand-origin__title"
       />
       <div class="p-brand-origin__content">
-        <div class="p-brand-origin__column">
+        <div class="p-brand-origin__block">
           <div class="p-brand-origin__image">
             <div class="p-brand-origin__image-placeholder">
               <Image src={brandOrigin1} alt={originText.imageAlt} width={500} height={500} />
             </div>
           </div>
           <div class="p-brand-origin__text">
+            <h3 class="p-brand-origin__block-title" set:html={originText.blockTitles[0]}></h3>
             {originText.paragraphs.slice(0, 2).map((paragraph) => (
               <p class="p-brand-origin__paragraph">{paragraph.text}</p>
             ))}
           </div>
         </div>
-        <div class="p-brand-origin__column">
+        <div class="p-brand-origin__block">
           <div class="p-brand-origin__image">
             <div class="p-brand-origin__image-placeholder">
               <Image src={brandOrigin2} alt={originText.imageAlt} width={500} height={500} />
             </div>
           </div>
           <div class="p-brand-origin__text">
+            <h3 class="p-brand-origin__block-title" set:html={originText.blockTitles[1]}></h3>
             {originText.paragraphs.slice(2, 4).map((paragraph) => (
               <p class="p-brand-origin__paragraph">{paragraph.text}</p>
             ))}

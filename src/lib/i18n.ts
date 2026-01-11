@@ -103,3 +103,26 @@ export function getLocalizedStore(
     country: store.country,
   };
 }
+
+/**
+ * 言語に応じたフランチャイズボイスコンテンツを取得
+ * @param testimonial - フランチャイズボイスコンテンツ
+ * @param locale - 言語
+ * @returns 言語に応じたコメントと店舗名
+ */
+export function getLocalizedTestimonial(
+  testimonial: { textJa: string; textEn: string; storeNameJa: string; storeNameEn: string },
+  locale: Locale
+): { text: string; storeName: string } {
+  if (locale === 'en') {
+    return {
+      text: testimonial.textEn || testimonial.textJa,
+      storeName: testimonial.storeNameEn || testimonial.storeNameJa,
+    };
+  }
+
+  return {
+    text: testimonial.textJa,
+    storeName: testimonial.storeNameJa,
+  };
+}

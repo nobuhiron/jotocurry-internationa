@@ -4,7 +4,7 @@
 .l-cta-section {
   background-color: var(--color-black);
   padding-block: var(--spacing-5xl);
-  background: url('src/assets/images/cta-bg.jpg') no-repeat center center/cover;
+  background: url('/cta-bg.jpg') no-repeat center center/cover;
   position: relative;
 }
 @media (--md) {

@@ -10,9 +10,27 @@
     };
   }
 
+  function isDesktopSize() {
+    return window.matchMedia('(min-width: 1200px)').matches;
+  }
+
+  function handleResize() {
+    if (isDesktopSize()) {
+      var elements = getElements();
+      if (elements.mobileMenu && elements.mobileMenu.classList.contains('is-open')) {
+        window.closeMobileMenu();
+      }
+    }
+  }
+
   window.toggleMobileMenu = function() {
     var elements = getElements();
     if (!elements.menuToggle || !elements.mobileMenu) {
+      return;
+    }
+
+    // デスクトップサイズでは開かない
+    if (isDesktopSize()) {
       return;
     }
 
@@ -27,6 +45,11 @@
   window.openMobileMenu = function() {
     var elements = getElements();
     if (!elements.menuToggle || !elements.mobileMenu) {
+      return;
+    }
+
+    // デスクトップサイズでは開かない
+    if (isDesktopSize()) {
       return;
     }
 
@@ -51,4 +74,18 @@
     }
     document.body.style.overflow = '';
   };
+
+  // 画面サイズが変わった時にモバイルメニューを閉じる
+  var resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(handleResize, 100);
+  });
+
+  // 初期化時にデスクトップサイズなら閉じる
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', handleResize);
+  } else {
+    handleResize();
+  }
 })();

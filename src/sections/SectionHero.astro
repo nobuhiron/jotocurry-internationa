@@ -1,10 +1,9 @@
 ---
-import { getImage } from 'astro:assets';
 import Button from '../components/Button.astro';
 import heroImage from '../assets/images/hero-img.jpg';
 import Image from 'astro/components/Image.astro';
-import ContactButton from '../components/ContactButton.astro';
 import { getTranslation } from '../data/translations';
+import { getLocalizedPath } from '../lib/i18n';
 import type { Locale } from '../lib/i18n';
 
 interface Props {
@@ -15,7 +14,7 @@ const { locale = 'ja' } = Astro.props;
 const heroText = getTranslation('hero', locale);
 ---
 
-<section class="p-hero" >
+<section class="p-hero" id="section-hero">
   <div class="p-hero__image">
           <Image src={heroImage} alt={locale === 'en' ? 'Hero image' : 'ヒーローイメージ'} width={1920} height={1080} />
       <div class="p-hero__overlay"></div>
@@ -34,10 +33,11 @@ const heroText = getTranslation('hero', locale);
     <div class="p-hero__bottom-section">
       <p class="p-hero__description" set:html={heroText.description} />
       <div class="p-hero__buttons p-hero__buttons--desktop">
-        <ContactButton
+        <Button
           text={heroText.buttons.primary}
+          variant="primary"
           class="p-hero__button"
-          href="#contact-form"
+          href={getLocalizedPath('/contact#section-contact-form', locale)}
         />
         <Button
           text={heroText.buttons.secondary}

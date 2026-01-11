@@ -1,12 +1,6 @@
 @import '../global/variables.css';
 @import '../global/custom_media.css';
 
-.p-reasons {
-}
-
-.p-reasons__title {
-}
-
 .p-reasons__cards {
   display: grid;
   grid-template-columns: 1fr;
@@ -25,16 +19,17 @@
 }
 
 .p-reasons__buttons {
-  display: grid;
-  grid-template-columns: 1fr;
+  display:flex;
+  flex-direction: column;
   gap: var(--spacing-md);
-  justify-items: center;
+  align-items: center;
+
 }
 
 @media (--md) {
   .p-reasons__buttons {
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: center;
+flex-direction: row;
+justify-content: center;
   }
 }
 

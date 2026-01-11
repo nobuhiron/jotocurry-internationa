@@ -46,9 +46,6 @@
     padding-inline-start: var(--spacing-lg);
   }
 
-  .p-brand-power__stat:first-child {
-    padding-inline-start: 0;
-  }
 
   .p-brand-power__stat::after {
     content: '';
@@ -63,9 +60,6 @@
     transform: translateY(-50%);
   }
 
-  .p-brand-power__stat:first-child::after {
-    display: none;
-  }
 }
 
 .p-brand-power__carousel-wrapper {
@@ -90,10 +84,7 @@
   object-fit: cover;
 }
 
-.p-brand-power__button-wrapper {
-  text-align: center;
+.p-brand-power__button {
+  margin-inline: auto;
 }
 
-.p-brand-power__button {
-  display: inline-block;
-}

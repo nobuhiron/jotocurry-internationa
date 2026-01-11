@@ -11,11 +11,11 @@
 
 .l-header__inner {
   display: grid;
-  grid-template-columns: min(40cqw, 200px) 1fr;
+  grid-template-columns: min(40cqw, 160px) 1fr;
   justify-content: space-between;
   justify-items: end;
   align-items: center;
-  padding-inline: clamp(var(--spacing-md), 5vw, var(--spacing-3xl));
+  padding-inline: clamp(var(--spacing-md), 5vw, var(--spacing-2xl));
   padding-block: var(--spacing-md);
   max-width: var(--layout-max-width);
   margin-inline: auto;
@@ -24,6 +24,12 @@
 /* Logo */
 .l-header__logo {
   z-index: 1001;
+  transition: z-index 0s;
+}
+
+/* モバイルメニューが開いている時はロゴを下のレイヤーに */
+.l-header:has(.l-header__mobile-menu.is-open) .l-header__logo {
+  z-index: 998;
 }
 
 /* Navigation */
@@ -205,12 +211,36 @@
   transform: translateY(50%) rotate(-45deg);
 }
 
+/* Mobile Menu Overlay */
+.l-header__mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+
+  @container (min-width: 1200px) {
+    display: none;
+  }
+}
+
+.l-header__mobile-menu-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
 /* Mobile Menu */
 .l-header__mobile-menu {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  max-width: 400px;
   height: 100vh;
   background-color: var(--color-white);
   z-index: 1000;
@@ -220,10 +250,16 @@
   padding-block-start: var(--spacing-4xl);
   padding-block-end: var(--spacing-lg);
   padding-inline: var(--layout-padding-sp);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  visibility: hidden;
 
-  @media (--lg) {
+  @container (min-width: 1200px) {
     display: none;
   }
+}
+
+.l-header__mobile-menu.is-open {
+  visibility: visible;
 }
 
 .l-header__mobile-menu.is-open {
@@ -240,10 +276,15 @@
 }
 
 .l-header__mobile-menu-logo {
-  font-family: var(--font-en--decor);
-  font-size: 24px;
-  color: var(--color-black);
-  font-weight: var(--fw-regular);
+  display: inline-block;
+  max-width: 150px;
+  height: auto;
+}
+
+.l-header__mobile-menu-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .l-header__mobile-menu-close {

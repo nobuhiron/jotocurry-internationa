@@ -1,6 +1,7 @@
 ---
-import ContactButton from '../components/ContactButton.astro';
+import Button from '../components/Button.astro';
 import { getTranslation } from '../data/translations';
+import { getLocalizedPath } from '../lib/i18n';
 import type { Locale } from '../lib/i18n';
 
 interface Props {
@@ -32,7 +33,7 @@ const ctaText = getTranslation('cta', locale);
     </div>
     </header>
     <div class="l-cta-section__button">
-      <ContactButton text={ctaText.button} />
+      <Button text={ctaText.button} variant="primary" href={getLocalizedPath('/contact#section-contact-form', locale)} />
     </div>
     </div>
   </div>

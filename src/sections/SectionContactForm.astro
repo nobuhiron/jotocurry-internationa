@@ -11,7 +11,7 @@ const { locale = 'ja' } = Astro.props;
 const formText = translations.contact.form[locale];
 ---
 
-<section class="p-contact-form l-section" data-bg="white">
+<section class="p-contact-form l-section" data-bg="white" id="section-contact-form">
   <div class="l-container">
     <div class="p-contact-form__inner l-section__inner" data-gap="4xl">
       <div class="p-contact-form__info">
@@ -202,7 +202,8 @@ const formText = translations.contact.form[locale];
           <div class="p-contact-form__submit">
             <button
               type="submit"
-              class="c-button c-button--primary p-contact-form__submit-button"
+              class="c-button p-contact-form__submit-button"
+              data-variant="primary"
             >
               <span class="c-button__text">{formText.fields.submit}</span>
             </button>

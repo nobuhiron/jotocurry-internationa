@@ -18,13 +18,14 @@ const {
 
 <a
   href={href}
-  class={`c-button c-button--${variant} ${className}`}
+  class={`c-button ${className}`}
+  data-variant={variant}
 >
+  <span class="c-button__text">{text}</span>
   {icon && (
     <span class="c-button__icon" aria-hidden="true">
       {icon}
     </span>
   )}
-  <span class="c-button__text">{text}</span>
 </a>
 
