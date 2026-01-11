@@ -10,21 +10,21 @@ interface Props {
 }
 
 const { locale = 'ja' } = Astro.props;
-const storesText = translations.brand.stores[locale];
+// const storesText = translations.brand.stores[locale];
 
-// microCMSから店舗情報を取得
-let stores: Array<{ name: string; location: string; country: string; image?: { url: string; width: number; height: number } }> = [];
-try {
-  const storesData = await getStores(locale);
-  stores = storesData.map((store) => ({
-    ...getLocalizedStore(store, locale),
-    image: store.image,
-  }));
-} catch (error) {
-  // microCMSが設定されていない場合のフォールバック
-  console.warn('microCMSから店舗情報を取得できませんでした。フォールバックデータを使用します。', error);
-  stores = [];
-}
+// // microCMSから店舗情報を取得
+// let stores: Array<{ name: string; location: string; country: string; image?: { url: string; width: number; height: number } }> = [];
+// try {
+//   const storesData = await getStores(locale);
+//   stores = storesData.map((store) => ({
+//     ...getLocalizedStore(store, locale),
+//     image: store.image,
+//   }));
+// } catch (error) {
+//   // microCMSが設定されていない場合のフォールバック
+//   console.warn('microCMSから店舗情報を取得できませんでした。フォールバックデータを使用します。', error);
+//   stores = [];
+// }
 ---
 
 <section class="p-brand-stores l-section" data-bg="white" id="section-brand-stores">
