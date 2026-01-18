@@ -1,6 +1,7 @@
 ---
 import SectionTitle from '../components/SectionTitle.astro';
 import { translations } from '../data/translations';
+import { getLocalizedPath } from '../lib/i18n';
 import type { Locale } from '../lib/i18n';
 
 interface Props {
@@ -195,12 +196,12 @@ const formText = translations.contact.form[locale];
             <label for="privacy" class="p-contact-form__checkbox-label">
               {locale === 'ja' ? (
                 <>
-                  <a href="#" class="p-contact-form__privacy-link">{formText.fields.privacy}</a>
+                  <a href={getLocalizedPath('/privacy', locale)} class="p-contact-form__privacy-link">{formText.fields.privacy}</a>
                   {formText.fields.privacyAgree}
                 </>
               ) : (
                 <>
-                  {formText.fields.privacyAgree} <a href="#" class="p-contact-form__privacy-link">{formText.fields.privacy}</a>
+                  {formText.fields.privacyAgree} <a href={getLocalizedPath('/privacy', locale)} class="p-contact-form__privacy-link">{formText.fields.privacy}</a>
                 </>
               )}
             </label>

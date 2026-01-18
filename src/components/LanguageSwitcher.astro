@@ -19,6 +19,7 @@ const languages = [
 <div class="c-language-switcher">
   <button
     class="c-language-switcher__toggle"
+    type="button"
     aria-expanded="false"
     aria-haspopup="true"
     aria-label="言語を選択"
@@ -79,7 +80,7 @@ const languages = [
 
   .c-language-switcher__dropdown {
     position: absolute;
-    top: 100%;
+    top: -100%;
     right: 0;
     margin-top: 0.5rem;
     min-width: 120px;
@@ -98,6 +99,23 @@ const languages = [
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+  }
+
+  /* モバイルメニュー内はスイッチの右隣で同じY位置に表示 */
+  .l-header__mobile-language .c-language-switcher__dropdown {
+    top: 0;
+    right: auto;
+    left: 100%;
+    margin-top: 0;
+    margin-left: 0.5rem;
+    transform: translateX(-10px);
+  }
+
+  .l-header__mobile-language .c-language-switcher:hover .c-language-switcher__dropdown,
+  .l-header__mobile-language
+    .c-language-switcher__toggle[aria-expanded='true']
+    + .c-language-switcher__dropdown {
+    transform: translateX(0);
   }
 
   .c-language-switcher__list {
@@ -127,3 +145,41 @@ const languages = [
     font-weight: 500;
   }
 </style>
+
+<script is:inline>
+  (function () {
+    function closeAll(except) {
+      document.querySelectorAll('.c-language-switcher__toggle').forEach((btn) => {
+        if (btn !== except) {
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    document.querySelectorAll('.c-language-switcher').forEach((switcher) => {
+      const toggle = switcher.querySelector('.c-language-switcher__toggle');
+      if (!toggle) return;
+
+      toggle.addEventListener('click', (event) => {
+        event.preventDefault();
+        const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+        closeAll(toggle);
+        toggle.setAttribute('aria-expanded', String(!isOpen));
+      });
+    });
+
+    document.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!target) return;
+      if (!target.closest('.c-language-switcher')) {
+        closeAll();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeAll();
+      }
+    });
+  })();
+</script>

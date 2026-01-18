@@ -28,9 +28,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 20% center;
+  object-position: 35% center;
   transform: scale(2);
-  transform-origin: 40% center;
+  transform-origin: 50% center;
   will-change: transform;
   @media (--md) {
     object-position: 10% 10%;

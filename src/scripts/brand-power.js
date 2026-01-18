@@ -26,7 +26,8 @@ export default function initBrandPower() {
     pauseOnHover: false,
     breakpoints: {
       768: {
-        perPage: 3.5,
+        perPage: 2.5,
+        gap: '0.75rem',
       },
     },
   });
