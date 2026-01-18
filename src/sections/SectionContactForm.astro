@@ -47,7 +47,8 @@ const formText = translations.contact.form[locale];
       </div>
 
       <div class="p-contact-form__form-wrapper">
-        <form class="p-contact-form__form" id="contact-form" action="#" method="post">
+        <div id="form-message" class="p-contact-form__message" role="alert" aria-live="polite"></div>
+        <form class="p-contact-form__form" id="contact-form" method="post" novalidate>
           <div class="p-contact-form__row">
             <div class="p-contact-form__field">
               <label for="last-name" class="p-contact-form__label">{formText.fields.lastName}</label>
@@ -58,6 +59,7 @@ const formText = translations.contact.form[locale];
                 class="p-contact-form__input"
                 required
               />
+              <span class="p-contact-form__error" id="error-last-name" role="alert"></span>
             </div>
             <div class="p-contact-form__field">
               <label for="first-name" class="p-contact-form__label">{formText.fields.firstName}</label>
@@ -68,6 +70,7 @@ const formText = translations.contact.form[locale];
                 class="p-contact-form__input"
                 required
               />
+              <span class="p-contact-form__error" id="error-first-name" role="alert"></span>
             </div>
           </div>
 
@@ -81,6 +84,7 @@ const formText = translations.contact.form[locale];
               placeholder={formText.fields.emailPlaceholder}
               required
             />
+            <span class="p-contact-form__error" id="error-email" role="alert"></span>
           </div>
 
           <div class="p-contact-form__field">
@@ -98,6 +102,7 @@ const formText = translations.contact.form[locale];
               <option value="oceania">{formText.fields.areaOptions.oceania}</option>
               <option value="other">{formText.fields.areaOptions.other}</option>
             </select>
+            <span class="p-contact-form__error" id="error-area" role="alert"></span>
           </div>
 
           <div class="p-contact-form__field">
@@ -114,6 +119,7 @@ const formText = translations.contact.form[locale];
               <option value="media">{formText.fields.purposeOptions.media}</option>
               <option value="other">{formText.fields.purposeOptions.other}</option>
             </select>
+            <span class="p-contact-form__error" id="error-purpose" role="alert"></span>
           </div>
 
           <fieldset class="p-contact-form__fieldset">
@@ -164,6 +170,7 @@ const formText = translations.contact.form[locale];
                 <label for="situation-4" class="p-contact-form__radio-label">{formText.fields.situationOptions.individual}</label>
               </div>
             </div>
+            <span class="p-contact-form__error" id="error-situation" role="alert"></span>
           </fieldset>
 
           <div class="p-contact-form__field">
@@ -197,6 +204,7 @@ const formText = translations.contact.form[locale];
                 </>
               )}
             </label>
+            <span class="p-contact-form__error" id="error-privacy" role="alert"></span>
           </div>
 
           <div class="p-contact-form__submit">
@@ -204,8 +212,9 @@ const formText = translations.contact.form[locale];
               type="submit"
               class="c-button p-contact-form__submit-button"
               data-variant="primary"
+              id="submit-button"
             >
-              <span class="c-button__text">{formText.fields.submit}</span>
+              <span class="c-button__text" id="submit-button-text">{formText.fields.submit}</span>
             </button>
           </div>
         </form>
@@ -213,4 +222,236 @@ const formText = translations.contact.form[locale];
     </div>
   </div>
 </section>
+
+<script define:vars={{ locale, messages: formText.messages, submitText: formText.fields.submit }}>
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initForm);
+  } else {
+    initForm();
+  }
+
+  function initForm() {
+    const form = document.getElementById('contact-form');
+    const submitButton = document.getElementById('submit-button');
+    const submitButtonText = document.getElementById('submit-button-text');
+    const messageDiv = document.getElementById('form-message');
+
+    if (!form || !submitButton || !submitButtonText || !messageDiv) {
+      return;
+    }
+
+    const errorElements = {
+      'last-name': document.getElementById('error-last-name'),
+      'first-name': document.getElementById('error-first-name'),
+      email: document.getElementById('error-email'),
+      area: document.getElementById('error-area'),
+      purpose: document.getElementById('error-purpose'),
+      situation: document.getElementById('error-situation'),
+      privacy: document.getElementById('error-privacy'),
+    };
+
+    function clearAllErrors() {
+      Object.values(errorElements).forEach((el) => {
+        if (el) {
+          el.textContent = '';
+          el.classList.remove('is-visible');
+          el.removeAttribute('style');
+        }
+      });
+    }
+
+    function showFieldError(fieldName, message) {
+      const errorEl = errorElements[fieldName];
+      if (!errorEl) return;
+      errorEl.textContent = message;
+      errorEl.classList.add('is-visible');
+      errorEl.removeAttribute('style');
+
+      const field = form.querySelector(`[name="${fieldName}"]`);
+      if (field) {
+        field.focus();
+        field.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    function validateForm() {
+      clearAllErrors();
+      let isValid = true;
+
+      const formData = new FormData(form);
+      const lastName = formData.get('last-name')?.toString().trim() || '';
+      const firstName = formData.get('first-name')?.toString().trim() || '';
+      const email = formData.get('email')?.toString().trim() || '';
+      const area = formData.get('area')?.toString() || '';
+      const purpose = formData.get('purpose')?.toString() || '';
+      const situation = formData.get('situation')?.toString() || '';
+      const privacy = formData.get('privacy')?.toString() || '';
+
+      if (!lastName) {
+        showFieldError('last-name', messages.errors.lastName);
+        isValid = false;
+      }
+
+      if (!firstName) {
+        showFieldError('first-name', messages.errors.firstName);
+        isValid = false;
+      }
+
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showFieldError('email', messages.errors.email);
+        isValid = false;
+      }
+
+      if (!area) {
+        showFieldError('area', messages.errors.area);
+        isValid = false;
+      }
+
+      if (!purpose) {
+        showFieldError('purpose', messages.errors.purpose);
+        isValid = false;
+      }
+
+      if (!situation) {
+        showFieldError('situation', messages.errors.situation);
+        isValid = false;
+      }
+
+      if (privacy !== 'on') {
+        showFieldError('privacy', messages.errors.privacy);
+        isValid = false;
+      }
+
+      return isValid;
+    }
+
+    function showMessage(text, type) {
+      messageDiv.textContent = text;
+      messageDiv.className = `p-contact-form__message p-contact-form__message--${type}`;
+      messageDiv.style.display = 'block';
+      if (type === 'success') {
+        messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    function hideMessage() {
+      messageDiv.style.display = 'none';
+      messageDiv.textContent = '';
+    }
+
+    function setLoading(isLoading) {
+      submitButton.disabled = isLoading;
+      submitButtonText.textContent = isLoading ? messages.submitting : submitText;
+    }
+
+    form.addEventListener('input', (e) => {
+      const fieldName = e.target.name;
+      if (fieldName && errorElements[fieldName]) {
+        const errorEl = errorElements[fieldName];
+        errorEl.textContent = '';
+        errorEl.classList.remove('is-visible');
+        errorEl.removeAttribute('style');
+      }
+    });
+
+    form.addEventListener('change', (e) => {
+      const fieldName = e.target.name;
+      if (fieldName && errorElements[fieldName]) {
+        const errorEl = errorElements[fieldName];
+        errorEl.textContent = '';
+        errorEl.classList.remove('is-visible');
+        errorEl.removeAttribute('style');
+      }
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      hideMessage();
+      clearAllErrors();
+
+      if (!validateForm()) {
+        return;
+      }
+
+      const formData = new FormData(form);
+      formData.append('locale', locale);
+
+      setLoading(true);
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          body: formData,
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          showMessage(messages.success, 'success');
+          form.reset();
+          clearAllErrors();
+        } else if (result.error === 'validation_error') {
+          showMessage(messages.validationError, 'error');
+        } else {
+          showMessage(messages.error, 'error');
+        }
+      } catch (error) {
+        console.error('Form submission error:', error);
+        showMessage(messages.error, 'error');
+      } finally {
+        setLoading(false);
+      }
+    });
+  }
+</script>
+
+<style>
+  .p-contact-form__message {
+    display: none;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .p-contact-form__message--success {
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 1px solid #6ee7b7;
+  }
+
+  .p-contact-form__message--error {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+  }
+
+  .p-contact-form__submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .p-contact-form__error {
+    display: none !important;
+    color: #dc2626;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+
+  .p-contact-form__error.is-visible,
+  .p-contact-form__error[style*="display: block"] {
+    display: block !important;
+  }
+
+  .p-contact-form__fieldset .p-contact-form__error {
+    margin-top: 1rem;
+  }
+
+  .p-contact-form__checkbox-wrapper .p-contact-form__error {
+    margin-top: 0.5rem;
+    display: block;
+  }
+</style>
 

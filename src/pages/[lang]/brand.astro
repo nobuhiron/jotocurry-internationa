@@ -5,7 +5,6 @@ import SectionBrandOrigin from '../../sections/SectionBrandOrigin.astro';
 import SectionBrandUnique from '../../sections/SectionBrandUnique.astro';
 import SectionBrandMenu from '../../sections/SectionBrandMenu.astro';
 import SectionBrandHistory from '../../sections/SectionBrandHistory.astro';
-import SectionBrandStores from '../../sections/SectionBrandStores.astro';
 import { translations } from '../../data/translations';
 import type { Locale } from '../../lib/i18n';
 
@@ -30,5 +29,4 @@ const brandPageText = translations.brand.page[locale];
 	<SectionBrandUnique locale={locale} />
 	<SectionBrandMenu locale={locale} />
 	<SectionBrandHistory locale={locale} />
-	<!-- <SectionBrandStores locale={locale} /> -->
 </Layout>

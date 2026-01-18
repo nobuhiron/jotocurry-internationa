@@ -1,8 +1,11 @@
 import { defineConfig } from 'astro/config';
+import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
   // [lang]ディレクトリ構造でも画像パスが正しく解決されるように設定
   base: '/',
+  output: 'server',
+  adapter: cloudflare(),
   image: {
     // 店舗紹介セクションで使用するmicroCMSの画像ドメインを許可
     // 注意: サイト全体の画像はローカル/ホスティングから取得し、CMSからは取得しない

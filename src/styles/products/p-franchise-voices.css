@@ -2,9 +2,36 @@
   overflow: hidden;
 }
 
+.p-franchise-voices__carousel-wrapper {
+  width: 100vw;
+  margin-block: var(--spacing-4xl);
+  margin-inline-start: calc(50% - 50vw);
+  overflow: hidden;
+  padding-inline: clamp(
+    var(--layout-padding-sp),
+    5vw,
+    var(--layout-padding-pc)
+  );
+  padding-inline-end: var(--spacing-lg);
+}
+
+@media (--md) {
+  .p-franchise-voices__carousel-wrapper {
+    padding-inline: clamp(
+      var(--layout-padding-sp),
+      5vw,
+      var(--layout-padding-pc)
+    );
+    padding-inline-end: clamp(
+      var(--layout-padding-sp),
+      5vw,
+      var(--layout-padding-pc)
+    );
+  }
+}
+
 .p-franchise-voices__carousel {
-  /* padding-inline-start: 24px; */
-  width: 100cqw;
+  width: 100%;
 }
 
 .p-franchise-voices__slide {

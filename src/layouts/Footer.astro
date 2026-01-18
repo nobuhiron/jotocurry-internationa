@@ -93,10 +93,10 @@ const legalLinks = [
     <div class="l-footer__bottom-inner">
       <p class="l-footer__copyright">{footerText.copyright}</p>
       <div class="l-footer__legal">
-        <a href="#" class="l-footer__legal-link">
+        <a href={getLocalizedPath('/privacy', locale)} class="l-footer__legal-link">
           {footerText.legal.privacy}
         </a>
-        <a href="#" class="l-footer__legal-link">
+        <a href={getLocalizedPath('/cookie', locale)} class="l-footer__legal-link">
           {footerText.legal.cookie}
         </a>
       </div>

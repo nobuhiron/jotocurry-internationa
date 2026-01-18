@@ -1,7 +1,9 @@
 .p-brand-history {
 }
 
-.p-brand-history__title {
+.p-brand-history__inner {
+  background-color: var(--color-white);
+  padding: var(--spacing-2xl);
 }
 
 .p-brand-history__intro {

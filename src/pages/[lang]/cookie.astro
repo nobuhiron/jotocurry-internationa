@@ -1,0 +1,112 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SectionPageHero from '../../sections/SectionPageHero.astro';
+import { translations } from '../../data/translations';
+import type { Locale } from '../../lib/i18n';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'ja' } },
+    { params: { lang: 'en' } },
+  ];
+}
+
+const { lang } = Astro.params;
+const locale = (lang as Locale) || 'ja';
+const pageText = translations.cookie.page[locale];
+const contentText = translations.cookie.content[locale];
+---
+
+<Layout title={pageText.title} locale={locale}>
+  <SectionPageHero
+    title={pageText.heroTitle}
+    subtitle={pageText.heroSubtitle}
+  />
+
+  <section class="p-legal">
+    <div class="l-container">
+      <div class="p-legal__content">
+        <p class="p-legal__intro">{contentText.intro}</p>
+
+        {contentText.sections.map((section) => (
+          <div class="p-legal__section">
+            <h2 class="p-legal__section-title">{section.title}</h2>
+            <p class="p-legal__section-content">{section.content}</p>
+          </div>
+        ))}
+
+        <p class="p-legal__updated">{contentText.lastUpdated}</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .p-legal {
+    padding: 4rem 0 6rem;
+    background-color: var(--color-bg-secondary, #f9fafb);
+  }
+
+  .p-legal__content {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .p-legal__intro {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary, #4b5563);
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .p-legal__section {
+    margin-bottom: 2rem;
+  }
+
+  .p-legal__section-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text-primary, #111827);
+    margin-bottom: 0.75rem;
+  }
+
+  .p-legal__section-content {
+    font-size: 0.9375rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary, #4b5563);
+    white-space: pre-line;
+  }
+
+  .p-legal__updated {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e5e7eb;
+    font-size: 0.875rem;
+    color: var(--color-text-tertiary, #6b7280);
+    text-align: right;
+  }
+
+  @media (max-width: 768px) {
+    .p-legal {
+      padding: 2rem 0 4rem;
+    }
+
+    .p-legal__content {
+      padding: 1.5rem;
+    }
+
+    .p-legal__section-title {
+      font-size: 1rem;
+    }
+
+    .p-legal__section-content {
+      font-size: 0.875rem;
+    }
+  }
+</style>

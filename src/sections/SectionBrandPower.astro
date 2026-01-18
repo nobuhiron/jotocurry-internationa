@@ -3,6 +3,7 @@ import SectionTitle from '../components/SectionTitle.astro';
 import StatCard from '../components/StatCard.astro';
 import Button from '../components/Button.astro';
 import placeholderImage from '../assets/images/Placeholder Image.jpg';
+import { getBrandPowerImages } from '../lib/microcms-brand-power-images';
 import { getStats } from '../lib/microcms-stats';
 import { getTranslation } from '../data/translations';
 import type { Locale } from '../lib/i18n';
@@ -13,6 +14,7 @@ interface Props {
 
 const { locale = 'ja' } = Astro.props;
 const brandPowerText = getTranslation('brandPower', locale);
+const slideAlt = locale === 'en' ? 'Store noren' : '店舗のれん';
 
 // 統計情報を取得（フォールバック値あり）
 let mealsValue = 5000; // デフォルト値（翻訳データの値）
@@ -26,6 +28,20 @@ try {
   overseasStoreCount = stats.overseasStoreCount;
 } catch (error) {
   console.warn('microCMSから統計情報を取得できませんでした。デフォルト値を使用します。', error);
+}
+
+// ブランドパワー画像を取得（フォールバック値あり）
+let brandPowerImages: Array<{ url: string; width: number; height: number }> = [];
+try {
+  const imagesData = await getBrandPowerImages();
+  brandPowerImages = imagesData.map((item) => item.image);
+} catch (error) {
+  console.warn('microCMSからブランドパワー画像を取得できませんでした。フォールバック画像を使用します。', error);
+  brandPowerImages = Array.from({ length: 6 }, () => ({
+    url: placeholderImage.src,
+    width: placeholderImage.width,
+    height: placeholderImage.height,
+  }));
 }
 ---
 
@@ -63,60 +79,20 @@ try {
     <div class="p-brand-power__carousel splide" id="brand-power-carousel">
       <div class="splide__track">
         <ul class="splide__list">
-          <li class="splide__slide">
-            <div class="p-brand-power__slide">
-              <img
-                src={placeholderImage.src}
-                alt={locale === 'en' ? 'Store noren' : '店舗のれん'}
-                class="p-brand-power__slide-image"
-              />
-            </div>
-          </li>
-          <li class="splide__slide">
-            <div class="p-brand-power__slide">
-              <img
-                src={placeholderImage.src}
-                alt={locale === 'en' ? 'Store noren' : '店舗のれん'}
-                class="p-brand-power__slide-image"
-              />
-            </div>
-          </li>
-          <li class="splide__slide">
-            <div class="p-brand-power__slide">
-              <img
-                src={placeholderImage.src}
-                alt={locale === 'en' ? 'Store noren' : '店舗のれん'}
-                class="p-brand-power__slide-image"
-              />
-            </div>
-          </li>
-          <li class="splide__slide">
-            <div class="p-brand-power__slide">
-              <img
-                src={placeholderImage.src}
-                alt={locale === 'en' ? 'Store noren' : '店舗のれん'}
-                class="p-brand-power__slide-image"
-              />
-            </div>
-          </li>
-          <li class="splide__slide">
-            <div class="p-brand-power__slide">
-              <img
-                src={placeholderImage.src}
-                alt={locale === 'en' ? 'Store noren' : '店舗のれん'}
-                class="p-brand-power__slide-image"
-              />
-            </div>
-          </li>
-          <li class="splide__slide">
-            <div class="p-brand-power__slide">
-              <img
-                src={placeholderImage.src}
-                alt={locale === 'en' ? 'Store noren' : '店舗のれん'}
-                class="p-brand-power__slide-image"
-              />
-            </div>
-          </li>
+          {brandPowerImages.map((image) => (
+            <li class="splide__slide">
+              <div class="p-brand-power__slide">
+                <img
+                  src={image.url}
+                  alt={slideAlt}
+                  width={image.width}
+                  height={image.height}
+                  loading="lazy"
+                  class="p-brand-power__slide-image"
+                />
+              </div>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
@@ -124,6 +100,7 @@ try {
   <div class="l-container">
     <div class="p-brand-power__button-wrapper">
       <Button
+        href={brandPowerText.buttonLink}
         text={brandPowerText.button}
         variant="secondary"
         icon="→"

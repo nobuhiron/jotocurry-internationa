@@ -38,37 +38,39 @@ try {
         subtitle={voicesText.subtitle}
         class="p-franchise-voices__title"
       />
-      <div class="p-franchise-voices__carousel splide" id="franchise-voices-carousel">
-        <div class="splide__track">
-          <ul class="splide__list">
-            {testimonials.map((testimonial) => (
-              <li class="splide__slide">
-                <div class="p-franchise-voices__slide">
-                  <p class="p-franchise-voices__text">{testimonial.text}</p>
-                  <div class="p-franchise-voices__profile">
-                    <div class="p-franchise-voices__avatar" aria-hidden="true">
-                      {testimonial.image ? (
-                        <img
-                          src={testimonial.image.url}
-                          alt={testimonial.storeName}
-                          width={testimonial.image.width}
-                          height={testimonial.image.height}
-                          loading="lazy"
-                        />
-                      ) : (
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                          <circle cx="18" cy="6" r="4" opacity="0.7"/>
-                          <path d="M2 20L8 12L14 16L20 10V20H2Z" opacity="0.5"/>
-                        </svg>
-                      )}
-                    </div>
-                    <p class="p-franchise-voices__store-name">{testimonial.storeName}</p>
+    </div>
+  </div>
+  <div class="p-franchise-voices__carousel-wrapper">
+    <div class="p-franchise-voices__carousel splide" id="franchise-voices-carousel">
+      <div class="splide__track">
+        <ul class="splide__list">
+          {testimonials.map((testimonial) => (
+            <li class="splide__slide">
+              <div class="p-franchise-voices__slide">
+                <p class="p-franchise-voices__text">{testimonial.text}</p>
+                <div class="p-franchise-voices__profile">
+                  <div class="p-franchise-voices__avatar" aria-hidden="true">
+                    {testimonial.image ? (
+                      <img
+                        src={testimonial.image.url}
+                        alt={testimonial.storeName}
+                        width={testimonial.image.width}
+                        height={testimonial.image.height}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="18" cy="6" r="4" opacity="0.7"/>
+                        <path d="M2 20L8 12L14 16L20 10V20H2Z" opacity="0.5"/>
+                      </svg>
+                    )}
                   </div>
+                  <p class="p-franchise-voices__store-name">{testimonial.storeName}</p>
                 </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   </div>

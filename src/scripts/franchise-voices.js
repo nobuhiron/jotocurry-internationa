@@ -12,7 +12,7 @@ export default function initFranchiseVoices() {
   }
 
   new Splide(carouselElement, {
-    type: 'loop',
+    type: 'slide',
     perPage: 3,
     perMove: 1,
     gap: '1.5rem',
@@ -20,8 +20,8 @@ export default function initFranchiseVoices() {
     arrows: true,
     mediaQuery: 'max',
     breakpoints: {
-      767: {
-        perPage: 1.5,
+      1024: {
+        perPage: 1,
       },
     },
   }).mount();

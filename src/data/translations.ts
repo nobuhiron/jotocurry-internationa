@@ -71,6 +71,7 @@ export const translations = {
         },
       },
       button: 'ブランドストーリーを見る',
+      buttonLink: 'brand#section-brand-history',
     },
     en: {
       title: "Numbers Prove Joto Curry's Brand Power",
@@ -91,6 +92,7 @@ export const translations = {
         },
       },
       button: 'View Brand Story',
+      buttonLink: 'brand#section-brand-history',
     },
   },
   reasons: {
@@ -485,7 +487,7 @@ export const translations = {
           },
           {
             title: '素材と技術が生む深いコク',
-            text: '厳選した国産牛と玉ねぎ。 独自ブレンドのスパイス。 加圧調理と低温熟成。 40年かけて完成させた製法が、 他では真似できない深いコクを生み出します。 この確立された製法により、 未経験でも本格的な味を安定して提供できます。。',
+            text: '厳選した国産牛と玉ねぎ。 独自ブレンドのスパイス。 加圧調理と低温熟成。 40年かけて完成させた製法が、 他では真似できない深いコクを生み出します。 この確立された製法により、 未経験でも本格的な味を安定して提供できます。',
           },
           {
             title: '三人だけが知る秘伝のエキス',
@@ -525,26 +527,26 @@ export const translations = {
         popularTitle: '人気メニュー紹介',
         menuItems: [
           {
-            name: 'エビフライカレー',
+            name: 'カレーライス',
             category: '定番',
-            alt: 'エビフライカレー',
+            alt: 'カレーライス',
           },
-          { name: 'チーズカレー', category: '女性人気', alt: 'チーズカレー' },
-          { name: 'オムカレー', category: 'カテゴリー名', alt: 'オムカレー' },
+          { name: 'ほうれん草カレー', category: 'ヘルシー', alt: 'ほうれん草カレー' },
+          { name: 'エビフライカレー', category: '定番', alt: 'エビフライカレー' },
           {
-            name: 'グリーンカレー',
-            category: 'カテゴリー名',
-            alt: 'グリーンカレー',
-          },
-          {
-            name: 'エビフライカレー',
-            category: 'カテゴリー名',
-            alt: 'エビフライカレー',
+            name: 'チーズカレー',
+            category: '女性人気',
+            alt: 'チーズカレー',
           },
           {
-            name: 'エビフライカレー',
-            category: 'カテゴリー名',
-            alt: 'エビフライカレー',
+            name: '温玉カレー',
+            category: '定番',
+            alt: '温玉カレー',
+          },
+          {
+            name: 'カニクリームコロッケカレー',
+            category: '女性人気',
+            alt: 'カニクリームコロッケカレー',
           },
         ],
         imageAlt: '上等カレーのメニュー',
@@ -562,26 +564,26 @@ export const translations = {
         popularTitle: 'Popular Menu',
         menuItems: [
           {
-            name: 'Shrimp Fry Curry',
+            name: 'Curry Rice',
             category: 'Classic',
-            alt: 'Shrimp Fry Curry',
+            alt: 'Curry Rice',
           },
           {
-            name: 'Cheese Curry',
+            name: 'Spinach Curry',
+            category: 'Healthy',
+            alt: 'Spinach Curry',
+          },
+          { name: 'Shrimp Fry Curry', category: 'Classic', alt: 'Shrimp Fry Curry' },
+          { name: 'Cheese Curry', category: 'Popular with Women', alt: 'Cheese Curry' },
+          {
+            name: 'Soft-Boiled Egg Curry',
+            category: 'Classic',
+            alt: 'Soft-Boiled Egg Curry',
+          },
+          {
+            name: 'Crab Cream Croquette Curry',
             category: 'Popular with Women',
-            alt: 'Cheese Curry',
-          },
-          { name: 'Omelet Curry', category: 'Category', alt: 'Omelet Curry' },
-          { name: 'Green Curry', category: 'Category', alt: 'Green Curry' },
-          {
-            name: 'Shrimp Fry Curry',
-            category: 'Category',
-            alt: 'Shrimp Fry Curry',
-          },
-          {
-            name: 'Shrimp Fry Curry',
-            category: 'Category',
-            alt: 'Shrimp Fry Curry',
+            alt: 'Crab Cream Croquette Curry',
           },
         ],
         imageAlt: 'Joto Curry Menu',
@@ -714,6 +716,21 @@ export const translations = {
           privacyAgree: 'に同意します',
           submit: '無料相談を申し込む',
         },
+        messages: {
+          submitting: '送信中...',
+          success: 'お問い合わせありがとうございます。内容を確認次第、ご連絡いたします。',
+          error: '送信に失敗しました。しばらく時間をおいて再度お試しください。',
+          validationError: '入力内容に誤りがあります。ご確認ください。',
+          errors: {
+            lastName: '姓を入力してください',
+            firstName: '名を入力してください',
+            email: 'メールアドレスを正しく入力してください',
+            area: '展開予定エリアを選択してください',
+            purpose: 'お問い合わせ目的を選択してください',
+            situation: '現在のご状況を選択してください',
+            privacy: 'プライバシーポリシーに同意してください',
+          },
+        },
       },
       en: {
         title: 'Franchise Inquiry',
@@ -755,6 +772,21 @@ export const translations = {
           privacyAgree: 'I agree to the',
           submit: 'Apply for Free Consultation',
         },
+        messages: {
+          submitting: 'Sending...',
+          success: 'Thank you for your inquiry. We will contact you as soon as we review your message.',
+          error: 'Failed to send. Please try again later.',
+          validationError: 'Please check your input.',
+          errors: {
+            lastName: 'Please enter your last name',
+            firstName: 'Please enter your first name',
+            email: 'Please enter a valid email address',
+            area: 'Please select an area',
+            purpose: 'Please select a purpose',
+            situation: 'Please select your situation',
+            privacy: 'Please agree to the privacy policy',
+          },
+        },
       },
     },
     faq: {
@@ -777,6 +809,166 @@ export const translations = {
           text: 'Please feel free to contact us with any questions not listed here. We will discuss the details directly with you.',
           button: 'Contact Us',
         },
+      },
+    },
+  },
+  privacy: {
+    page: {
+      ja: {
+        title: '上等カレー - プライバシーポリシー',
+        heroTitle: 'プライバシーポリシー',
+        heroSubtitle: '個人情報の取り扱いについて',
+      },
+      en: {
+        title: 'Joto Curry - Privacy Policy',
+        heroTitle: 'Privacy Policy',
+        heroSubtitle: 'Handling of Personal Information',
+      },
+    },
+    content: {
+      ja: {
+        intro: '株式会社得正（以下「当社」といいます）は、お客様の個人情報の保護を重要な責務と考え、以下のプライバシーポリシーに基づき、個人情報を適切に取り扱います。',
+        sections: [
+          {
+            title: '1. 個人情報の定義',
+            content: '個人情報とは、氏名、住所、電話番号、メールアドレスなど、特定の個人を識別できる情報をいいます。',
+          },
+          {
+            title: '2. 個人情報の収集',
+            content: '当社は、お問い合わせフォームやフランチャイズ申し込みなど、お客様から直接提供いただく場合に個人情報を収集します。収集する際は、利用目的を明示し、必要最小限の範囲で収集します。',
+          },
+          {
+            title: '3. 個人情報の利用目的',
+            content: '当社は、収集した個人情報を以下の目的で利用します。\n・お問い合わせへの回答\n・フランチャイズに関する情報提供\n・サービスの改善\n・法令に基づく対応',
+          },
+          {
+            title: '4. 個人情報の第三者提供',
+            content: '当社は、法令に基づく場合を除き、お客様の同意なく個人情報を第三者に提供することはありません。',
+          },
+          {
+            title: '5. 個人情報の管理',
+            content: '当社は、個人情報の漏洩、滅失、毀損を防止するため、適切なセキュリティ対策を講じます。',
+          },
+          {
+            title: '6. 個人情報の開示・訂正・削除',
+            content: 'お客様ご本人から個人情報の開示、訂正、削除のご請求があった場合は、本人確認の上、速やかに対応いたします。',
+          },
+          {
+            title: '7. お問い合わせ',
+            content: '個人情報の取り扱いに関するお問い合わせは、以下までご連絡ください。\n\n株式会社得正\n〒541-0052 大阪府大阪市中央区安土町3-2-16長野ビル3F\nTEL: 06-6926-8286\nEmail: kawakami@tokumasa.net',
+          },
+          {
+            title: '8. プライバシーポリシーの変更',
+            content: '当社は、必要に応じて本プライバシーポリシーを変更することがあります。変更した場合は、当ウェブサイトにて公表します。',
+          },
+        ],
+        lastUpdated: '最終更新日: 2024年1月',
+      },
+      en: {
+        intro: 'Tokumasa Co., Ltd. (hereinafter referred to as "the Company") considers the protection of personal information to be an important responsibility and handles personal information appropriately based on the following privacy policy.',
+        sections: [
+          {
+            title: '1. Definition of Personal Information',
+            content: 'Personal information refers to information that can identify a specific individual, such as name, address, phone number, and email address.',
+          },
+          {
+            title: '2. Collection of Personal Information',
+            content: 'The Company collects personal information when it is directly provided by customers through inquiry forms, franchise applications, etc. When collecting, we clearly state the purpose of use and collect only the minimum necessary information.',
+          },
+          {
+            title: '3. Purpose of Use of Personal Information',
+            content: 'The Company uses collected personal information for the following purposes:\n- Responding to inquiries\n- Providing information about franchises\n- Improving services\n- Responding based on laws and regulations',
+          },
+          {
+            title: '4. Provision of Personal Information to Third Parties',
+            content: 'The Company will not provide personal information to third parties without the consent of the customer, except as required by law.',
+          },
+          {
+            title: '5. Management of Personal Information',
+            content: 'The Company takes appropriate security measures to prevent leakage, loss, and damage of personal information.',
+          },
+          {
+            title: '6. Disclosure, Correction, and Deletion of Personal Information',
+            content: 'When a customer requests disclosure, correction, or deletion of personal information, we will respond promptly after confirming the identity.',
+          },
+          {
+            title: '7. Contact',
+            content: 'For inquiries regarding the handling of personal information, please contact:\n\nTokumasa Co., Ltd.\n3F Nagano Building, 3-2-16 Azuchi-cho, Chuo-ku, Osaka-shi, Osaka 541-0052, Japan\nTEL: 06-6926-8286\nEmail: kawakami@tokumasa.net',
+          },
+          {
+            title: '8. Changes to Privacy Policy',
+            content: 'The Company may change this privacy policy as necessary. Any changes will be announced on this website.',
+          },
+        ],
+        lastUpdated: 'Last Updated: January 2024',
+      },
+    },
+  },
+  cookie: {
+    page: {
+      ja: {
+        title: '上等カレー - Cookieについて',
+        heroTitle: 'Cookieについて',
+        heroSubtitle: 'Cookieの使用について',
+      },
+      en: {
+        title: 'Joto Curry - About Cookies',
+        heroTitle: 'About Cookies',
+        heroSubtitle: 'About the Use of Cookies',
+      },
+    },
+    content: {
+      ja: {
+        intro: '当ウェブサイトでは、お客様により良いサービスを提供するためにCookieを使用しています。',
+        sections: [
+          {
+            title: '1. Cookieとは',
+            content: 'Cookieとは、ウェブサイトを閲覧した際に、お客様のコンピュータやスマートフォンに保存される小さなテキストファイルです。Cookieにより、ウェブサイトはお客様のブラウザを認識し、次回訪問時により便利なサービスを提供することができます。',
+          },
+          {
+            title: '2. 当サイトで使用するCookie',
+            content: '当サイトでは、以下の目的でCookieを使用しています。\n\n【必須Cookie】\nウェブサイトの基本的な機能を提供するために必要なCookieです。\n\n【分析Cookie】\nウェブサイトの利用状況を分析し、サービス改善に役立てるためのCookieです。Google Analyticsなどの第三者サービスを利用する場合があります。',
+          },
+          {
+            title: '3. Cookieの管理',
+            content: 'お客様はブラウザの設定により、Cookieの受け入れを拒否したり、保存されたCookieを削除することができます。ただし、Cookieを無効にした場合、当ウェブサイトの一部機能が正常に動作しない場合があります。',
+          },
+          {
+            title: '4. 第三者Cookie',
+            content: '当サイトでは、アクセス解析やサービス改善のため、第三者が提供するサービス（Google Analytics等）を利用しています。これらのサービスは独自のCookieを使用する場合があります。',
+          },
+          {
+            title: '5. お問い合わせ',
+            content: 'Cookieの使用に関するお問い合わせは、以下までご連絡ください。\n\n株式会社得正\n〒541-0052 大阪府大阪市中央区安土町3-2-16長野ビル3F\nTEL: 06-6926-8286\nEmail: kawakami@tokumasa.net',
+          },
+        ],
+        lastUpdated: '最終更新日: 2024年1月',
+      },
+      en: {
+        intro: 'This website uses cookies to provide you with better services.',
+        sections: [
+          {
+            title: '1. What are Cookies?',
+            content: 'Cookies are small text files that are stored on your computer or smartphone when you browse a website. Cookies allow websites to recognize your browser and provide more convenient services on your next visit.',
+          },
+          {
+            title: '2. Cookies Used on This Site',
+            content: 'We use cookies for the following purposes:\n\n【Essential Cookies】\nCookies necessary to provide basic website functionality.\n\n【Analytics Cookies】\nCookies used to analyze website usage and improve our services. We may use third-party services such as Google Analytics.',
+          },
+          {
+            title: '3. Managing Cookies',
+            content: 'You can refuse to accept cookies or delete stored cookies through your browser settings. However, if you disable cookies, some features of this website may not function properly.',
+          },
+          {
+            title: '4. Third-Party Cookies',
+            content: 'This site uses services provided by third parties (such as Google Analytics) for access analysis and service improvement. These services may use their own cookies.',
+          },
+          {
+            title: '5. Contact',
+            content: 'For inquiries regarding the use of cookies, please contact:\n\nTokumasa Co., Ltd.\n3F Nagano Building, 3-2-16 Azuchi-cho, Chuo-ku, Osaka-shi, Osaka 541-0052, Japan\nTEL: 06-6926-8286\nEmail: kawakami@tokumasa.net',
+          },
+        ],
+        lastUpdated: 'Last Updated: January 2024',
       },
     },
   },

@@ -100,7 +100,6 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 - `order` (数値) - 表示順序
 
 **使用箇所:**
-- `src/sections/SectionBrandStores.astro`
 - `src/sections/SectionBrandPower.astro`（店舗数の計算）
 
 ### 多言語対応

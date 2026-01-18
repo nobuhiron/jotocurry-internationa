@@ -29,11 +29,12 @@ export const onRequest: MiddlewareHandler = async (context, next) => {
   }
 
   // 言語プレフィックスがない場合、デフォルト言語にリダイレクト
-  // ただし、静的ファイル（.js, .css, .jpg など）とAstroの内部エンドポイントは除外
+  // ただし、静的ファイル（.js, .css, .jpg など）とAstroの内部エンドポイント、APIエンドポイントは除外
   const isStaticFile = /\.(js|css|jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|eot|json)$/i.test(pathname);
   const isAstroInternal = pathname.startsWith('/_image') || pathname.startsWith('/_astro') || pathname.startsWith('/@');
+  const isApiEndpoint = pathname.startsWith('/api/');
 
-  if (!isStaticFile && !isAstroInternal) {
+  if (!isStaticFile && !isAstroInternal && !isApiEndpoint) {
     return new Response(null, {
       status: 307,
       headers: {

@@ -57,6 +57,14 @@ export interface StatsContent extends MicroCMSContent {
 }
 
 /**
+ * ブランドパワー画像用の型定義
+ */
+export interface BrandPowerImageContent extends MicroCMSContent {
+  image: MicroCMSImage;
+  order?: number;
+}
+
+/**
  * フランチャイズボイス（お客様の声）用の型定義
  */
 export interface TestimonialContent extends MicroCMSContent {
