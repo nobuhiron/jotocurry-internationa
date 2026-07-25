@@ -6,7 +6,7 @@ import type { Locale } from '../../lib/i18n';
 export const prerender = false;
 
 // 送信元アドレス。Resendでドメイン認証済みのアドレスのみ使用できる
-const DEFAULT_EMAIL_FROM = '得正インターナショナル <no-reply@international.tokumasa.net>';
+const DEFAULT_EMAIL_FROM = '得正インターナショナル <no-reply@notifications.tokumasa.net>';
 
 // 自動返信メールに問い合わせ者が返信した場合の宛先
 const SUPPORT_EMAIL = 'info@tokumasa.net';
