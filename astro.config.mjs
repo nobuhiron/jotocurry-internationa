@@ -2,6 +2,9 @@ import { defineConfig } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
+  // 静的生成ページのcanonical/OGP/構造化データの絶対URLに使用される
+  // 未設定だとlocalhostのURLが出力されるため本番ドメインを指定する
+  site: 'https://international.tokumasa.net',
   // [lang]ディレクトリ構造でも画像パスが正しく解決されるように設定
   base: '/',
   output: 'server',
