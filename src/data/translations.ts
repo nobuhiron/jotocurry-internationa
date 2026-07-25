@@ -816,6 +816,29 @@ export const translations = {
         },
       },
     },
+    // 問い合わせ者へ自動返信するメールの本文
+    autoReply: {
+      ja: {
+        subject: '【上等カレー】お問い合わせありがとうございます',
+        intro:
+          'この度は上等カレーへお問い合わせいただき、誠にありがとうございます。\n以下の内容で承りました。担当者より順次ご連絡いたしますので、今しばらくお待ちくださいませ。',
+        contentHeading: '───────────────\n■ お問い合わせ内容\n───────────────',
+        notice:
+          '※本メールは送信専用アドレスからの自動送信です。\n※お心当たりのない場合は、お手数ですが本メールを破棄してください。',
+        signature:
+          '───────────────\n株式会社得正 上等カレー\n〒541-0052 大阪府大阪市中央区安土町3-2-16 長野ビル3F\nTEL: 06-6926-8286\nhttps://international.tokumasa.net\n───────────────',
+      },
+      en: {
+        subject: '【Joto Curry】Thank you for your inquiry',
+        intro:
+          'Thank you very much for contacting Joto Curry.\nWe have received your inquiry as shown below. A member of our team will get back to you shortly.',
+        contentHeading: '───────────────\n■ Your Inquiry\n───────────────',
+        notice:
+          'This is an automated message sent from a send-only address.\nIf you did not submit this inquiry, please disregard this email.',
+        signature:
+          '───────────────\nTokumasa Co., Ltd. / Joto Curry\n3F Nagano Building, 3-2-16 Azuchi-cho, Chuo-ku, Osaka-shi, Osaka 541-0052, Japan\nTEL: +81-6-6926-8286\nhttps://international.tokumasa.net\n───────────────',
+      },
+    },
     faq: {
       ja: {
         title: 'よくある質問',

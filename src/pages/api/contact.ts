@@ -5,18 +5,33 @@ import type { Locale } from '../../lib/i18n';
 
 export const prerender = false;
 
-const RESEND_API_KEY = import.meta.env.RESEND_API_KEY;
-const CONTACT_EMAIL_TO = import.meta.env.CONTACT_EMAIL_TO;
+// 送信元アドレス。Resendでドメイン認証済みのアドレスのみ使用できる
+const DEFAULT_EMAIL_FROM = '得正インターナショナル <no-reply@international.tokumasa.net>';
 
-if (!RESEND_API_KEY) {
-  throw new Error('RESEND_API_KEY environment variable is not set');
+// 自動返信メールに問い合わせ者が返信した場合の宛先
+const SUPPORT_EMAIL = 'info@tokumasa.net';
+
+interface ContactEnv {
+  RESEND_API_KEY?: string;
+  CONTACT_EMAIL_TO?: string;
+  CONTACT_EMAIL_FROM?: string;
 }
 
-if (!CONTACT_EMAIL_TO) {
-  throw new Error('CONTACT_EMAIL_TO environment variable is not set');
-}
+/**
+ * 環境変数を取得する
+ * 本番（Cloudflare）はダッシュボードで設定した値をランタイムから読み、
+ * ローカル開発は .env がビルド時に展開される import.meta.env にフォールバックする
+ */
+function getContactEnv(locals: App.Locals): ContactEnv {
+  const runtimeEnv = locals?.runtime?.env as ContactEnv | undefined;
 
-const resend = new Resend(RESEND_API_KEY);
+  return {
+    RESEND_API_KEY: runtimeEnv?.RESEND_API_KEY || import.meta.env.RESEND_API_KEY,
+    CONTACT_EMAIL_TO: runtimeEnv?.CONTACT_EMAIL_TO || import.meta.env.CONTACT_EMAIL_TO,
+    CONTACT_EMAIL_FROM:
+      runtimeEnv?.CONTACT_EMAIL_FROM || import.meta.env.CONTACT_EMAIL_FROM || DEFAULT_EMAIL_FROM,
+  };
+}
 
 interface FormData {
   'last-name': string;
@@ -121,14 +136,61 @@ function formatEmailBody(data: FormData, locale: Locale): string {
   return lines.join('\n');
 }
 
+/** 問い合わせ者への宛名（日本語は「姓 名 様」、英語は「Dear First Last,」） */
+function formatRecipientName(data: FormData, locale: Locale): string {
+  return locale === 'ja'
+    ? `${data['last-name']} ${data['first-name']} 様`
+    : `Dear ${data['first-name']} ${data['last-name']},`;
+}
+
+/** 問い合わせ者へ送る自動返信メールの本文 */
+function formatAutoReplyBody(data: FormData, locale: Locale): string {
+  const text = translations.contact.autoReply[locale];
+
+  return [
+    formatRecipientName(data, locale),
+    '',
+    text.intro,
+    '',
+    text.contentHeading,
+    formatEmailBody(data, locale),
+    '',
+    text.notice,
+    '',
+    text.signature,
+  ].join('\n');
+}
+
 function getEmailSubject(locale: Locale): string {
   return locale === 'ja'
     ? '【上等カレー】お問い合わせフォームからのお問い合わせ'
     : '【Joto Curry】Contact Form Inquiry';
 }
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, locals }) => {
   try {
+    const env = getContactEnv(locals);
+
+    // 環境変数が未設定の場合はモジュール読み込みを落とさず、エラーレスポンスを返す
+    if (!env.RESEND_API_KEY || !env.CONTACT_EMAIL_TO) {
+      console.error(
+        'Contact form is not configured: RESEND_API_KEY or CONTACT_EMAIL_TO is missing'
+      );
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: 'configuration_error',
+          message: 'Contact form is not configured',
+        }),
+        {
+          status: 500,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+    }
+
     const formData = await request.formData();
 
     const data: FormData = {
@@ -166,15 +228,20 @@ export const POST: APIRoute = async ({ request }) => {
     const emailSubject = getEmailSubject(locale);
 
     // Resend APIでメール送信
+    const resend = new Resend(env.RESEND_API_KEY);
     const { data: emailData, error } = await resend.emails.send({
-      from: 'onboarding@resend.dev', // Resendのデフォルト送信元（本番では独自ドメインに変更）
-      to: CONTACT_EMAIL_TO.split(',').map((email: string) => email.trim()),
+      from: env.CONTACT_EMAIL_FROM || DEFAULT_EMAIL_FROM,
+      to: env.CONTACT_EMAIL_TO.split(',')
+        .map((email: string) => email.trim())
+        .filter((email: string) => email !== ''),
+      // 通知メールにそのまま返信すれば問い合わせ者に届くようにする
+      replyTo: data.email,
       subject: emailSubject,
       text: emailBody,
     });
 
     if (error) {
-      console.error('Resend API error:', error);
+      console.error('Resend API error (notification):', error);
       return new Response(
         JSON.stringify({
           success: false,
@@ -188,6 +255,24 @@ export const POST: APIRoute = async ({ request }) => {
           },
         }
       );
+    }
+
+    // 問い合わせ者への自動返信
+    // 失敗しても社内通知は届いているため、ログのみ残して成功として扱う
+    try {
+      const { error: autoReplyError } = await resend.emails.send({
+        from: env.CONTACT_EMAIL_FROM || DEFAULT_EMAIL_FROM,
+        to: data.email,
+        replyTo: SUPPORT_EMAIL,
+        subject: translations.contact.autoReply[locale].subject,
+        text: formatAutoReplyBody(data, locale),
+      });
+
+      if (autoReplyError) {
+        console.error('Resend API error (auto reply):', autoReplyError);
+      }
+    } catch (autoReplyError) {
+      console.error('Unexpected error while sending auto reply:', autoReplyError);
     }
 
     return new Response(
