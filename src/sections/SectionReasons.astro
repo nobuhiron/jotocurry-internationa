@@ -23,12 +23,11 @@ const reasonsText = getTranslation('reasons', locale);
         align="center"
       />
       <div class="p-reasons__cards">
-        {reasonsText.cards.map((card, index) => (
+        {reasonsText.cards.map((card) => (
           <ReasonCard
             number={card.number}
             title={card.title}
             description={card.description}
-            icon={`/benefits-icon-${index + 1}.svg`}
             class="p-reasons__card"
           />
         ))}

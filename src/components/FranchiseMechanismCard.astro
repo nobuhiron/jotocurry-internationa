@@ -1,17 +1,17 @@
 ---
 interface Props {
-  icon: string;
+  number: string;
   title: string;
   paragraphs: string[];
   class?: string;
 }
 
-const { icon, title, paragraphs, class: className = '' } = Astro.props;
+const { number, title, paragraphs, class: className = '' } = Astro.props;
 ---
 
 <div class={`c-franchise-mechanism-card ${className}`}>
   <div class="c-franchise-mechanism-card__header">
-    <div class="c-franchise-mechanism-card__icon" aria-hidden="true" set:html={icon} />
+    <span class="c-franchise-mechanism-card__number" aria-hidden="true">{number}</span>
     <h3 class="c-franchise-mechanism-card__title">{title}</h3>
   </div>
   <div class="c-franchise-mechanism-card__paragraphs">
@@ -20,4 +20,3 @@ const { icon, title, paragraphs, class: className = '' } = Astro.props;
     ))}
   </div>
 </div>
-

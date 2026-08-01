@@ -22,30 +22,14 @@ const mechanismsText = translations.franchise.mechanisms[locale];
         align="center"
       />
       <div class="p-franchise-mechanisms__cards">
-        <FranchiseMechanismCard
-          icon='<svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-          title={mechanismsText.cards[0].title}
-          paragraphs={mechanismsText.cards[0].paragraphs ?? []}
-          class="p-franchise-mechanisms__card"
-        />
-        <FranchiseMechanismCard
-          icon='<svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><polyline points="12 6 12 12 16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-          title={mechanismsText.cards[1].title}
-          paragraphs={mechanismsText.cards[1].paragraphs ?? []}
-          class="p-franchise-mechanisms__card"
-        />
-        <FranchiseMechanismCard
-          icon='<svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="3 6 5 6 21 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-          title={mechanismsText.cards[2].title}
-          paragraphs={mechanismsText.cards[2].paragraphs ?? []}
-          class="p-franchise-mechanisms__card"
-        />
-        <FranchiseMechanismCard
-          icon='<svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 15 3.3 3.3a4.2 4.2 0 0 0 0 6l7.3 7.3c.7.7 2 .7 2.8 0L15 15Zm0 0 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="m2.1 21.8 6.4-6.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="m19 5-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-          title={mechanismsText.cards[3].title}
-          paragraphs={mechanismsText.cards[3].paragraphs ?? []}
-          class="p-franchise-mechanisms__card"
-        />
+        {mechanismsText.cards.map((card, index) => (
+          <FranchiseMechanismCard
+            number={String(index + 1).padStart(2, '0')}
+            title={card.title}
+            paragraphs={card.paragraphs ?? []}
+            class="p-franchise-mechanisms__card"
+          />
+        ))}
       </div>
     </div>
   </div>

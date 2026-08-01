@@ -7,39 +7,32 @@
   gap: var(--spacing-lg);
 }
 
-.c-reason-card__badge {
-  display: inline-block;
-  background-color: var(--color-accent-warm);
-  color: var(--color-text-on_dark);
-  border-radius: var(--radius-full);
-  padding-block: var(--spacing-sm);
-  padding-inline: var(--spacing-md);
-  line-height: 1;
-}
-
-.c-reason-card__badge-text {
-  font-family: var(--font-en);
-  font-size: 12px;
-}
-
-.c-reason-card__badge-amount {
-  font-size: 14px;
-}
-
 .c-reason-card__header {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--spacing-sm);
 }
 
-.c-reason-card__icon {
-  font-size: 1.5rem;
-  display: block;
-  text-align: center;
-  width: 60px;
-  aspect-ratio: 1 / 1;
+.c-reason-card__number {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5em;
   color: var(--color-accent-warm);
-  margin-inline: auto;
+  font-family: var(--font-en);
+  line-height: 1;
+}
+
+.c-reason-card__number-label {
+  font-size: 12px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.c-reason-card__number-value {
+  font-size: 32px;
+  font-weight: var(--fw-bold);
 }
 
 .c-reason-card__title {
