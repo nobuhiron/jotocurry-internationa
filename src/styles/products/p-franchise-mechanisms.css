@@ -45,16 +45,12 @@
   text-align: center;
 }
 
-.c-franchise-mechanism-card__icon {
-  width: 48px;
-  height: 48px;
-  color: var(--color-text);
-  margin-inline: auto;
-}
-
-.c-franchise-mechanism-card__icon svg {
-  width: 100%;
-  height: 100%;
+.c-franchise-mechanism-card__number {
+  font-family: var(--font-en);
+  font-size: 40px;
+  font-weight: var(--fw-bold);
+  line-height: 1;
+  color: var(--color-accent-cool);
 }
 
 .c-franchise-mechanism-card__title {
@@ -77,8 +73,7 @@
     text-align: center;
   }
 
-  .c-franchise-mechanism-card__icon {
-    margin-inline: 0;
+  .c-franchise-mechanism-card__number {
     flex-shrink: 0;
   }
 
