@@ -4,9 +4,6 @@ import SectionPageHero from '../../sections/SectionPageHero.astro';
 import { translations } from '../../data/translations';
 import type { Locale } from '../../lib/i18n';
 
-const privacyHeroImageUrl =
-  'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1920&q=80';
-
 export const prerender = true;
 
 export async function getStaticPaths() {
@@ -27,7 +24,6 @@ const metaText = translations.meta[locale];
   <SectionPageHero
     title={pageText.heroTitle}
     subtitle={pageText.heroSubtitle}
-    backgroundImage={privacyHeroImageUrl}
   />
 
   <section class="p-legal">
