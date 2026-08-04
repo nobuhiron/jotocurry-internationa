@@ -38,7 +38,7 @@
 .c-reason-card__title {
   font-family: var(--font-jp--serif);
   font-size: 24px;
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-semibold);
   text-align: center;
   text-wrap: balance;
 }

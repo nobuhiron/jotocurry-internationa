@@ -127,7 +127,7 @@
 .l-cta-section__title {
   font-family: var(--font-jp--serif);
   font-size: clamp(20px, 4vw, 32px);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-semibold);
   color: var(--color-text-on_dark);
   line-height: 1.6;
   text-align: center;
@@ -154,20 +154,8 @@
 
 .l-cta-section__item {
   color: var(--color-text-on_dark);
-  padding-inline-start: 1.2em;
   font-size: fz(14, 16);
-  position: relative;
   justify-self: center;
-}
-
-.l-cta-section__item::before {
-  content: '\2713';
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-weight: var(--fw-bold);
-  color: var(--color-text-on_dark);
-  line-height: var(--line-height-base);
 }
 
 .l-cta-section__text {

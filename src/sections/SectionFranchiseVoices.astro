@@ -58,6 +58,11 @@ try {
           {testimonials.map((testimonial) => (
             <li class="splide__slide">
               <div class="p-franchise-voices__slide">
+                <div class="p-franchise-voices__paragraphs">
+                  {(testimonial.paragraphs ?? []).map((paragraph) => (
+                    <p class="p-franchise-voices__text">{paragraph}</p>
+                  ))}
+                </div>
                 <div class="p-franchise-voices__profile">
                   <div class="p-franchise-voices__avatar" aria-hidden="true">
                     {testimonial.image ? (
@@ -80,11 +85,6 @@ try {
                     )}
                   </div>
                   <p class="p-franchise-voices__store-name">{testimonial.storeName}</p>
-                </div>
-                <div class="p-franchise-voices__paragraphs">
-                  {(testimonial.paragraphs ?? []).map((paragraph) => (
-                    <p class="p-franchise-voices__text">{paragraph}</p>
-                  ))}
                 </div>
               </div>
             </li>

@@ -78,6 +78,8 @@
   padding-inline-start: 0;
   /* 全てのアイテムを初期状態で表示 */
   opacity: 1;
+  /* item-content の2カラム化をアイテム自身の幅で判定する */
+  container-type: inline-size;
 }
 
 @media (--lg) {
@@ -163,14 +165,16 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--spacing-2xl);
+  /* ドット+年号の分だけ本文をインデント（旧実装のインラインstyleから移設） */
+  padding-inline-start: var(--spacing-lg);
 }
 
-@media (--md) {
+/* 従来の --md(768px viewport) 切替時のアイテム実幅(約690px)相当 */
+@container (min-width: 680px) {
   .p-brand-history__item-content {
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-2xl);
     align-items: center;
-    padding-inline-start: var(--spacing-3xl);
   }
 }
 

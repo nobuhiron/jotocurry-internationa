@@ -5,12 +5,14 @@
   /* Base Colors */
   --color-white: #fff;
   --color-black: #1a1a1a;
+  --color-charcoal: #211e1a;
   --color-gray: #777;
   --color-light-gray: #b1b1b1;
   --color-red: #dc2626;
   --color-pale-white: #fafafa;
   --color-pale-beige: #faf7f1;
   --color-beige: #e8d5c4;
+  --color-sand: #e7e2d9;
   --color-light-beige: #f5f0e8;
   --color-brown: #5c3d2e;
   --color-pale-orange: #c76a15;
@@ -45,8 +47,11 @@
   --fw-bold: 700;
 
   --font-size-base: 16px;
-  --line-height-base: 1.62;
-  --line-height-relaxed: 1.8;
+  --line-height-base: 1.75;
+  --line-height-relaxed: 1.9;
+
+  /* 日本語見出し用。本文に適用すると可読性が落ちるため見出し限定 */
+  --letter-spacing-heading: 0.05em;
 }
 
 /* -------------------

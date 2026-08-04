@@ -56,7 +56,7 @@
 .c-franchise-mechanism-card__title {
   font-family: var(--font-jp--serif);
   font-size: clamp(1.125rem, 2vw, 1.25rem);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-semibold);
   line-height: 1.4;
   color: var(--color-text);
   margin: 0;

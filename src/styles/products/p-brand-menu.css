@@ -22,6 +22,8 @@
 }
 
 .p-brand-menu__popular {
+  /* popular-grid の列数を自身の幅で判定するためのコンテナ */
+  container-type: inline-size;
 }
 
 .p-brand-menu__popular-header {
@@ -34,7 +36,7 @@
 .p-brand-menu__popular-title {
   font-family: var(--font-jp--serif);
   font-size: clamp(20px, 2vw, 24px);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-semibold);
   line-height: 1.4;
   color: var(--color-text);
   text-align: left;
@@ -56,14 +58,16 @@
   gap: var(--spacing-md);
 }
 
-@media (--md) {
+/* 従来の --md(768px viewport) 切替時のコンテナ実幅相当 */
+@container (min-width: 680px) {
   .p-brand-menu__popular-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-xl);
   }
 }
 
-@media (--lg) {
+/* 従来の --lg(1024px viewport) 切替時のコンテナ実幅相当 */
+@container (min-width: 940px) {
   .p-brand-menu__popular-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-2xl);
