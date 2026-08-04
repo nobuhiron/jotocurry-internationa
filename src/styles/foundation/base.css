@@ -16,8 +16,20 @@ body {
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
   font-weight: var(--fw-regular);
+  color: var(--color-text);
   background-color: var(--color-bg-base);
+}
 
+h1,
+h2,
+h3,
+h4 {
+  /* palt: 約物（、。「」）の空きを詰める。字間はセットで広げないと窮屈になる */
+  font-feature-settings: 'palt' 1;
+  letter-spacing: var(--letter-spacing-heading);
+  text-wrap: balance;
+  word-break: auto-phrase;
+  line-break: strict;
 }
 
 button,

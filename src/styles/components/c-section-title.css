@@ -1,6 +1,6 @@
 .c-section-title__title {
   font-size: clamp(24px, 4vw, 32px);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-semibold);
   line-height: 1.7;
   font-family: var(--font-jp--serif);
   text-wrap: balance;
