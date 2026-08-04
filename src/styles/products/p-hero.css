@@ -4,28 +4,33 @@
 .p-hero {
   display: grid;
   grid-template-columns: 16px 1fr 16px;
-  grid-template-rows: auto auto;
+  /* スマホ: 文字ブロック→写真→CTAの3行構成。メッセージを最初に見せる */
+  grid-template-rows: auto auto auto;
+  background-color: var(--color-charcoal);
 }
 
 @media (--md) {
   .p-hero {
     grid-template-columns: 48px 1fr 48px;
     grid-template-rows: auto auto;
+    background-color: transparent;
   }
 }
 
 .p-hero__image {
-  grid-row: 1 / 2;
+  grid-row: 2 / 3;
   grid-column: 1 / 4;
-  z-index: -1;
   position: relative;
-  min-height: 400px;
   overflow: hidden;
+  /* スマホ用クロップ(1290x1355)と同比率で余白なく表示する */
+  aspect-ratio: 1290 / 1355;
 }
 
 @media (--md) {
   .p-hero__image {
     grid-row: 1 / 3;
+    z-index: -1;
+    aspect-ratio: auto;
     min-height: 500px;
   }
 }
@@ -45,22 +50,19 @@
   object-position: center;
 }
 
-/* スマホ: 上に卵黄・下に文字が来る構図のため下部のみスクリム */
+/* スマホは文字が写真に重ならないためオーバーレイ不要。カレーは素の色で見せる */
 .p-hero__overlay {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.6),
-    transparent 55%
-  );
+  display: none;
 }
 
 /* PC: 文字ゾーンの左側だけ暗くし、カレーの色は素のまま見せる */
 @media (--md) {
   .p-hero__overlay {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     background-image: linear-gradient(
       to right,
       rgba(0, 0, 0, 0.55),
@@ -73,17 +75,10 @@
   grid-column: 2 / 3;
   display: grid;
   grid-template-columns: 1fr;
-  /* スマホ: 見出し・実績とも下端に寄せ、上部は写真（卵黄）を見せる */
-  grid-template-rows: 1fr auto;
+  grid-template-rows: auto auto;
   gap: var(--spacing-md);
   padding-block-start: clamp(var(--spacing-lg), 4vw, var(--spacing-5xl));
   padding-block-end: clamp(var(--spacing-lg), 4vw, 120px);
-}
-
-@media (--md) {
-  .p-hero__content {
-    grid-template-rows: auto auto;
-  }
 }
 
 .p-hero__features {
@@ -138,7 +133,7 @@
   line-break: strict;
 }
 .p-hero__bottom-section {
-  grid-row: 2 / 3;
+  grid-row: 3 / 4;
   grid-column: 2 / 3;
   text-align: center;
   padding-block-start: var(--spacing-xl);
@@ -150,6 +145,7 @@
 
 @media (--md) {
   .p-hero__bottom-section {
+    grid-row: 2 / 3;
     padding-block-start: var(--spacing-md);
     padding-block-end: clamp(0px, 4vw, var(--spacing-5xl));
     text-align: left;
