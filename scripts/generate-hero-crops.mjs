@@ -31,11 +31,12 @@ const crops = [
   },
   {
     name: 'hero-img-tall.jpg',
-    // 約1:1.05 / 卵黄をクロップ内 x50%・y30% に置く
+    // 左上の文字ブロック（バッジ+見出し+実績）の下に卵黄が来るよう y64% に配置。
+    // 上端の暗い背景帯が文字の下地になる。cover表示でサイドが切れる前提の広めクロップ
     width: 3000,
-    height: 3150,
-    eggAt: { x: 0.5, y: 0.3 },
-    resize: { width: 1290, height: 1355 },
+    height: 2295,
+    eggAt: { x: 0.5, y: 0.64 },
+    resize: { width: 2100, height: 1607 },
   },
 ];
 
