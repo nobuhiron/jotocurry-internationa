@@ -41,23 +41,28 @@
 .p-franchise-voices__slide {
   display: grid;
   grid-template-columns: 1fr;
+  /* 本文(1fr) + 署名(auto) の2行。署名をカード下端に揃える */
+  grid-template-rows: 1fr auto;
   gap: var(--spacing-lg);
-  padding: var(--spacing-xl);
-  align-content: start;
+  padding: var(--spacing-2xl) var(--spacing-2xl) var(--spacing-xl);
   background-color: var(--color-bg-surface);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-sand);
   height: 100%;
+  /* 店舗写真のサイズをカード幅(cqi)に追従させるためのコンテナ */
+  container-type: inline-size;
 }
 
 .p-franchise-voices__paragraphs {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--spacing-sm);
+  align-content: start;
 }
 
 .p-franchise-voices__text {
-  font-size: fz(14, 16);
+  font-size: fz(14, 15);
+  line-height: var(--line-height-relaxed);
   line-break: strict;
 }
 
@@ -65,12 +70,18 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-md);
+  padding-block-start: var(--spacing-lg);
+  border-block-start: 1px solid var(--color-sand);
 }
 
 .p-franchise-voices__avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-full);
+  /* 店舗写真のため円形ではなく角丸スクエア。
+     カード幅の18%を64〜96pxに制限し、3枚表示では小さく・1枚表示では大きく追従させる */
+  --avatar-size: clamp(64px, 18cqi, 96px);
+
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: var(--radius-md);
   background-color: var(--color-light-gray);
   flex-shrink: 0;
   display: flex;
@@ -93,8 +104,9 @@
 }
 
 .p-franchise-voices__store-name {
-  font-size: fz(14, 16);
-  font-weight: var(--fw-medium);
-  color: var(--color-text);
+  font-size: fz(13, 14);
+  font-weight: var(--fw-regular);
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
   line-break: strict;
 }
