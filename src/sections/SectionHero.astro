@@ -1,7 +1,8 @@
 ---
 import Button from '../components/Button.astro';
-import heroImage from '../assets/images/hero-img.jpg';
-import Image from 'astro/components/Image.astro';
+import { getImage } from 'astro:assets';
+import heroImageWide from '../assets/images/hero-img-wide.jpg';
+import heroImageTall from '../assets/images/hero-img-tall.jpg';
 import { getTranslation } from '../data/translations';
 import { getLocalizedPath } from '../lib/i18n';
 import type { Locale } from '../lib/i18n';
@@ -12,21 +13,28 @@ interface Props {
 
 const { locale = 'ja' } = Astro.props;
 const heroText = getTranslation('hero', locale);
+
+// PC/スマホで構図の異なる事前クロップ済み画像を出し分ける（クロップは scripts/generate-hero-crops.mjs で生成）
+const heroWide = await getImage({ src: heroImageWide, format: 'webp', widths: [1280, 1920, 2880] });
+const heroTall = await getImage({ src: heroImageTall, format: 'webp', widths: [640, 960, 1290] });
 ---
 
 <section class="p-hero" id="section-hero">
   <div class="p-hero__image">
-          <Image
-          src={heroImage}
-          alt={locale === 'en' ? 'Hero image' : 'ヒーローイメージ'}
-          width={7680}
-          height={4320}
-          widths={[960, 1920, 3840, 7680]}
-          sizes="100vw"
-          format="webp"
-          loading="eager"
-          fetchpriority="high"
-        />
+          <picture>
+          <source media="(min-width: 768px)" srcset={heroWide.srcSet.attribute} sizes="100vw" />
+          <img
+            src={heroTall.src}
+            srcset={heroTall.srcSet.attribute}
+            sizes="100vw"
+            alt={locale === 'en' ? "Joto Curry's signature sweet-and-spicy katsu curry topped with a raw egg yolk" : '上等カレーの看板メニュー、生卵をのせた甘辛カツカレー'}
+            width={1290}
+            height={1355}
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </picture>
       <div class="p-hero__overlay"></div>
   </div>
     <div class="p-hero__content">
