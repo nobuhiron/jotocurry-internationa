@@ -16,7 +16,7 @@ const heroText = getTranslation('hero', locale);
 
 // PC/スマホで構図の異なる事前クロップ済み画像を出し分ける（クロップは scripts/generate-hero-crops.mjs で生成）
 const heroWide = await getImage({ src: heroImageWide, format: 'webp', widths: [1280, 1920, 2880] });
-const heroTall = await getImage({ src: heroImageTall, format: 'webp', widths: [768, 1280, 2100] });
+const heroTall = await getImage({ src: heroImageTall, format: 'webp', widths: [585, 780, 1170] });
 ---
 
 <section class="p-hero" id="section-hero">
@@ -28,8 +28,8 @@ const heroTall = await getImage({ src: heroImageTall, format: 'webp', widths: [7
             srcset={heroTall.srcSet.attribute}
             sizes="100vw"
             alt={locale === 'en' ? "Joto Curry's signature sweet-and-spicy katsu curry topped with a raw egg yolk" : '上等カレーの看板メニュー、生卵をのせた甘辛カツカレー'}
-            width={2100}
-            height={1607}
+            width={1170}
+            height={1625}
             loading="eager"
             fetchpriority="high"
             decoding="async"

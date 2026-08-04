@@ -4,38 +4,29 @@
 .p-hero {
   display: grid;
   grid-template-columns: 16px 1fr 16px;
-  /* スマホ: 画像(バッジ+見出しを重ねる) → 実績 → CTA の3行。
-     チャコール地に写真上端を溶け込ませ、文字の下地と写真の鮮やかさを両立する */
-  grid-template-rows: auto auto auto;
-  background-color: var(--color-charcoal);
+  grid-template-rows: auto auto;
 }
 
 @media (--md) {
   .p-hero {
     grid-template-columns: 48px 1fr 48px;
     grid-template-rows: auto auto;
-    background-color: transparent;
   }
 }
 
 .p-hero__image {
   grid-row: 1 / 2;
   grid-column: 1 / 4;
-  z-index: 0;
+  z-index: -1;
   position: relative;
   overflow: hidden;
-  /* 左上の文字ブロックと中央の卵黄が干渉しない高さを確保する */
   min-height: 600px;
-  /* 写真上端をチャコール地にフェードさせる（プレフィックスはautoprefixerが付与） */
-  mask-image: linear-gradient(to bottom, transparent 0, rgb(0 0 0) 34%);
 }
 
 @media (--md) {
   .p-hero__image {
     grid-row: 1 / 3;
-    z-index: -1;
     min-height: 500px;
-    mask-image: none;
   }
 }
 
@@ -54,66 +45,49 @@
   object-position: center;
 }
 
-/* スマホ: マスクで写真自体をフェードさせるためスクリムは不要 */
+/* 文字ゾーンの左側だけ暗くし、カレーの色は素のまま見せる。
+   スマホは文字の下地が暗いカレー面になるクロップのため、これで足りる */
 .p-hero__overlay {
-  display: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.55),
+    transparent 60%
+  );
 }
-
-/* PC: 文字ゾーンの左側だけ暗くし、カレーの色は素のまま見せる */
-@media (--md) {
-  .p-hero__overlay {
-    display: block;
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0.55),
-      transparent 55%
-    );
-  }
-}
-/* スマホでは header と features を .p-hero 直下のグリッドアイテムとして別行に配置する */
 .p-hero__content {
-  display: contents;
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  /* スマホ: バッジ→見出し→実績を左上にまとめる */
+  align-content: start;
+  gap: var(--spacing-md);
+  padding-block-start: clamp(var(--spacing-lg), 4vw, var(--spacing-5xl));
+  padding-block-end: clamp(var(--spacing-lg), 4vw, 120px);
 }
 
 @media (--md) {
   .p-hero__content {
-    display: grid;
-    grid-row: 1 / 2;
-    grid-column: 2 / 3;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    gap: var(--spacing-md);
-    padding-block-start: clamp(var(--spacing-lg), 4vw, var(--spacing-5xl));
-    padding-block-end: clamp(var(--spacing-lg), 4vw, 120px);
+    align-content: normal;
   }
 }
 
 .p-hero__features {
-  /* スマホ: 画像の下・CTAの上（チャコール地）に表示 */
   grid-row: 2 / 3;
-  grid-column: 2 / 3;
+  grid-column: 1 / 2;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: var(--spacing-md);
   color: var(--color-text-on_dark);
   font-family: var(--font-jp--serif);
   font-weight: var(--fw-semibold);
   font-size: fz(14, 20);
   align-self: start;
-  padding-block-start: var(--spacing-lg);
-}
-
-@media (--md) {
-  .p-hero__features {
-    grid-column: 1 / 2;
-    justify-content: flex-start;
-    padding-block-start: 0;
-  }
 }
 
 .p-hero__feature:not(:last-child)::after {
@@ -127,23 +101,18 @@
 }
 
 .p-hero__header {
-  /* スマホ: 画像の左上に重ねる */
   grid-row: 1 / 2;
-  grid-column: 2 / 3;
-  z-index: 1;
+  grid-column: 1 / 2;
   align-self: start;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
   gap: var(--spacing-md);
-  padding-block-start: clamp(var(--spacing-lg), 4vw, var(--spacing-5xl));
 }
 
 @media (--md) {
   .p-hero__header {
-    grid-column: 1 / 2;
     align-self: end;
-    padding-block-start: 0;
   }
 }
 
@@ -166,7 +135,7 @@
   line-break: strict;
 }
 .p-hero__bottom-section {
-  grid-row: 3 / 4;
+  grid-row: 2 / 3;
   grid-column: 2 / 3;
   text-align: center;
   padding-block-start: var(--spacing-xl);
@@ -178,7 +147,6 @@
 
 @media (--md) {
   .p-hero__bottom-section {
-    grid-row: 2 / 3;
     padding-block-start: var(--spacing-md);
     padding-block-end: clamp(0px, 4vw, var(--spacing-5xl));
     text-align: left;
