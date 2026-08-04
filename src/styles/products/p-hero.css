@@ -20,7 +20,10 @@
   z-index: -1;
   position: relative;
   overflow: hidden;
+  /* svh非対応ブラウザ向けフォールバック */
   min-height: 480px;
+  /* stickyヘッダー(約68px)を差し引いた、URLバー表示時でも収まる1画面ぶん */
+  min-height: calc(100svh - 68px);
 }
 
 @media (--md) {
