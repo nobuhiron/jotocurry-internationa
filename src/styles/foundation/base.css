@@ -32,6 +32,12 @@ h4 {
   line-break: strict;
 }
 
+/* 欧文には約物詰めも文節改行も不要 */
+:lang(en) :is(h1, h2, h3, h4) {
+  font-feature-settings: normal;
+  word-break: normal;
+}
+
 button,
 a {
   cursor: pointer;

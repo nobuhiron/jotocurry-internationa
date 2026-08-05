@@ -16,15 +16,15 @@ export const translations = {
     },
     en: {
       badge: 'Franchise Owners Wanted',
-      title: "Osaka's Sweet & Spicy Katsu Curry,<br>in Your City.",
+      title: 'Osaka-Born Sweet & Spicy Katsu Curry,<br>Now in Your City.',
       features: [
-        '40 Years of Experience',
+        '40 Years of Proven Success',
         'Simple Operations',
         'No Experience Required',
       ],
       buttons: {
         primary: 'Free Online Consultation',
-        secondary: 'Download Detailed Materials',
+        secondary: 'Download Our Franchise Brochure',
       },
     },
   },
@@ -38,7 +38,7 @@ export const translations = {
     en: {
       title: 'Bringing Osaka-Born Sweet & Spicy Curry to the World',
       description:
-        'With the mission of spreading the appeal of Japanese food culture — especially curry — to the world, we established "TOKUMASA INTERNATIONAL" in 2024. We have refined the flavors and operational know-how cultivated in Osaka, the city of food lovers, into a system that can be replicated overseas. Why not join us as a franchise owner and bring Joto Curry to your city?',
+        "We founded TOKUMASA INTERNATIONAL in 2024 with a simple mission: to share the best of Japanese food culture — above all, curry — with the world. We have refined the flavors and operational know-how cultivated in Osaka, Japan's food capital, into a system that can be replicated anywhere, and we are now expanding it worldwide. Join us as a franchise owner and bring Joto Curry to your city.",
       button: 'Free Online Consultation',
     },
   },
@@ -121,7 +121,7 @@ export const translations = {
           number: '02',
           title: 'Simple and Efficient Operations',
           description:
-            'Operations designed so that even those without experience can run the business with confidence using a small team. Minimize food waste and costs to achieve stable revenue.',
+            'Our streamlined operations are designed so that even those with no prior experience can run the business confidently with a small team. By minimizing food waste and operating costs, franchise owners can achieve stable profitability.',
         },
         {
           number: '03',
