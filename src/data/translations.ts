@@ -433,7 +433,7 @@ export const translations = {
         title: 'Our Origins, Our Craft',
         blockTitles: [
           'It All Began with a Bowl of Curry Udon',
-          'Premium Flavor from<br class="is-sm">Carefully Chosen Ingredients',
+          'Premium Flavor from Carefully Chosen Ingredients',
         ],
         paragraphs: [
           {
@@ -485,7 +485,7 @@ export const translations = {
         imageAlts: ['Curry spoon', 'Ingredients', 'Curry paste'],
         blocks: [
           {
-            title: 'A Harmony of Sweetness,<br class="is-sm">Spice, and Umami',
+            title: 'A Harmony of Sweetness, Spice, and Umami',
             paragraphs: [
               'A gentle sweetness on the first bite. Fragrant spices and deep umami that unfold as you eat. And a rich, lingering aftertaste.',
               'This meticulously crafted three-layered flavor profile keeps customers coming back for more.',
