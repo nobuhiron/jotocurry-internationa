@@ -488,14 +488,14 @@ export const translations = {
             title: 'A Harmony of Sweetness, Spice, and Umami',
             paragraphs: [
               'A gentle sweetness on the first bite. Fragrant spices and deep umami that unfold as you eat. And a rich, lingering aftertaste.',
-              'This meticulously crafted three-layered flavor profile keeps customers coming back for more.',
+              'Three layers of flavor, designed down to the last detail — that is what keeps customers coming back.',
             ],
           },
           {
             title: 'Deep Richness from Ingredients and Technique',
             paragraphs: [
               'Carefully selected Japanese beef and onions. A proprietary spice blend. Pressure cooking and low-temperature aging. A method refined over more than 40 years creates a deep richness that cannot be replicated elsewhere.',
-              'This established method ensures consistent delivery of our one-of-a-kind flavor.',
+              'This established method lets every restaurant serve the same one-of-a-kind flavor.',
             ],
           },
           {
