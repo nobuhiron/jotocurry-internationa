@@ -38,7 +38,7 @@ export const translations = {
     en: {
       title: 'Taking Osaka-Born Curry to the World',
       description:
-        "We founded TOKUMASA INTERNATIONAL in 2024 with a simple mission: to share the best of Japanese food culture — above all, curry — with the world. We have refined the flavors and operational know-how cultivated in Osaka, Japan's food capital, into a system that can be replicated anywhere, and we are now expanding it worldwide. Join us as a franchise owner and open your own Joto Curry in your city.",
+        "We founded TOKUMASA INTERNATIONAL in 2024 with a simple mission: to share the best of Japanese food culture — above all, curry — with the world. We took the flavors and operational know-how cultivated in Osaka, Japan's food capital, and refined them into a system that can be replicated anywhere. Now we are expanding it worldwide. Join us as a franchise owner and open your own Joto Curry in your city.",
       button: 'Start with a Free Online Consultation',
     },
   },
