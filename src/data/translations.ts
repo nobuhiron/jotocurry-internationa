@@ -575,9 +575,9 @@ export const translations = {
             alt: 'Spinach Curry',
           },
           {
-            name: 'Shrimp Fry Curry',
+            name: 'Fried Shrimp Curry',
             category: 'Classic',
-            alt: 'Shrimp Fry Curry',
+            alt: 'Fried Shrimp Curry',
           },
           {
             name: 'Cheese Curry',
@@ -590,9 +590,9 @@ export const translations = {
             alt: 'Soft-Boiled Egg Curry',
           },
           {
-            name: 'Crab Cream Croquette Curry',
+            name: 'Creamy Crab Croquette Curry',
             category: 'Fan Favorite',
-            alt: 'Crab Cream Croquette Curry',
+            alt: 'Creamy Crab Croquette Curry',
           },
         ],
         imageAlt: 'Joto Curry Menu',
