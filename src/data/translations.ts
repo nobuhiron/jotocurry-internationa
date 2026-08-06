@@ -559,7 +559,7 @@ export const translations = {
             text: "Joto Curry's signature dish is katsu curry. The combination of crispy breaded cutlet and rich sweet & spicy curry roux is beloved across countries and generations.",
           },
           {
-            text: 'The roux base comes from Japan; your kitchen simply adds beef and spices to finish it — no complicated preparation required. A wide range of menu items can be offered just by adjusting toppings and spice levels. We also support developing original menu items for local tastes — dishes your customers can find only at your restaurant.',
+            text: 'We supply the roux base from Japan; your kitchen simply adds beef and spices to finish it — no complicated preparation required. A wide range of menu items can be offered just by adjusting toppings and spice levels. We also support developing original menu items for local tastes — dishes your customers can find only at your restaurant.',
           },
         ],
         popularTitle: 'Popular Menu',
