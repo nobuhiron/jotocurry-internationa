@@ -272,7 +272,7 @@ export const translations = {
             title: 'シンプルな調理で味の再現性を担保',
             paragraphs: [
               '厨房設備投資や店舗スタッフへの負担を軽減できるシンプルで再現性のある調理と提供手順。ブランドの魂である『秘伝のエキス』を調合したルーは、セントラルキッチンから完璧な状態で供給されます。',
-              '店舗では温めるだけで、どの国でもブレない最高品質の味を再現できます。',
+              '店舗では牛肉とスパイスを加えて仕上げるだけ。どの国でもブレない最高品質の味を再現できます。',
             ],
           },
           {
@@ -305,7 +305,7 @@ export const translations = {
             title: 'Guaranteed Taste Reproducibility with Simple Cooking',
             paragraphs: [
               'Simple and reproducible cooking and serving procedures that reduce the burden of kitchen equipment investment and store staff. The roux blended with the "secret extract," the soul of the brand, is supplied from the central kitchen in perfect condition.',
-              'At the store, just by heating it, you can reproduce the highest quality taste that never varies in any country.',
+              'Your restaurant simply adds beef and spices to finish the curry — the same top quality, in any country.',
             ],
           },
           {
@@ -514,7 +514,7 @@ export const translations = {
             text: '上等カレーの看板メニューは「カツカレー」。サクサクの衣とコク深い甘辛ルーの組み合わせは、国や世代を問わず高い支持を集めています。',
           },
           {
-            text: '現地では、日本から供給するルーを温めるだけで、複雑な仕込みは不要です。トッピングや辛さの調整だけで、幅広いメニューを展開できます。さらに、地域特性に合わせたオリジナルメニューの開発もサポート。あなたの店でしか食べられない看板メニューがつくれます。',
+            text: 'ベースのルーは日本から供給。現地では牛肉とスパイスを加えて仕上げるだけなので、複雑な仕込みは不要です。トッピングや辛さの調整で、幅広いメニューを展開できます。さらに、地域特性に合わせたオリジナルメニューの開発もサポート。あなたの店でしか食べられない看板メニューがつくれます。',
           },
         ],
         popularTitle: '人気メニュー紹介',
@@ -559,7 +559,7 @@ export const translations = {
             text: 'Joto Curry\'s signature dish is "Katsu Curry." The combination of crispy breaded cutlet and rich sweet-spicy curry roux is beloved across countries and generations.',
           },
           {
-            text: 'At local stores, simply heating the curry roux supplied from Japan is all that is needed — no complicated preparation required. A wide range of menu items can be offered just by adjusting toppings and spice levels. We also support developing original menu items for local tastes — dishes your customers can find only at your restaurant.',
+            text: 'The roux base comes from Japan; your kitchen simply adds beef and spices to finish it — no complicated preparation required. A wide range of menu items can be offered just by adjusting toppings and spice levels. We also support developing original menu items for local tastes — dishes your customers can find only at your restaurant.',
           },
         ],
         popularTitle: 'Popular Menu',
