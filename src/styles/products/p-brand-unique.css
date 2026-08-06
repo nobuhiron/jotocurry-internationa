@@ -53,7 +53,8 @@
   font-weight: var(--fw-semibold);
   font-family: var(--font-jp--serif);
   line-height: 1.4;
-  padding-inline-start: var(--spacing-sm);
+  /* アクセントバー(4px)とテキストの間に12pxの呼吸を確保する */
+  padding-inline-start: var(--spacing-md);
   position: relative;
 }
 .p-brand-unique__text-block-title::before {
