@@ -403,7 +403,7 @@ export const translations = {
         title: 'Joto Curry - Brand',
         heroTitle: 'About Joto Curry',
         heroSubtitle:
-          'A curry specialty restaurant from Osaka with over 40 years of history.<br>While preserving traditional flavors, we continue to evolve with the times and are now expanding worldwide.',
+          'Born in Osaka. Specializing in curry for over 40 years.<br>We preserve the traditional taste, evolve with the times, and are now expanding worldwide.',
       },
     },
     origin: {
@@ -415,7 +415,7 @@ export const translations = {
         ],
         paragraphs: [
           {
-            text: '上等カレーを運営すると得正は、1983年に「手打ちうどん 得正」として創業。生粋のカレー愛好家でもある創業者・瀬戸口勝幸は、名物「得正カレーうどん」を生み出しました。',
+            text: '上等カレーを運営する得正は、1983年に「手打ちうどん 得正」として創業。生粋のカレー愛好家でもある創業者・瀬戸口勝幸は、名物「得正カレーうどん」を生み出しました。',
           },
           {
             text: 'この味を、もっと多くの人に、もっと手軽に届けたい——。その想いから、コンセプトはカレーうどんからカレーライスへと進化し、1995年、上等カレーの1号店が誕生しました。',
