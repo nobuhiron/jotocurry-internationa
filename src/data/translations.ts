@@ -468,14 +468,13 @@ export const translations = {
             title: '素材と技術が生む深いコク',
             paragraphs: [
               '厳選した国産牛と玉ねぎ。独自ブレンドのスパイス。加圧調理と低温熟成。40年以上かけて磨き上げた製法が、他では真似できない深いコクを生み出します。',
-              'この確立された製法により、唯一無二の味を安定して提供します。',
             ],
           },
           {
             title: '三人だけが知る秘伝のエキス',
             paragraphs: [
               '上等カレーの味の決め手となるのは、大阪で職人の手により丁寧に作られる秘伝のエキスです。そのレシピは創業者を含むわずか三人だけが知る門外不出のもの。',
-              '甘み・辛み・旨みが絶妙に調和したこの味こそが、上等カレーの真髄です。この厳格な品質管理が、すべての店舗で変わらぬ本物の味を保証します。',
+              '秘伝のエキスは大阪でのみ製造し、各店舗へ届けられます。この徹底した管理が、世界中どの店舗でも変わらぬ本物の味を保証します。',
             ],
           },
         ],
@@ -495,14 +494,13 @@ export const translations = {
             title: 'Deep Richness from Ingredients and Technique',
             paragraphs: [
               'Carefully selected Japanese beef and onions. A proprietary spice blend. Pressure cooking and low-temperature aging. A method refined over more than 40 years creates a deep richness that cannot be replicated elsewhere.',
-              'This established method lets every restaurant serve the same one-of-a-kind flavor.',
             ],
           },
           {
             title: 'A Secret Essence Known Only to Three',
             paragraphs: [
               "The key to Joto Curry's flavor is a secret essence, carefully crafted by artisans in Osaka. The recipe is a closely guarded secret known only to three people, including the founder.",
-              'This perfect harmony of sweetness, heat, and umami is the heart of Joto Curry. Strict quality control guarantees the same authentic taste at every restaurant.',
+              'The essence is made only in Osaka and delivered to every restaurant. This tight control is what guarantees the same authentic taste, anywhere in the world.',
             ],
           },
         ],
