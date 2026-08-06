@@ -603,7 +603,7 @@ export const translations = {
         title: '世界への歩み',
         intro: [
           '40年以上の実績を持つブランドだからこそ、安定したフランチャイズ運営が可能です。',
-          '1983年、大阪の小さな店舗から始まった上等カレーは、今や国内外に展開するグローバルブランドへ。この確かな成長の歴史が、あなたの成功を支えます。',
+          '上等カレーのルーツは、1983年に大阪で生まれた小さなうどん店。そこから国内外に展開するグローバルブランドへと成長しました。この確かな歩みが、あなたの成功を支えます。',
         ],
         button: 'フランチャイズの<br class="is-sm">ご相談はこちら',
         timeline: [
@@ -638,8 +638,8 @@ export const translations = {
       en: {
         title: 'From Osaka to the World',
         intro: [
-          'With over 40 years of experience, stable franchise operations are possible.',
-          'Joto Curry, which started as a small shop in Osaka in 1983, has now grown into a global brand expanding both domestically and internationally. This steady growth history supports your success.',
+          'Four decades of history stand behind every new restaurant.',
+          'Joto Curry traces its roots to a small udon shop that opened in Osaka in 1983. It has since grown into a global brand, in Japan and overseas — and that steady track record is what supports your success.',
         ],
         button: 'Consultation for Franchise',
         timeline: [
@@ -665,7 +665,7 @@ export const translations = {
             heading: 'A Bowl Born in Osaka Spreads Worldwide',
             paragraphs: [
               'Currently operating 11 stores overseas. Following success in Mongolia, Thailand, and Cambodia, expansion plans for South Korea, China, Singapore, Indonesia, the Philippines, and Canada are underway from 2025 onwards.',
-              'Why not take the first step toward success with a brand that continues to grow worldwide?',
+              'Take the first step — with a brand that keeps growing worldwide.',
             ],
             imageAlt: 'A Bowl Born in Osaka Spreads Worldwide',
           },
