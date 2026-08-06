@@ -493,7 +493,7 @@ export const translations = {
           {
             title: 'Deep Richness from Ingredients and Technique',
             paragraphs: [
-              'Carefully selected Japanese beef and onions. A proprietary spice blend. Pressure cooking and low-temperature aging. A method refined over more than 40 years creates a deep richness that cannot be replicated elsewhere.',
+              'Carefully selected Japanese beef and onions. Our own spice blend. Pressure cooking and low-temperature aging. A method refined over more than 40 years creates a deep richness that cannot be replicated elsewhere.',
             ],
           },
           {
