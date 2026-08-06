@@ -8,6 +8,7 @@ import { getBrandPowerImages } from '../lib/microcms-brand-power-images';
 import { optimizeImageUrl } from '../lib/microcms';
 import { getStats } from '../lib/microcms-stats';
 import { getTranslation } from '../data/translations';
+import { getLocalizedPath } from '../lib/i18n';
 import type { Locale } from '../lib/i18n';
 
 interface Props {
@@ -59,7 +60,7 @@ try {
       />
       <div class="p-brand-power__stats">
         <StatCard
-          value={String(mealsValue)}
+          value={mealsValue.toLocaleString('en-US')}
           unit={brandPowerText.stats.meals.unit}
           label={brandPowerText.stats.meals.label}
           class="p-brand-power__stat"
@@ -118,7 +119,7 @@ try {
   <div class="l-container">
     <div class="p-brand-power__button-wrapper">
       <Button
-        href={brandPowerText.buttonLink}
+        href={getLocalizedPath(brandPowerText.buttonLink, locale)}
         text={brandPowerText.button}
         variant="secondary"
         icon="→"
@@ -137,4 +138,3 @@ try {
     initBrandPower();
   }
 </script>
-

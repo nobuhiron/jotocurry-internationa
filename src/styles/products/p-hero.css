@@ -85,22 +85,19 @@
   grid-column: 1 / 2;
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-md);
+  gap: 20px;
   color: var(--color-text-on_dark);
   font-family: var(--font-jp--serif);
   font-weight: var(--fw-semibold);
-  font-size: fz(14, 20);
+  font-size: fz(13, 15);
+  letter-spacing: 0.08em;
   align-self: start;
 }
 
-.p-hero__feature:not(:last-child)::after {
-  content: '／';
-  margin-inline-start: var(--spacing-md);
-  opacity: 0.55;
-}
-
-:lang(en) .p-hero__feature:not(:last-child)::after {
-  content: '/';
+/* 各項目の先頭に縦線を置き、独立したタグとして見せる */
+.p-hero__feature {
+  border-inline-start: 1px solid currentcolor;
+  padding-inline-start: 10px;
 }
 
 .p-hero__header {

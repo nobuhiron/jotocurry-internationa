@@ -8,22 +8,22 @@ export const translations = {
     ja: {
       badge: '海外フランチャイズオーナー募集中',
       title: '大阪発の<br class="is-sm">甘辛カツカレーを、<br>あなたの街で。',
-      features: ['40年の実績', 'シンプル運営', '未経験からスタート可能'],
+      features: ['1983年創業', 'シンプル運営', '未経験でも開業可能'],
       buttons: {
         primary: 'まずは無料オンライン相談',
         secondary: '詳細資料をダウンロード',
       },
     },
     en: {
-      badge: 'Franchise Owners Wanted',
-      title: 'Osaka-Born Sweet & Spicy Katsu Curry,<br>Now in Your City.',
+      badge: 'International Franchise Opportunities',
+      title: 'Bring Osaka-Style Sweet & Spicy Katsu Curry<br>to Your City.',
       features: [
-        '40 Years of Proven Success',
+        'Proven Success Since 1983',
         'Simple Operations',
         'No Experience Required',
       ],
       buttons: {
-        primary: 'Free Online Consultation',
+        primary: 'Start with a Free Online Consultation',
         secondary: 'Download Our Franchise Brochure',
       },
     },
@@ -64,22 +64,22 @@ export const translations = {
       buttonLink: 'brand#section-brand-history',
     },
     en: {
-      title: "Numbers Prove Joto Curry's Brand Power",
+      title: "Joto Curry's Brand Power, Proven by the Numbers",
       stats: {
         meals: {
           unit: 'meals',
-          label: 'Average Daily Meals Served',
+          label: 'Served on an Average Day',
         },
         domesticStores: {
           unit: 'stores',
-          label: 'Domestic Stores',
+          label: 'Locations in Japan',
         },
         overseasStores: {
           unit: 'stores',
-          label: 'Overseas Stores',
+          label: 'International Locations',
         },
       },
-      button: 'View Brand Story',
+      button: 'Read Our Brand Story',
       buttonLink: 'brand#section-brand-history',
     },
   },
@@ -103,7 +103,7 @@ export const translations = {
           number: '03',
           title: '多彩な展開で収益を最大化',
           description:
-            '地域に合わせたメニュー開発や、カレーパン、レトルトなどの物販展開により、収益を最大化。40年の実績に基づくノウハウでサポートします。',
+            '地域に合わせたメニュー開発や、カレーパン、レトルトなどの物販展開により、収益を最大化。40年以上の実績に基づくノウハウでサポートします。',
         },
       ],
       buttons: ['サポート体制を見る', 'オーナーの声を見る'],
@@ -115,22 +115,22 @@ export const translations = {
           number: '01',
           title: 'Global Popularity of Japanese Curry',
           description:
-            'Japanese curry is attracting worldwide attention as a growing market following sushi and ramen. Now is the time to consider entering this market with the wind at your back.',
+            'Following sushi and ramen, Japanese curry is winning attention worldwide as the next growth market. Demand is rising fast, which makes now the moment to enter.',
         },
         {
           number: '02',
           title: 'Simple and Efficient Operations',
           description:
-            'Our streamlined operations are designed so that even those with no prior experience can run the business confidently with a small team. By minimizing food waste and operating costs, franchise owners can achieve stable profitability.',
+            'Streamlined operations let a small team run the business with confidence, even with no prior experience. Minimizing food waste and running costs keeps profitability steady.',
         },
         {
           number: '03',
           title: 'Maximize Revenue with Diverse Expansion',
           description:
-            'Maximize revenue through region-specific menu development and retail product lines such as curry bread and ready-to-eat packets. Backed by 40 years of proven know-how.',
+            'Grow revenue with menus developed for your region and retail products such as curry buns and ready-to-eat pouches. We support you with more than 40 years of accumulated know-how.',
         },
       ],
-      buttons: ['View Support System', 'View Owner Voices'],
+      buttons: ['See How We Support You', 'Hear from Our Owners'],
       buttonLinks: {
         support: 'support',
         testimonials: 'testimonials',
@@ -209,9 +209,10 @@ export const translations = {
         contact: 'Contact:',
       },
       companyInfo: {
-        postalCode: '〒541-0052',
+        // 郵便番号は英語表記では住所末尾に含めるため、専用行は空にする
+        postalCode: '',
         address:
-          '3F Nagano Building, 3-2-16 Azuchi-cho, Chuo-ku, Osaka-shi, Osaka 541-0052, Japan',
+          '3F Nagano Building, 3-2-16 Azuchi-cho, Chuo-ku, Osaka 541-0052, Japan',
       },
       legal: {
         privacy: 'Privacy Policy',
@@ -219,7 +220,7 @@ export const translations = {
       },
       ariaLabel: 'Footer navigation',
       logoAlt: 'Joto Curry',
-      copyright: '© Tokumasa All Rights Reserved.',
+      copyright: '© Tokumasa Co., Ltd. All Rights Reserved.',
     },
   },
   cta: {
@@ -235,16 +236,15 @@ export const translations = {
       button: '出店のご相談はこちら',
     },
     en: {
-      title:
-        'Feel free to consult with us about any questions, no matter how small.',
+      title: "No question is too small — we're here to help.",
       questions: [
         'How much initial investment is required?',
-        'Can I really operate without experience?',
-        'How long does it take to open?',
-        'What is the actual revenue model?',
+        'Can I run a store with no prior experience?',
+        'How long does it take to open a store?',
+        'How does the revenue model work?',
       ],
-      text: 'Our experienced staff will answer your questions with care.',
-      button: 'Consultation for Opening a Store',
+      text: 'Our experienced team will answer your questions personally.',
+      button: 'Talk to Us About Opening a Store',
     },
   },
   franchise: {
@@ -467,7 +467,7 @@ export const translations = {
           {
             title: '素材と技術が生む深いコク',
             paragraphs: [
-              '厳選した国産牛と玉ねぎ。独自ブレンドのスパイス。加圧調理と低温熟成。40年かけて完成させた製法が、他では真似できない深いコクを生み出します。',
+              '厳選した国産牛と玉ねぎ。独自ブレンドのスパイス。加圧調理と低温熟成。40年以上かけて磨き上げた製法が、他では真似できない深いコクを生み出します。',
               'この確立された製法により、唯一無二の味を安定して提供します。',
             ],
           },
@@ -494,7 +494,7 @@ export const translations = {
           {
             title: 'Deep Richness Born from Ingredients and Technique',
             paragraphs: [
-              'Carefully selected domestic beef and onions. A proprietary spice blend. Pressure cooking and low-temperature aging. A production method perfected over 40 years creates a deep richness that cannot be replicated elsewhere.',
+              'Carefully selected Japanese beef and onions. A proprietary spice blend. Pressure cooking and low-temperature aging. A method refined over more than 40 years creates a deep richness that cannot be replicated elsewhere.',
               'This established method ensures consistent delivery of our one-of-a-kind flavor.',
             ],
           },
@@ -1057,7 +1057,7 @@ export const translations = {
       home: {
         title: '上等カレー | 海外フランチャイズオーナー募集',
         description:
-          '大阪発の甘辛カツカレー「上等カレー」の海外フランチャイズオーナーを募集中。40年の実績とシンプルなオペレーションで、未経験からでもスタート可能です。',
+          '大阪発の甘辛カツカレー「上等カレー」の海外フランチャイズオーナーを募集中。1983年創業の実績とシンプルなオペレーションで、未経験からでも開業できます。',
       },
       brand: {
         description:
@@ -1089,7 +1089,7 @@ export const translations = {
       home: {
         title: 'Joto Curry | International Franchise Owners Wanted',
         description:
-          "Osaka's sweet & spicy katsu curry franchise. 40 years of experience, simple operations, and no prior experience required. Start your Joto Curry franchise today.",
+          "Osaka's sweet & spicy katsu curry franchise. Proven success since 1983, simple operations, and no experience required. Start your Joto Curry franchise today.",
       },
       brand: {
         description:
