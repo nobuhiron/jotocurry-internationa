@@ -499,7 +499,7 @@ export const translations = {
           {
             title: 'A Secret Essence Known Only to Three',
             paragraphs: [
-              "The key to Joto Curry's flavor is a secret essence, carefully crafted by artisans in Osaka. The recipe is a closely guarded secret known only to three people, including the founder.",
+              "The key to Joto Curry's flavor is a secret essence, carefully crafted by artisans in Osaka. The recipe is a closely guarded secret, known only to the founder and two others.",
               'The essence is made only in Osaka and delivered to every restaurant. This tight control is what guarantees the same authentic taste, anywhere in the world.',
             ],
           },
