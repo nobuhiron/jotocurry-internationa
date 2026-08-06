@@ -600,7 +600,7 @@ export const translations = {
     },
     history: {
       ja: {
-        title: '上等カレーの世界への歩み',
+        title: '世界への歩み',
         intro: [
           '40年以上の実績を持つブランドだからこそ、安定したフランチャイズ運営が可能です。',
           '1983年、大阪の小さな店舗から始まった上等カレーは、今や国内外に展開するグローバルブランドへ。この確かな成長の歴史が、あなたの成功を支えます。',
@@ -636,7 +636,7 @@ export const translations = {
         ],
       },
       en: {
-        title: "Joto Curry's Journey to the World",
+        title: 'From Osaka to the World',
         intro: [
           'With over 40 years of experience, stable franchise operations are possible.',
           'Joto Curry, which started as a small shop in Osaka in 1983, has now grown into a global brand expanding both domestically and internationally. This steady growth history supports your success.',
