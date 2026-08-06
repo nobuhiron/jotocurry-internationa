@@ -556,7 +556,7 @@ export const translations = {
         title: 'Rich Menu to Meet Diverse Needs',
         paragraphs: [
           {
-            text: 'Joto Curry\'s signature dish is "Katsu Curry." The combination of crispy breaded cutlet and rich sweet-spicy curry roux is beloved across countries and generations.',
+            text: "Joto Curry's signature dish is katsu curry. The combination of crispy breaded cutlet and rich sweet & spicy curry roux is beloved across countries and generations.",
           },
           {
             text: 'The roux base comes from Japan; your kitchen simply adds beef and spices to finish it — no complicated preparation required. A wide range of menu items can be offered just by adjusting toppings and spice levels. We also support developing original menu items for local tastes — dishes your customers can find only at your restaurant.',
@@ -581,7 +581,7 @@ export const translations = {
           },
           {
             name: 'Cheese Curry',
-            category: 'Popular with Women',
+            category: 'Fan Favorite',
             alt: 'Cheese Curry',
           },
           {
@@ -591,7 +591,7 @@ export const translations = {
           },
           {
             name: 'Crab Cream Croquette Curry',
-            category: 'Popular with Women',
+            category: 'Fan Favorite',
             alt: 'Crab Cream Croquette Curry',
           },
         ],
