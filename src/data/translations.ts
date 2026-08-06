@@ -421,7 +421,7 @@ export const translations = {
             text: 'この味を、もっと多くの人に、もっと手軽に届けたい——。その想いから、コンセプトはカレーうどんからカレーライスへと進化し、1995年、上等カレーの1号店が誕生しました。',
           },
           {
-            text: '厳選した国産牛、玉ねぎ、こだわりのスパイス、そしてごく一部の職人だけが知る“秘伝エキス”によって生まれる甘みとスパイスの絶妙なバランス。',
+            text: '厳選した国産牛、玉ねぎ、こだわりのスパイス、そしてごく一部の職人だけが知る「秘伝のエキス」によって生まれる甘みとスパイスの絶妙なバランス。',
           },
           {
             text: '上等カレーはその名のとおり、「上等」と呼ぶにふさわしい本格的なカレー体験をお届けすることに、変わらぬこだわりを持ち続けています。',
@@ -440,7 +440,7 @@ export const translations = {
             text: 'Tokumasa, the company behind Joto Curry, was founded in 1983 as "Handmade Udon Tokumasa." Founder Katsuyuki Setoguchi, a true curry enthusiast, created the signature "Tokumasa Curry Udon."',
           },
           {
-            text: 'Driven by the desire to bring this flavor to more people in a more accessible way, the concept evolved from curry udon to curry rice, and in 1995, the first Joto Curry restaurant was born.',
+            text: 'He wanted to bring this flavor to more people, more easily. So the concept evolved from curry udon to curry rice — and in 1995, the first Joto Curry opened its doors.',
           },
           {
             text: 'Carefully selected Japanese beef and onions. Specially blended spices. And a "secret essence" known only to a few artisans. Together, they create an exquisite balance of sweetness and spice.',
