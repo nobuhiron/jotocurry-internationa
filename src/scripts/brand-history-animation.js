@@ -1,6 +1,7 @@
 /**
  * Brand History timeline animation
- * スクロール時にタイムラインの線が描かれ、各アイテムのドットが順番に大きくなるアニメーション
+ * スクロール位置に連動して朱色の進行線がタイムラインを描き下ろし、
+ * 線が通過したアイテムの年号とドットが点灯する
  */
 export default function initBrandHistoryAnimation() {
   const timelineElement = document.querySelector('.p-brand-history__timeline');
@@ -9,109 +10,46 @@ export default function initBrandHistoryAnimation() {
     return;
   }
 
-  const items = timelineElement.querySelectorAll('.p-brand-history__item');
+  const items = Array.from(
+    timelineElement.querySelectorAll('.p-brand-history__item')
+  );
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    setTimelineHeights();
-    timelineElement.classList.add('is-animated');
+    timelineElement.style.setProperty('--timeline-progress', '100%');
     items.forEach((item) => item.classList.add('is-active'));
     return;
   }
 
-  let timelineAnimated = false;
+  let ticking = false;
 
-  // タイムラインの高さを設定
-  function setTimelineHeights() {
-    if (items.length === 0) return;
+  function update() {
+    ticking = false;
 
-    const firstItem = items[0];
-    const firstItemHeader = firstItem.querySelector(
-      '.p-brand-history__item-header'
-    );
+    const rect = timelineElement.getBoundingClientRect();
+    // 画面上端から45%の位置を「現在地」として線の先端を置く
+    const anchor = window.innerHeight * 0.45;
+    const progress = Math.max(0, Math.min(anchor - rect.top, rect.height));
 
-    if (firstItemHeader) {
-      const timelineRect = timelineElement.getBoundingClientRect();
-      const firstItemHeaderRect = firstItemHeader.getBoundingClientRect();
+    timelineElement.style.setProperty('--timeline-progress', `${progress}px`);
 
-      const firstItemTop =
-        firstItemHeaderRect.top -
-        timelineRect.top +
-        firstItemHeaderRect.height / 2;
+    // 進行線がドットの中心を越えたアイテムを点灯（戻れば消灯）
+    items.forEach((item) => {
+      const header = item.querySelector('.p-brand-history__item-header');
+      if (!header) return;
+      const headerRect = header.getBoundingClientRect();
+      const dotCenter = headerRect.top - rect.top + headerRect.height / 2;
+      item.classList.toggle('is-active', progress >= dotCenter);
+    });
+  }
 
-      const timelineHeight = timelineRect.height;
-
-      timelineElement.style.setProperty(
-        '--timeline-initial-height',
-        `${firstItemTop}px`
-      );
-      timelineElement.style.setProperty(
-        '--timeline-final-height',
-        `${timelineHeight}px`
-      );
+  function requestUpdate() {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(update);
     }
   }
 
-  // タイムラインのアニメーション
-  const timelineObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && !timelineAnimated) {
-          setTimelineHeights();
-
-          requestAnimationFrame(() => {
-            setTimelineHeights();
-            requestAnimationFrame(() => {
-              setTimelineHeights();
-              setTimeout(() => {
-                entry.target.classList.add('is-animated');
-                timelineAnimated = true;
-                timelineObserver.unobserve(entry.target);
-              }, 50);
-            });
-          });
-        }
-      });
-    },
-    {
-      threshold: 0.1,
-      rootMargin: '0px 0px -10px 0px',
-    }
-  );
-
-  // 各アイテムのアニメーション（個別にIntersection Observerで監視）
-  const itemObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-active');
-          // 一度発火したら監視を停止
-          itemObserver.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.3, // アイテムが50%見えたら発火
-      rootMargin: '0px 0px -30px 0px',
-    }
-  );
-
-  // 初期化
-  requestAnimationFrame(() => {
-    setTimelineHeights();
-    setTimeout(() => {
-      setTimelineHeights();
-    }, 100);
-  });
-
-  window.addEventListener('resize', () => {
-    setTimelineHeights();
-  });
-
-  // タイムラインを監視
-  timelineObserver.observe(timelineElement);
-
-  // 各アイテムを個別に監視
-  items.forEach((item) => {
-    itemObserver.observe(item);
-  });
+  update();
+  window.addEventListener('scroll', requestUpdate, { passive: true });
+  window.addEventListener('resize', requestUpdate);
 }
