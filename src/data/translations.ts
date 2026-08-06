@@ -609,11 +609,11 @@ export const translations = {
         timeline: [
           {
             year: '1983',
-            heading: 'グルメの街。大阪で誕生',
+            heading: 'グルメの街・大阪で誕生',
             paragraphs: [
               '食の都・大阪で「手打ちうどん 得正」として創業。創業者のこだわりが生んだカレーうどんが評判を呼び、カレー専門店への展開を決意。',
             ],
-            imageAlt: 'グルメの街。大阪で誕生',
+            imageAlt: 'グルメの街・大阪で誕生',
           },
           {
             year: '1990s',
@@ -622,16 +622,16 @@ export const translations = {
               '1995年、カレー専門店「上等カレー」として本格的なチェーン展開を開始。大阪を中心にオフィスワーカーから口コミで人気が広がり高い支持を獲得。',
               '著名人やメディアにも取り上げられ、「大阪の名物カレー」として認知が広がりました。',
             ],
-            imageAlt: 'グルメの街。大阪で誕生',
+            imageAlt: 'ナショナルブランドへと成長',
           },
           {
             year: 'Now',
-            heading: '大阪から世界各地へ',
+            heading: 'そして、グローバルブランドへ',
             paragraphs: [
               '現在、海外11店舗を展開中。モンゴル、タイ、カンボジアでの成功に続き、2025年以降、韓国、中国、シンガポール、インドネシア、フィリピン、カナダでの事業計画が進行中です。',
               '世界で成長し続けるブランドと共に、あなたも成功への一歩を踏み出しませんか。',
             ],
-            imageAlt: '大阪から世界各地へ',
+            imageAlt: 'そして、グローバルブランドへ',
           },
         ],
       },
@@ -662,12 +662,12 @@ export const translations = {
           },
           {
             year: 'Now',
-            heading: 'A Bowl Born in Osaka Spreads Worldwide',
+            heading: 'Becoming a Global Brand',
             paragraphs: [
               'Currently operating 11 stores overseas. Following success in Mongolia, Thailand, and Cambodia, expansion plans for South Korea, China, Singapore, Indonesia, the Philippines, and Canada are underway from 2025 onwards.',
               'Take the first step — with a brand that keeps growing worldwide.',
             ],
-            imageAlt: 'A Bowl Born in Osaka Spreads Worldwide',
+            imageAlt: 'Becoming a Global Brand',
           },
         ],
       },
