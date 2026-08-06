@@ -603,7 +603,7 @@ export const translations = {
         title: '世界への歩み',
         intro: [
           '40年以上の実績を持つブランドだからこそ、安定したフランチャイズ運営が可能です。',
-          '上等カレーのルーツは、1983年に大阪で生まれた小さなうどん店。そこから国内外に展開するグローバルブランドへと成長しました。この確かな歩みが、あなたの成功を支えます。',
+          '上等カレーのルーツは、1983年に大阪で生まれた小さなうどん店。そこから国内外へ店舗を広げ、いままさにグローバルブランドへと成長を続けています。この確かな歩みが、あなたの成功を支えます。',
         ],
         button: 'フランチャイズの<br class="is-sm">ご相談はこちら',
         timeline: [
@@ -639,7 +639,7 @@ export const translations = {
         title: 'From Osaka to the World',
         intro: [
           'Four decades of history stand behind every new restaurant.',
-          'Joto Curry traces its roots to a small udon shop that opened in Osaka in 1983. It has since grown into a global brand, in Japan and overseas — and that steady track record is what supports your success.',
+          'Joto Curry traces its roots to a small udon shop that opened in Osaka in 1983. It has since expanded across Japan and overseas — and that steady track record is what supports your success.',
         ],
         button: 'Talk to Us About Franchising',
         timeline: [
