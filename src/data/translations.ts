@@ -408,7 +408,7 @@ export const translations = {
     },
     origin: {
       ja: {
-        title: '上等カレーの起源と<br class="is-sm">味へのこだわり',
+        title: '起源と、<br class="is-sm">味へのこだわり',
         blockTitles: [
           '原点は、一杯のカレーうどん',
           'こだわりの素材が生み出す<br class="is-sm">「上等」な味わい',
@@ -430,10 +430,10 @@ export const translations = {
         imageAlt: '上等カレーの起源',
       },
       en: {
-        title: 'The Origin of Joto Curry and Our Commitment to Flavor',
+        title: 'Our Origins, Our Craft',
         blockTitles: [
           'It All Began with a Bowl of Curry Udon',
-          'Premium Flavor Born from<br class="is-sm">Carefully Selected Ingredients',
+          'Premium Flavor from<br class="is-sm">Carefully Chosen Ingredients',
         ],
         paragraphs: [
           {
@@ -443,10 +443,10 @@ export const translations = {
             text: 'Driven by the desire to bring this flavor to more people in a more accessible way, the concept evolved from curry udon to curry rice, and in 1995, the first Joto Curry restaurant was born.',
           },
           {
-            text: 'Carefully selected domestic beef, onions, specially blended spices, and a "secret extract" known only to a select few artisans create an exquisite balance of sweetness and spice.',
+            text: 'Carefully selected Japanese beef and onions. Specially blended spices. And a "secret essence" known only to a few artisans. Together, they create an exquisite balance of sweetness and spice.',
           },
           {
-            text: 'True to its name — "Joto" meaning "premium" — Joto Curry remains committed to delivering an authentic curry experience worthy of being called first-class.',
+            text: 'True to its name — "Joto" meaning "premium" — Joto Curry remains committed to delivering an authentic curry experience worthy of the name.',
           },
         ],
         imageAlt: 'The origin of Joto Curry',
@@ -481,7 +481,7 @@ export const translations = {
         ],
       },
       en: {
-        title: 'Unique Flavor Creation',
+        title: 'A Flavor Like No Other',
         imageAlts: ['Curry spoon', 'Ingredients', 'Curry paste'],
         blocks: [
           {
@@ -492,17 +492,17 @@ export const translations = {
             ],
           },
           {
-            title: 'Deep Richness Born from Ingredients and Technique',
+            title: 'Deep Richness from Ingredients and Technique',
             paragraphs: [
               'Carefully selected Japanese beef and onions. A proprietary spice blend. Pressure cooking and low-temperature aging. A method refined over more than 40 years creates a deep richness that cannot be replicated elsewhere.',
               'This established method ensures consistent delivery of our one-of-a-kind flavor.',
             ],
           },
           {
-            title: 'A Secret Extract Known Only to Three',
+            title: 'A Secret Essence Known Only to Three',
             paragraphs: [
-              "The key to Joto Curry's flavor is a secret extract, carefully crafted by artisans in Osaka. The recipe is a closely guarded secret known only to three people, including the founder.",
-              'This perfect harmony of sweetness, heat, and umami is the essence of Joto Curry. This strict quality control guarantees the same authentic taste at every store.',
+              "The key to Joto Curry's flavor is a secret essence, carefully crafted by artisans in Osaka. The recipe is a closely guarded secret known only to three people, including the founder.",
+              'This perfect harmony of sweetness, heat, and umami is the heart of Joto Curry. Strict quality control guarantees the same authentic taste at every restaurant.',
             ],
           },
         ],
