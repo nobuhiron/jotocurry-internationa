@@ -487,7 +487,7 @@ export const translations = {
             title: 'A Harmony of Sweetness, Spice, and Umami',
             paragraphs: [
               'A gentle sweetness at first bite. Fragrant spices and deep umami that unfold as you eat. And a rich, lingering aftertaste.',
-              'Three layers of flavor, designed down to the last detail — that is what keeps customers coming back.',
+              'Three layers of flavor, designed down to the last detail — that is what keeps customers craving more.',
             ],
           },
           {
