@@ -514,7 +514,7 @@ export const translations = {
             text: '上等カレーの看板メニューは「カツカレー」。サクサクの衣とコク深い甘辛ルーの組み合わせは、国や世代を問わず高い支持を集めています。',
           },
           {
-            text: '現地では、日本から供給するルーを温めるだけで、複雑な仕込みは不要です。トッピングや辛さの調整だけで、幅広いメニューを展開できます。さらに、地域特性に合わせたオリジナルメニューの開発もサポート。あなたの店舗ならではの強みを生み出せます。',
+            text: '現地では、日本から供給するルーを温めるだけで、複雑な仕込みは不要です。トッピングや辛さの調整だけで、幅広いメニューを展開できます。さらに、地域特性に合わせたオリジナルメニューの開発もサポート。あなたの店でしか食べられない看板メニューがつくれます。',
           },
         ],
         popularTitle: '人気メニュー紹介',
@@ -559,7 +559,7 @@ export const translations = {
             text: 'Joto Curry\'s signature dish is "Katsu Curry." The combination of crispy breaded cutlet and rich sweet-spicy curry roux is beloved across countries and generations.',
           },
           {
-            text: 'At local stores, simply heating the curry roux supplied from Japan is all that is needed — no complicated preparation required. A wide range of menu items can be offered just by adjusting toppings and spice levels. We also support the development of original menus tailored to regional preferences, helping create unique strengths for your store.',
+            text: 'At local stores, simply heating the curry roux supplied from Japan is all that is needed — no complicated preparation required. A wide range of menu items can be offered just by adjusting toppings and spice levels. We also support developing original menu items for local tastes — dishes your customers can find only at your restaurant.',
           },
         ],
         popularTitle: 'Popular Menu',
