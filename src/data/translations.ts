@@ -53,30 +53,30 @@ export const translations = {
         },
         domesticStores: {
           unit: '店舗',
-          label: '国内展開店舗数',
+          label: '国内店舗数',
         },
         overseasStores: {
           unit: '店舗',
-          label: '海外展開店舗数',
+          label: '海外店舗数',
         },
       },
       button: 'ブランドストーリーを見る',
       buttonLink: 'brand#section-brand-history',
     },
     en: {
-      title: "Joto Curry's Brand Power, Proven by the Numbers",
+      title: 'Joto Curry, by the Numbers',
       stats: {
         meals: {
           unit: 'meals',
           label: 'Served on an Average Day',
         },
         domesticStores: {
-          unit: 'stores',
-          label: 'Locations in Japan',
+          unit: 'locations',
+          label: 'In Japan',
         },
         overseasStores: {
-          unit: 'stores',
-          label: 'International Locations',
+          unit: 'locations',
+          label: 'International',
         },
       },
       button: 'Read Our Brand Story',
