@@ -553,7 +553,7 @@ export const translations = {
         imageAlt: '上等カレーのメニュー',
       },
       en: {
-        title: 'Rich Menu to Meet Diverse Needs',
+        title: 'A Menu for Every Market',
         paragraphs: [
           {
             text: "Joto Curry's signature dish is katsu curry. The combination of crispy breaded cutlet and rich sweet & spicy curry roux is beloved across countries and generations.",
