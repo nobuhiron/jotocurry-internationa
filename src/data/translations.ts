@@ -641,7 +641,7 @@ export const translations = {
           'Four decades of history stand behind every new restaurant.',
           'Joto Curry traces its roots to a small udon shop that opened in Osaka in 1983. It has since grown into a global brand, in Japan and overseas — and that steady track record is what supports your success.',
         ],
-        button: 'Consultation for Franchise',
+        button: 'Talk to Us About Franchising',
         timeline: [
           {
             year: '1983',
