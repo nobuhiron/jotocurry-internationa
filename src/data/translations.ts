@@ -89,7 +89,7 @@ export const translations = {
       cards: [
         {
           number: '01',
-          title: '世界的な日本カレー人気',
+          title: '世界に広がる日本カレー人気',
           description:
             '寿司やラーメンに続く成長市場として、日本カレーは世界から注目を集めています。需要の追い風がある今が参入を検討するタイミングです。',
         },
@@ -109,13 +109,13 @@ export const translations = {
       buttons: ['サポート体制を見る', 'オーナーの声を見る'],
     },
     en: {
-      title: '3 Reasons Why Franchise Owners Choose Us',
+      title: '3 Reasons Franchise Owners Choose Us',
       cards: [
         {
           number: '01',
-          title: 'Global Popularity of Japanese Curry',
+          title: 'Japanese Curry Is Going Global',
           description:
-            'Following sushi and ramen, Japanese curry is winning attention worldwide as the next growth market. Demand is rising fast, which makes now the moment to enter.',
+            'Following sushi and ramen, Japanese curry is winning attention worldwide as the next growth market. Demand is rising fast — now is the time to enter.',
         },
         {
           number: '02',
@@ -125,7 +125,7 @@ export const translations = {
         },
         {
           number: '03',
-          title: 'Maximize Revenue with Diverse Expansion',
+          title: 'Multiple Revenue Streams',
           description:
             'Grow revenue with menus developed for your region and retail products such as curry buns and ready-to-eat pouches. We support you with more than 40 years of accumulated know-how.',
         },
