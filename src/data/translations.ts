@@ -619,7 +619,7 @@ export const translations = {
             year: '1990s',
             heading: 'ナショナルブランドへと成長',
             paragraphs: [
-              '1995年、カレー専門店「上等カレー」として本格的なチェーン展開を開始。食道楽の街、大阪を中心にオフィスワーカーから口コミで人気が広がり高い支持を獲得。',
+              '1995年、カレー専門店「上等カレー」として本格的なチェーン展開を開始。大阪を中心にオフィスワーカーから口コミで人気が広がり高い支持を獲得。',
               '著名人やメディアにも取り上げられ、「大阪の名物カレー」として認知が広がりました。',
             ],
             imageAlt: 'グルメの街。大阪で誕生',
@@ -647,7 +647,7 @@ export const translations = {
             year: '1983',
             heading: 'Born in Osaka, the Gourmet City',
             paragraphs: [
-              'Established in Osaka, the food capital, as "Handmade Udon Tokumasa." The curry udon created by the founder\'s commitment gained popularity, leading to the decision to expand into a curry specialty restaurant.',
+              'Established in Osaka, Japan\'s food capital, as "Handmade Udon Tokumasa." The founder\'s curry udon proved so popular that he decided to open a restaurant devoted to curry.',
             ],
             imageAlt: 'Born in Osaka, the Gourmet City',
           },
@@ -655,7 +655,7 @@ export const translations = {
             year: '1990s',
             heading: 'Growth into a National Brand',
             paragraphs: [
-              'In 1995, we began full-scale chain expansion as the curry specialty restaurant "Joto Curry." Centered in Osaka, the city of food lovers, popularity spread through word of mouth among office workers, gaining strong support.',
+              'In 1995, Joto Curry launched as a dedicated curry restaurant and began full-scale chain expansion. In Osaka, word of mouth spread among office workers, earning the brand strong local support.',
               'Featured by celebrities and media, it became widely recognized as "Osaka\'s Famous Curry."',
             ],
             imageAlt: 'Growth into a National Brand',
@@ -1091,7 +1091,7 @@ export const translations = {
       },
       brand: {
         description:
-          "Discover the brand story of Joto Curry, Osaka's curry specialty restaurant since the 1970s. Learn about our unique flavor creation and global journey.",
+          'Discover the story of Joto Curry, an Osaka-born curry restaurant with roots going back to 1983. Learn about our craft and our journey from Osaka to the world.',
       },
       franchise: {
         description:
