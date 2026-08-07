@@ -269,16 +269,16 @@ export const translations = {
           '少人数のスタッフでも安定した売上をつくれるように、効率的で再現性の高い調理システムを構築しています。',
         cards: [
           {
-            title: 'シンプルな調理で味の再現性を担保',
+            title: 'セントラルキッチンで味の再現性を担保',
             paragraphs: [
-              '調理も提供も、手順はシンプル。設備投資は少なく、スタッフの負担も軽い。ルーの決め手は、ブランドの魂「秘伝のエキス」。セントラルキッチンから完璧な状態で届きます。',
-              '店舗では牛肉とスパイスを加えて仕上げるだけ。どの国でもブレない最高品質の味を再現できます。',
+              'ルーの決め手は、ブランドの魂「秘伝のエキス」。大阪のセントラルキッチンで一括製造し、完璧な状態で各店舗へ届きます。',
+              '店舗では牛肉とスパイスを加えて仕上げるだけ。どの国でも、最高品質の味を再現できます。',
             ],
           },
           {
             title: '高回転運営で売上最大化',
             paragraphs: [
-              'オーダーから提供までがハイスピードで可能なため、ランチタイムなどのピーク時でも回転率を上げることができます。席数が限られた立地でも、売上最大化を狙えるオペレーションです。',
+              '調理も提供も、手順はシンプル。だから提供までが速く、ランチタイムなどのピーク時でも回転率を上げられます。設備投資は少なく、スタッフの負担も軽い。席数が限られた立地でも、売上の最大化を狙えます。',
             ],
           },
           {
@@ -302,16 +302,16 @@ export const translations = {
           'We built our kitchen operations for efficiency and consistency, so a small team can keep sales stable.',
         cards: [
           {
-            title: 'Simple Cooking, Consistent Taste',
+            title: 'Central Kitchen, Consistent Taste',
             paragraphs: [
-              'Cooking and serving procedures are simple by design, keeping kitchen investment low and staff workload light. The roux — blended with our "secret essence," the soul of the brand — arrives from our central kitchen in perfect condition.',
+              'The key to the flavor is the roux, blended with our "secret essence," the soul of the brand. It is made in a single central kitchen in Osaka and arrives at every restaurant in perfect condition.',
               'Your restaurant simply adds beef and spices to finish the curry — the same top quality, in any country.',
             ],
           },
           {
             title: 'Fast Turnover, Higher Sales',
             paragraphs: [
-              'Since orders can be served at high speed, turnover can be increased even during peak times such as lunch hours. This is an operation that can maximize sales even in locations with limited seating.',
+              'Cooking and serving are simple by design, so orders reach the table fast and turnover stays high even at peak lunch hours. Kitchen investment is low, and staff workload is light. Even in a compact location, you can make the most of every seat.',
             ],
           },
           {
