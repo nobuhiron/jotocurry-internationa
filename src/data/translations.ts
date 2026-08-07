@@ -290,8 +290,8 @@ export const translations = {
           {
             title: '現地メニュー開発でリピート獲得',
             paragraphs: [
-              '現地の嗜好に合わせたオリジナルメニューの開発が可能です。既存メニューとの差別化や季節限定商品として、リピート促進にも活用いただけます。',
-              '要望に応じて、日本の人気メニューのレシピについても共有します。',
+              '現地の嗜好に合わせたオリジナルメニューを開発できます。他店にはない看板メニューや季節限定の一皿は、お客様が何度も通いたくなる理由になります。',
+              'ご要望に応じて、日本の人気メニューのレシピも共有します。',
             ],
           },
         ],
@@ -323,8 +323,8 @@ export const translations = {
           {
             title: 'Local Menus, Repeat Customers',
             paragraphs: [
-              'It is possible to develop original menus tailored to local preferences. You can use them to differentiate from existing menus or as seasonal limited products to promote repeat customers.',
-              'We also share recipes for popular Japanese menus upon request.',
+              'You can develop original menus for local tastes. Signature dishes and seasonal specials of your own give customers a reason to return again and again.',
+              'On request, we also share recipes for popular menu items from Japan.',
             ],
           },
         ],
