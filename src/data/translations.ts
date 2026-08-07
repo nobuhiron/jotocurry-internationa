@@ -297,9 +297,9 @@ export const translations = {
         ],
       },
       en: {
-        title: '4 Mechanisms for Stable Profits',
+        title: '4 Systems Behind Stable Profits',
         subtitle:
-          'We have built an efficient and highly reproducible cooking system that enables stable sales even with a small number of staff.',
+          'We built our kitchen operations for efficiency and consistency, so a small team can keep sales stable.',
         cards: [
           {
             title: 'Guaranteed Taste Reproducibility with Simple Cooking',
