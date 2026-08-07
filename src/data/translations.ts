@@ -259,7 +259,7 @@ export const translations = {
         title: 'Joto Curry - Franchise Business',
         heroTitle: 'Franchise Business',
         heroSubtitle:
-          "We introduce Joto Curry's franchise business that generates stable profits even with a small number of staff.",
+          'How a Joto Curry franchise generates stable profits with a small team.',
       },
     },
     mechanisms: {
