@@ -304,7 +304,7 @@ export const translations = {
           {
             title: 'Simple Cooking, Consistent Taste',
             paragraphs: [
-              'Simple and reproducible cooking and serving procedures that reduce the burden of kitchen equipment investment and store staff. The roux blended with the "secret extract," the soul of the brand, is supplied from the central kitchen in perfect condition.',
+              'Cooking and serving procedures are simple by design, keeping kitchen investment low and staff workload light. The roux — blended with our "secret essence," the soul of the brand — arrives from our central kitchen in perfect condition.',
               'Your restaurant simply adds beef and spices to finish the curry — the same top quality, in any country.',
             ],
           },
