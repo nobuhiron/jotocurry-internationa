@@ -284,7 +284,7 @@ export const translations = {
           {
             title: '少ないロスで収益性向上',
             paragraphs: [
-              '廃棄物の量も少ないため、原価管理がしやすく、収益性の向上にもつながります。売上だけでなく利益額を見通しやすくなることで、安心して出店計画や設備投資を検討いただけます。',
+              '食材ロスが少ないため、原価管理がしやすく、収益性の向上につながります。売上だけでなく利益も見通しやすくなり、出店計画や設備投資を安心して検討できます。',
             ],
           },
           {
@@ -317,7 +317,7 @@ export const translations = {
           {
             title: 'Less Waste, More Profit',
             paragraphs: [
-              'Since the amount of waste is also small, cost management is easier, leading to improved profitability. By making it easier to forecast not only sales but also profit amounts, you can consider store opening plans and equipment investments with confidence.',
+              'With little food waste, costs stay easy to control and margins improve. Profits become easier to forecast — so you can plan your next location or investment with confidence.',
             ],
           },
           {
