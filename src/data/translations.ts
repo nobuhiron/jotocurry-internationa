@@ -302,26 +302,26 @@ export const translations = {
           'We built our kitchen operations for efficiency and consistency, so a small team can keep sales stable.',
         cards: [
           {
-            title: 'Guaranteed Taste Reproducibility with Simple Cooking',
+            title: 'Simple Cooking, Consistent Taste',
             paragraphs: [
               'Simple and reproducible cooking and serving procedures that reduce the burden of kitchen equipment investment and store staff. The roux blended with the "secret extract," the soul of the brand, is supplied from the central kitchen in perfect condition.',
               'Your restaurant simply adds beef and spices to finish the curry — the same top quality, in any country.',
             ],
           },
           {
-            title: 'Maximize Sales with High Turnover Operations',
+            title: 'Fast Turnover, Higher Sales',
             paragraphs: [
               'Since orders can be served at high speed, turnover can be increased even during peak times such as lunch hours. This is an operation that can maximize sales even in locations with limited seating.',
             ],
           },
           {
-            title: 'Improved Profitability with Low Waste',
+            title: 'Less Waste, More Profit',
             paragraphs: [
               'Since the amount of waste is also small, cost management is easier, leading to improved profitability. By making it easier to forecast not only sales but also profit amounts, you can consider store opening plans and equipment investments with confidence.',
             ],
           },
           {
-            title: 'Repeat Customers with Local Menu Development',
+            title: 'Local Menus, Repeat Customers',
             paragraphs: [
               'It is possible to develop original menus tailored to local preferences. You can use them to differentiate from existing menus or as seasonal limited products to promote repeat customers.',
               'We also share recipes for popular Japanese menus upon request.',
