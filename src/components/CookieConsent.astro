@@ -1,0 +1,45 @@
+---
+import { translations } from '../data/translations';
+import { getLocalizedPath } from '../lib/i18n';
+import type { Locale } from '../lib/i18n';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'ja' } = Astro.props;
+const gaId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
+const text = translations.cookieConsent[locale];
+---
+
+<div
+  class="c-cookie-consent"
+  id="cookie-consent"
+  data-ga-id={gaId}
+  role="region"
+  aria-label={text.ariaLabel}
+  hidden
+>
+  <p class="c-cookie-consent__text">
+    {text.text}
+    <a href={getLocalizedPath('/cookie', locale)} class="c-cookie-consent__link">{text.policyLink}</a>
+  </p>
+  <div class="c-cookie-consent__actions">
+    <button type="button" class="c-cookie-consent__button" data-consent="denied">
+      {text.decline}
+    </button>
+    <button type="button" class="c-cookie-consent__button" data-consent="granted" data-variant="primary">
+      {text.accept}
+    </button>
+  </div>
+</div>
+
+<script>
+  import initCookieConsent from '../scripts/cookie-consent.js';
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCookieConsent);
+  } else {
+    initCookieConsent();
+  }
+</script>
