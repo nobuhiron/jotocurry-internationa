@@ -332,47 +332,47 @@ export const translations = {
     },
     support: {
       ja: {
-        title: '充実したサポート体制',
+        title: '開業前から開業後までの<br class="is-sm">サポート体制',
         subtitle:
-          '開業前の準備からオープン後の運営まで、専門チームが一貫して伴走します。',
+          '開業準備、研修、オープン後の運営。それぞれの段階に、本部のサポートがあります。',
         blocks: [
           {
             title: '開業準備のトータルサポート',
             description:
-              'エリア選定から物件選び、資金計画、融資相談、事業計画書の作成まで、開業に必要なすべての準備をサポートします。',
+              'エリア・物件の選定から資金計画、融資相談、事業計画書の作成まで、開業に必要なすべての準備をサポートします。',
           },
           {
-            title: '研修とトレーニングで不安をゼロに',
+            title: '実践研修と調理マニュアル',
             description:
-              'カレー作りから接客、衛生管理、数値管理まで、実店舗に近い環境での研修プログラムを実施。飲食業未経験の方でも安心してスタートできます。',
+              'カレー作りから接客、衛生管理、数値管理まで、実店舗に近い環境での研修プログラムを実施。調理マニュアルも共有するので、開業後のスタッフ教育や品質維持に活用できます。飲食業未経験の方でも安心してスタートできます。',
           },
           {
-            title: 'オープン後も続く伴走サポート',
+            title: 'オープン後も続くサポート',
             description:
-              'オープン後も現場コンサルティング、集客施策、メニュー改善提案、定期的な売上・数値レビューなど、継続的なサポートを提供します。',
+              '現場コンサルティング、集客施策、メニュー改善提案、定期的な売上・数値レビューなどを提供します。',
           },
         ],
-        imageAlt: '充実したサポート体制',
+        imageAlt: '開業前から開業後までのサポート体制',
       },
       en: {
         title: 'Comprehensive Support System',
         subtitle:
-          'A professional team will consistently accompany you from pre-opening preparation to post-opening operations.',
+          'Preparation, training, and post-opening operations — we support you at every stage.',
         blocks: [
           {
-            title: 'Total Support for Opening Preparation',
+            title: 'Total Support Before You Open',
             description:
-              'We support all preparations necessary for opening, from area selection to property selection, financial planning, loan consultation, and business plan creation.',
+              'From choosing the right area and property to financial planning, loan consultation, and writing your business plan, we support everything you need to open.',
           },
           {
-            title: 'Zero Anxiety with Training and Education',
+            title: 'Hands-On Training and a Cooking Manual',
             description:
-              'We conduct training programs in an environment close to actual stores, from curry making to customer service, hygiene management, and numerical management. Even those without experience in the food service industry can start with confidence.',
+              'Our training program covers everything from cooking the curry to customer service, hygiene, and managing the numbers, in an environment modeled on a real restaurant. You also receive a cooking manual to train your staff and keep quality consistent after opening. Even without food-service experience, you can start with confidence.',
           },
           {
-            title: 'Continuous Support Even After Opening',
+            title: 'Ongoing Support After You Open',
             description:
-              'Even after opening, we provide ongoing support including on-site consulting, customer acquisition strategies, menu improvement proposals, and regular sales and performance reviews.',
+              'We stay involved with on-site consulting, marketing support, menu improvement ideas, and regular reviews of your sales and numbers.',
           },
         ],
         imageAlt: 'Comprehensive Support System',
@@ -1063,7 +1063,7 @@ export const translations = {
       },
       franchise: {
         description:
-          '上等カレーのフランチャイズ事業内容。安定した利益を生む4つの仕組み、充実したサポート体制、オーナーの声をご紹介します。',
+          '上等カレーのフランチャイズ事業内容。安定した利益を生む4つの仕組み、開業前から開業後までのサポート体制、オーナーの声をご紹介します。',
       },
       contact: {
         description:
@@ -1095,7 +1095,7 @@ export const translations = {
       },
       franchise: {
         description:
-          'Joto Curry franchise business details. Learn about our 4 mechanisms for stable profits, comprehensive support system, and franchise owner testimonials.',
+          'Joto Curry franchise business details. Learn about our 4 systems behind stable profits, comprehensive support system, and franchise owner testimonials.',
       },
       contact: {
         description:
