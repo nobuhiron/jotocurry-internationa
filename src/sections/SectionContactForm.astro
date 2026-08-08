@@ -234,7 +234,7 @@ const formText = translations.contact.form[locale];
   </div>
 </section>
 
-<script define:vars={{ locale, messages: formText.messages, submitText: formText.fields.submit }}>
+<script is:inline define:vars={{ locale, messages: formText.messages, submitText: formText.fields.submit }}>
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initForm);
   } else {
@@ -415,7 +415,7 @@ const formText = translations.contact.form[locale];
       setLoading(true);
 
       try {
-        const response = await fetch('/api/contact', {
+        const response = await fetch('/api/contact/', {
           method: 'POST',
           body: formData,
         });

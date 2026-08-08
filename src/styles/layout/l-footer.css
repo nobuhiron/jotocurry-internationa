@@ -169,7 +169,7 @@
 }
 
 .l-footer__copyright {
-  color: var(--color-border-strong);
+  color: var(--color-text-muted);
   font-size: 14px;
 }
 
@@ -190,7 +190,7 @@
   transition: color 0.2s ease;
   font-size: 14px;
   display: block;
-  color: var(--color-border-strong);
+  color: var(--color-text-muted);
 }
 
 .l-footer__legal-link:hover {
