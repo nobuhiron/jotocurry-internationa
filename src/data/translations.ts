@@ -157,7 +157,7 @@ export const translations = {
       nav: {
         brand: 'About Joto Curry',
         franchise: 'Franchise Business',
-        support: 'Support System',
+        support: 'Support',
         faq: 'FAQ',
       },
       ariaLabels: {
@@ -200,7 +200,7 @@ export const translations = {
         home: 'Home',
         brand: 'About Joto Curry',
         franchise: 'Franchise Business',
-        support: 'Support System',
+        support: 'Support',
         faq: 'FAQ',
         contact: 'Contact',
       },
@@ -212,7 +212,7 @@ export const translations = {
         // 郵便番号は英語表記では住所末尾に含めるため、専用行は空にする
         postalCode: '',
         address:
-          '3F Nagano Building, 3-2-16 Azuchi-cho, Chuo-ku, Osaka 541-0052, Japan',
+          '3F Nagano Building, 3-2-16 Azuchi-cho, Chuo-ku, Osaka-shi, Osaka 541-0052, Japan',
       },
       legal: {
         privacy: 'Privacy Policy',
@@ -355,7 +355,7 @@ export const translations = {
         imageAlt: '開業前から開業後までのサポート体制',
       },
       en: {
-        title: 'Comprehensive Support System',
+        title: 'How We Support You',
         subtitle:
           'Preparation, training, and post-opening operations — we support you at every stage.',
         blocks: [
@@ -375,7 +375,7 @@ export const translations = {
               'We stay involved with on-site consulting, marketing support, menu improvement ideas, and regular reviews of your sales and numbers.',
           },
         ],
-        imageAlt: 'Comprehensive Support System',
+        imageAlt: 'How we support you before and after opening',
       },
     },
     voices: {
@@ -695,7 +695,7 @@ export const translations = {
         title: 'Joto Curry - Contact',
         heroTitle: 'Contact',
         heroSubtitle:
-          'Feel free to contact us with any questions, no matter how small. You can contact us here for international franchises, wholesale, media inquiries, and more.',
+          'Feel free to contact us with any questions, no matter how small. We welcome inquiries about international franchising, wholesale, media coverage, and more.',
       },
     },
     form: {
@@ -759,13 +759,13 @@ export const translations = {
       en: {
         title: 'Franchise Inquiry',
         subtitle:
-          'If you are considering opening a store, please feel free to contact us using the form below.',
+          'If you are considering opening a restaurant, please feel free to use the form below.',
         fields: {
           lastName: 'Last Name',
           firstName: 'First Name',
           email: 'Email',
           emailPlaceholder: 'example@example.com',
-          area: 'Planned Expansion Area',
+          area: 'Where You Plan to Open',
           areaPlaceholder: 'Please select',
           areaOptions: {
             asia: 'Asia',
@@ -774,40 +774,40 @@ export const translations = {
             oceania: 'Oceania',
             other: 'Other',
           },
-          purpose: 'Inquiry Purpose',
+          purpose: 'Inquiry Type',
           purposePlaceholder: 'Please select',
           purposeOptions: {
-            franchise: 'About Franchise',
-            wholesale: 'About Wholesale',
-            media: 'About Media Coverage',
+            franchise: 'Franchising',
+            wholesale: 'Wholesale',
+            media: 'Media Coverage',
             other: 'Other',
           },
           situation: 'Please tell us about your current situation',
           situationOptions: {
-            restaurantOwner: 'Restaurant owner considering new store opening',
-            conversion: 'Considering business conversion of existing store',
-            developer: 'Considering as developer',
-            individual: 'Considering opening as individual',
+            restaurantOwner: 'Restaurant owner considering a new location',
+            conversion: 'Considering converting an existing restaurant',
+            developer: 'Considering as a developer',
+            individual: 'Considering opening as an individual',
           },
           message: 'Message',
           messagePlaceholder:
-            'Example) Please feel free to write about the country/area you are considering for opening, desired opening time, questions, etc.',
+            'e.g. the country or area you are considering, your preferred opening date, and any questions.',
           privacy: 'Privacy Policy',
           privacyAgree: 'I agree to the ',
-          submit: 'Apply for Free Consultation',
+          submit: 'Request a Free Consultation',
         },
         messages: {
           submitting: 'Sending...',
           success:
-            'Thank you for your inquiry. We will contact you as soon as we review your message.',
+            'Thank you for your inquiry. We will contact you once we have reviewed your message.',
           error: 'Failed to send. Please try again later.',
           validationError: 'Please check your input.',
           errors: {
             lastName: 'Please enter your last name',
             firstName: 'Please enter your first name',
             email: 'Please enter a valid email address',
-            area: 'Please select an area',
-            purpose: 'Please select a purpose',
+            area: 'Please select a region',
+            purpose: 'Please select an inquiry type',
             situation: 'Please select your situation',
             privacy: 'Please agree to the privacy policy',
           },
@@ -827,10 +827,10 @@ export const translations = {
           '───────────────\n株式会社得正 上等カレー\n〒541-0052 大阪府大阪市中央区安土町3-2-16 長野ビル3F\nTEL: 06-6926-8286\nhttps://international.tokumasa.net\n───────────────',
       },
       en: {
-        subject: '【Joto Curry】Thank you for your inquiry',
+        subject: 'Thank you for contacting Joto Curry',
         intro:
           'Thank you very much for contacting Joto Curry.\nWe have received your inquiry as shown below. A member of our team will get back to you shortly.',
-        contentHeading: '───────────────\n■ Your Inquiry\n───────────────',
+        contentHeading: '───────────────\nYour Inquiry\n───────────────',
         notice:
           'This is an automated message sent from a send-only address.\nIf you did not submit this inquiry, please disregard this email.',
         signature:
@@ -851,11 +851,11 @@ export const translations = {
       en: {
         title: 'Frequently Asked Questions',
         subtitle:
-          'We have compiled frequently asked questions from potential owners regarding initial costs, training, support systems, and more.',
+          'Answers to the questions we hear most from prospective owners: initial costs, training, how we support you, and more.',
         cta: {
           title: 'Still have questions?',
-          text: 'Please feel free to contact us with any questions not listed here. We will discuss the details directly with you.',
-          button: 'Contact Us',
+          text: 'If you cannot find your answer here, we are happy to discuss the details directly with you.',
+          button: 'Ask Your Question',
         },
       },
     },
@@ -923,7 +923,7 @@ export const translations = {
       },
       en: {
         intro:
-          'Tokumasa Co., Ltd. (hereinafter referred to as "the Company") considers the protection of personal information to be an important responsibility and handles personal information appropriately based on the following privacy policy.',
+          'Tokumasa Co., Ltd. (hereinafter referred to as "the Company," "we," or "us") considers the protection of personal information to be an important responsibility and handles personal information appropriately in accordance with the following privacy policy.',
         sections: [
           {
             title: '1. Definition of Personal Information',
@@ -938,7 +938,7 @@ export const translations = {
           {
             title: '3. Purpose of Use of Personal Information',
             content:
-              'The Company uses collected personal information for the following purposes:\n- Responding to inquiries\n- Providing information about franchises\n- Improving services\n- Responding based on laws and regulations',
+              'The Company uses collected personal information for the following purposes:\n- Responding to inquiries\n- Providing information about franchises\n- Improving services\n- Complying with laws and regulations',
           },
           {
             title: '4. Provision of Personal Information to Third Parties',
@@ -948,18 +948,18 @@ export const translations = {
           {
             title: '5. Management of Personal Information',
             content:
-              'The Company takes appropriate security measures to prevent leakage, loss, and damage of personal information.',
+              'The Company takes appropriate security measures to prevent leakage, loss, or damage of personal information.',
           },
           {
             title:
               '6. Disclosure, Correction, and Deletion of Personal Information',
             content:
-              'When a customer requests disclosure, correction, or deletion of personal information, we will respond promptly after confirming the identity.',
+              'When a customer requests disclosure, correction, or deletion of personal information, we will respond promptly after verifying their identity.',
           },
           {
             title: '7. Contact',
             content:
-              'For inquiries regarding the handling of personal information, please contact:\n\nTokumasa Co., Ltd.\n3F Nagano Building, 3-2-16 Azuchi-cho, Chuo-ku, Osaka-shi, Osaka 541-0052, Japan\nTEL: 06-6926-8286\nEmail: kawakami@tokumasa.net',
+              'For inquiries regarding the handling of personal information, please contact:\n\nTokumasa Co., Ltd.\n3F Nagano Building, 3-2-16 Azuchi-cho, Chuo-ku, Osaka-shi, Osaka 541-0052, Japan\nTEL: +81-6-6926-8286\nEmail: kawakami@tokumasa.net',
           },
           {
             title: '8. Changes to Privacy Policy',
@@ -981,7 +981,7 @@ export const translations = {
       en: {
         title: 'Joto Curry - About Cookies',
         heroTitle: 'About Cookies',
-        heroSubtitle: 'About the Use of Cookies',
+        heroSubtitle: 'How This Website Uses Cookies',
       },
     },
     content: {
@@ -1021,14 +1021,14 @@ export const translations = {
         intro: 'This website uses cookies to provide you with better services.',
         sections: [
           {
-            title: '1. What are Cookies?',
+            title: '1. What Are Cookies?',
             content:
               'Cookies are small text files that are stored on your computer or smartphone when you browse a website. Cookies allow websites to recognize your browser and provide more convenient services on your next visit.',
           },
           {
             title: '2. Cookies Used on This Site',
             content:
-              'We use cookies for the following purposes:\n\n【Essential Cookies】\nCookies necessary to provide basic website functionality.\n\n【Analytics Cookies】\nCookies used to analyze website usage and improve our services. We may use third-party services such as Google Analytics.',
+              'We use cookies for the following purposes:\n\nEssential Cookies:\nCookies necessary to provide basic website functionality.\n\nAnalytics Cookies:\nCookies used to analyze website usage and improve our services. We may use third-party services such as Google Analytics.',
           },
           {
             title: '3. Managing Cookies',
@@ -1038,12 +1038,12 @@ export const translations = {
           {
             title: '4. Third-Party Cookies',
             content:
-              'This site uses services provided by third parties (such as Google Analytics) for access analysis and service improvement. These services may use their own cookies.',
+              'This site uses services provided by third parties (such as Google Analytics) for website analytics and service improvement. These services may use their own cookies.',
           },
           {
             title: '5. Contact',
             content:
-              'For inquiries regarding the use of cookies, please contact:\n\nTokumasa Co., Ltd.\n3F Nagano Building, 3-2-16 Azuchi-cho, Chuo-ku, Osaka-shi, Osaka 541-0052, Japan\nTEL: 06-6926-8286\nEmail: kawakami@tokumasa.net',
+              'For inquiries regarding the use of cookies, please contact:\n\nTokumasa Co., Ltd.\n3F Nagano Building, 3-2-16 Azuchi-cho, Chuo-ku, Osaka-shi, Osaka 541-0052, Japan\nTEL: +81-6-6926-8286\nEmail: kawakami@tokumasa.net',
           },
         ],
         lastUpdated: 'Last Updated: January 2024',
@@ -1095,11 +1095,11 @@ export const translations = {
       },
       franchise: {
         description:
-          'Joto Curry franchise business details. Learn about our 4 systems behind stable profits, comprehensive support system, and franchise owner testimonials.',
+          'Joto Curry franchise business details. Learn about our 4 systems behind stable profits, support before and after opening, and franchise owner testimonials.',
       },
       contact: {
         description:
-          'Contact Joto Curry for international franchise, wholesale, media inquiries, and more. We welcome all inquiries.',
+          'Contact Joto Curry about international franchising, wholesale, and media coverage. No question is too small.',
       },
       privacy: {
         description:
