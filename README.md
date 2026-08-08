@@ -15,9 +15,14 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm install`         | Installs dependencies                            |
 | `pnpm dev`             | Starts local dev server at `localhost:4321`      |
 | `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
+| `pnpm preview`         | Preview the Cloudflare build locally              |
+| `pnpm check:site`      | Audit routes and links against a running preview  |
 | `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `pnpm astro -- --help` | Get help using the Astro CLI                     |
+
+`pnpm check:site` は既定で `http://127.0.0.1:4321` を確認します。別ポートで
+プレビューしている場合は、例として
+`JOTO_AUDIT_ORIGIN=http://127.0.0.1:8788 pnpm check:site` のように指定してください。
 
 ## 👀 Want to learn more?
 
