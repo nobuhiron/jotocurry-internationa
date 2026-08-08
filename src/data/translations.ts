@@ -380,14 +380,14 @@ export const translations = {
     },
     voices: {
       ja: {
-        title: '出店を決めた<br class="is-sm">フランチャイズオーナーの声',
+        title: 'フランチャイズオーナーの声',
         subtitle:
-          'なぜ上等カレーへの出店を決めたのか。開業前の不安や、実際の運営の手応えなどリアルな声をご紹介。',
+          'なぜ上等カレーへの出店を決めたのか。開業時のサポートや運営の手応えを、ご本人の言葉でご紹介します。',
       },
       en: {
-        title: 'Voices from Franchise Owners Who Decided to Open',
+        title: 'What Our Franchise Owners Say',
         subtitle:
-          'Why did they decide to open a Joto Curry franchise? We introduce real voices about pre-opening concerns and the actual operational feel.',
+          'Why did they choose Joto Curry? Hear about the support they\'ve received and how business is going — in their own words.',
       },
     },
   },
