@@ -169,28 +169,6 @@ function getEmailSubject(locale: Locale): string {
 
 export const POST: APIRoute = async ({ request, locals }) => {
   try {
-    const env = getContactEnv(locals);
-
-    // 環境変数が未設定の場合はモジュール読み込みを落とさず、エラーレスポンスを返す
-    if (!env.RESEND_API_KEY || !env.CONTACT_EMAIL_TO) {
-      console.error(
-        'Contact form is not configured: RESEND_API_KEY or CONTACT_EMAIL_TO is missing'
-      );
-      return new Response(
-        JSON.stringify({
-          success: false,
-          error: 'configuration_error',
-          message: 'Contact form is not configured',
-        }),
-        {
-          status: 500,
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
-    }
-
     const formData = await request.formData();
 
     const data: FormData = {
@@ -216,6 +194,28 @@ export const POST: APIRoute = async ({ request, locals }) => {
         }),
         {
           status: 400,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+    }
+
+    const env = getContactEnv(locals);
+
+    // 有効な入力を受けた段階で送信設定を確認し、未設定なら明示的に失敗させる
+    if (!env.RESEND_API_KEY || !env.CONTACT_EMAIL_TO) {
+      console.error(
+        'Contact form is not configured: RESEND_API_KEY or CONTACT_EMAIL_TO is missing'
+      );
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: 'configuration_error',
+          message: 'Contact form is not configured',
+        }),
+        {
+          status: 500,
           headers: {
             'Content-Type': 'application/json',
           },

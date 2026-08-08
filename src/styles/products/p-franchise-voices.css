@@ -110,3 +110,13 @@
   color: var(--color-text-muted);
   line-break: strict;
 }
+
+/* Splideデフォルトのアクティブドットは白で、白いカードに重なると消えるため配色を上書き */
+.p-franchise-voices .splide__pagination__page {
+  background: var(--color-sand);
+  opacity: 1;
+}
+
+.p-franchise-voices .splide__pagination__page.is-active {
+  background: var(--color-text-muted);
+}

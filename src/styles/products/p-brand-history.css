@@ -53,38 +53,48 @@
   position: relative;
 }
 
-/* タイムライン全体の縦線 */
+/* 軌道: 進む先を予告する下地のヘアライン（常時表示） */
+.p-brand-history__timeline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background-color: var(--color-sand);
+  z-index: 0;
+}
+
+/* 進行線: スクロール位置に連動してJSが --timeline-progress を更新する */
 .p-brand-history__timeline::before {
   content: '';
   position: absolute;
   left: 0;
   top: 0;
   width: 2px;
-  /* 初期状態：最初のアイテムのドット位置まで表示（JavaScriptで動的に計算される） */
-  height: var(--timeline-initial-height, 92px);
-  background-color: var(--color-pale-beige);
-  transition: height 1.5s ease;
-  z-index: 0;
-}
-
-/* アニメーション有効時：線が下に伸びる（JavaScriptで動的に計算される） */
-.p-brand-history__timeline.is-animated::before {
-  height: var(--timeline-final-height);
+  height: var(--timeline-progress, 0);
+  background-color: var(--color-accent-warm);
+  z-index: 1;
 }
 
 .p-brand-history__item {
   position: relative;
   padding-block: var(--spacing-2xl);
-  padding-inline-start: 0;
+  /* 左レール（年号+ドット） + コンテンツの2カラム */
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  column-gap: var(--spacing-md);
+  align-items: start;
   /* 全てのアイテムを初期状態で表示 */
   opacity: 1;
   /* item-content の2カラム化をアイテム自身の幅で判定する */
   container-type: inline-size;
 }
 
-@media (--lg) {
+@media (--md) {
   .p-brand-history__item {
-    padding-inline-start: 0;
+    grid-template-columns: 150px 1fr;
+    column-gap: var(--spacing-xl);
   }
 }
 
@@ -94,13 +104,16 @@
 }
 
 .p-brand-history__item-header {
+  grid-column: 1 / 2;
+  /* 自分の時代のコンテンツを読んでいる間、年号が画面上部に留まる */
+  position: sticky;
+  top: 96px;
+  align-self: start;
   display: flex;
   align-items: center;
   gap: var(--spacing-md);
-  margin-block-start: calc(var(--spacing-2xl) + 6px);
-  margin-block-end: var(--spacing-lg);
+  margin: 0;
   padding-inline-start: 24px;
-  position: relative;
   z-index: 1;
 }
 
@@ -109,24 +122,27 @@
   flex-shrink: 0;
   width: 12px;
   height: 12px;
-  background-color: var(--color-accent-warm);
+  /* 待機状態: 軌道と同じサンド色の輪郭。進行線が届くと点灯する */
+  background-color: var(--color-bg-surface);
   border-radius: var(--radius-xl);
-  border: 2px solid var(--color-bg-surface);
-  /* ドットの中心を線の中心に合わせる */
-  /* 線は left: 6px, width: 2px なので中心は 7px */
-  /* ドットは width: 12px なので、左端を 1px にする */
+  border: 2px solid var(--color-sand);
+  /* ドットの中心(左端-5px+6px=1px)を線の中心(width2pxの1px)に合わせる */
   position: absolute;
   left: -5px;
-  /* 全てのドットを初期状態で表示 */
   opacity: 1;
   transform: scale(1);
-  transition: transform 0.6s ease;
+  transition:
+    transform 0.4s ease,
+    background-color 0.4s ease,
+    border-color 0.4s ease;
   z-index: 2;
 }
 
-/* アニメーション有効時：各アイテムのドットが大きくなる */
+/* 点灯状態: 進行線が通過したドットは朱色に */
 .p-brand-history__item.is-active .p-brand-history__item-header::before {
-  transform: scale(1.5);
+  background-color: var(--color-accent-warm);
+  border-color: var(--color-bg-surface);
+  transform: scale(1.2);
 }
 
 /* ドットの周囲に円上の線を追加 */
@@ -152,21 +168,28 @@
 }
 
 .p-brand-history__item-year {
-  font-size: clamp(1.25rem, 3vw, 1.5rem);
-  font-weight: var(--fw-bold);
-  color: var(--color-accent-warm);
+  font-family: var(--font-jp--serif);
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: var(--fw-semibold);
+  font-variant-numeric: lining-nums;
+  /* 待機状態は墨色。進行線が届くと朱色に点灯 */
+  color: var(--color-text-muted);
   margin: 0;
   line-height: 1;
   display: flex;
   align-items: center;
+  transition: color 0.4s ease;
+}
+
+.p-brand-history__item.is-active .p-brand-history__item-year {
+  color: var(--color-accent-warm);
 }
 
 .p-brand-history__item-content {
+  grid-column: 2 / 3;
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--spacing-2xl);
-  /* ドット+年号の分だけ本文をインデント（旧実装のインラインstyleから移設） */
-  padding-inline-start: var(--spacing-lg);
 }
 
 /* 従来の --md(768px viewport) 切替時のアイテム実幅(約690px)相当 */
@@ -220,12 +243,9 @@
 @media (prefers-reduced-motion: reduce) {
   .p-brand-history__timeline::before,
   .p-brand-history__item-header::before,
-  .p-brand-history__item-header::after {
+  .p-brand-history__item-header::after,
+  .p-brand-history__item-year {
     transition: none;
-  }
-
-  .p-brand-history__item-header::before {
-    transform: scale(1);
   }
 
   .p-brand-history__item-header::after {
@@ -234,6 +254,6 @@
   }
 
   .p-brand-history__timeline::before {
-    height: var(--timeline-final-height, 100%);
+    height: 100%;
   }
 }

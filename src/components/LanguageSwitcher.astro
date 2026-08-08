@@ -98,7 +98,7 @@ const dropdownId = `${switcherId}-dropdown`;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
-    transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+    transition: opacity 0.2s, transform 0.2s;
     z-index: 1002;
   }
 
@@ -145,7 +145,7 @@ const dropdownId = `${switcherId}-dropdown`;
       return Array.from(switcher.querySelectorAll('.c-language-switcher__link'));
     }
 
-    function setOpenState(toggle, dropdown, isOpen) {
+    function setOpenState(toggle, isOpen) {
       toggle.setAttribute('aria-expanded', String(isOpen));
     }
 
@@ -154,7 +154,7 @@ const dropdownId = `${switcherId}-dropdown`;
         const toggle = switcher.querySelector('.c-language-switcher__toggle');
         const dropdown = switcher.querySelector('.c-language-switcher__dropdown');
         if (!toggle || !dropdown || toggle === exceptToggle) return;
-        setOpenState(toggle, dropdown, false);
+        setOpenState(toggle, false);
       });
     }
 
@@ -171,14 +171,14 @@ const dropdownId = `${switcherId}-dropdown`;
         event.preventDefault();
         const isOpen = toggle.getAttribute('aria-expanded') === 'true';
         closeAll(toggle);
-        setOpenState(toggle, dropdown, !isOpen);
+        setOpenState(toggle, !isOpen);
       });
 
       toggle.addEventListener('keydown', (event) => {
         if (event.key !== 'ArrowDown') return;
         event.preventDefault();
         closeAll(toggle);
-        setOpenState(toggle, dropdown, true);
+        setOpenState(toggle, true);
         const links = getFocusableLinks(switcher);
         if (links.length > 0) {
           links[0].focus();
@@ -191,7 +191,7 @@ const dropdownId = `${switcherId}-dropdown`;
 
         if (event.key === 'Escape') {
           event.preventDefault();
-          setOpenState(toggle, dropdown, false);
+          setOpenState(toggle, false);
           toggle.focus();
           return;
         }
@@ -206,7 +206,7 @@ const dropdownId = `${switcherId}-dropdown`;
           const prevIndex = currentIndex > 0 ? currentIndex - 1 : links.length - 1;
           links[prevIndex].focus();
         } else if (event.key === 'Tab') {
-          setOpenState(toggle, dropdown, false);
+          setOpenState(toggle, false);
         }
       });
     });

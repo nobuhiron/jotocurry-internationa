@@ -6,7 +6,7 @@
   --color-white: #fff;
   --color-black: #1a1a1a;
   --color-charcoal: #211e1a;
-  --color-gray: #777;
+  --color-gray: #6f6f6f;
   --color-light-gray: #b1b1b1;
   --color-red: #dc2626;
   --color-pale-white: #fafafa;
@@ -15,7 +15,7 @@
   --color-sand: #e7e2d9;
   --color-light-beige: #f5f0e8;
   --color-brown: #5c3d2e;
-  --color-pale-orange: #c76a15;
+  --color-pale-orange: #ad5708;
   --color-pale-blue: #4c6475;
   --color-dark-brown: #a55a10;
 
@@ -37,9 +37,13 @@
    Typography
 ------------------- */
 :root {
-  --font-jp--serif: 'Noto Serif JP', 'Georgia', 'Times New Roman', serif;
-  --font-jp--sanserif: 'Noto Sans JP', 'Helvetica', 'Arial', sans-serif;
-  --font-en: 'Roboto', sans-serif;
+  --font-jp--serif: 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho',
+    'Noto Serif JP', 'Georgia', 'Times New Roman', serif;
+  --font-jp--sanserif: -apple-system, BlinkMacSystemFont,
+    'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'YuGothic', 'Meiryo',
+    'Noto Sans JP', sans-serif;
+  --font-en: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Arial',
+    sans-serif;
 
   --fw-regular: 400;
   --fw-medium: 500;
@@ -47,11 +51,21 @@
   --fw-bold: 700;
 
   --font-size-base: 16px;
+
   --line-height-base: 1.75;
   --line-height-relaxed: 1.9;
 
   /* 日本語見出し用。本文に適用すると可読性が落ちるため見出し限定 */
   --letter-spacing-heading: 0.05em;
+}
+
+/* 英語ページでは和文明朝のラテングリフが細く不揃いに見えるため欧文セリフを使う。
+   明朝と同じ高コントラスト・カリグラフィ系の書体を各OSの標準から選ぶ
+   （macOS: Iowan Old Style / Windows: Palatino Linotype / その他: Georgia以下） */
+:root:lang(en) {
+  --font-jp--serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua',
+    Palatino, 'Georgia', 'Times New Roman', serif;
+  --letter-spacing-heading: 0.01em;
 }
 
 /* -------------------

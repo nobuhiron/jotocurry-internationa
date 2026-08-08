@@ -1,17 +1,16 @@
 const PAGE_PATHS = [
-  '/',
   '/ja/',
   '/en/',
-  '/ja/brand',
-  '/en/brand',
-  '/ja/franchise',
-  '/en/franchise',
-  '/ja/contact',
-  '/en/contact',
-  '/ja/privacy',
-  '/en/privacy',
-  '/ja/cookie',
-  '/en/cookie',
+  '/ja/brand/',
+  '/en/brand/',
+  '/ja/franchise/',
+  '/en/franchise/',
+  '/ja/contact/',
+  '/en/contact/',
+  '/ja/privacy/',
+  '/en/privacy/',
+  '/ja/cookie/',
+  '/en/cookie/',
 ];
 
 function toUrl(origin: string, path: string) {

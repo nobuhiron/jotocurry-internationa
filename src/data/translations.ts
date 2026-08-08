@@ -8,23 +8,23 @@ export const translations = {
     ja: {
       badge: '海外フランチャイズオーナー募集中',
       title: '大阪発の<br class="is-sm">甘辛カツカレーを、<br>あなたの街で。',
-      features: ['40年の実績', 'シンプル運営', '未経験からスタート可能'],
+      features: ['1983年創業', 'シンプル運営', '未経験でも開業可能'],
       buttons: {
         primary: 'まずは無料オンライン相談',
         secondary: '詳細資料をダウンロード',
       },
     },
     en: {
-      badge: 'Franchise Owners Wanted',
-      title: "Osaka's Sweet & Spicy Katsu Curry,<br>in Your City.",
+      badge: 'International Franchise Opportunities',
+      title: 'Bring Osaka-Style Sweet & Spicy Katsu Curry<br>to Your City.',
       features: [
-        '40 Years of Experience',
+        'Proven Success Since 1983',
         'Simple Operations',
         'No Experience Required',
       ],
       buttons: {
-        primary: 'Free Online Consultation',
-        secondary: 'Download Detailed Materials',
+        primary: 'Start with a Free Online Consultation',
+        secondary: 'Download Our Franchise Brochure',
       },
     },
   },
@@ -36,10 +36,10 @@ export const translations = {
       button: 'まずは無料オンライン相談',
     },
     en: {
-      title: 'Bringing Osaka-Born Sweet & Spicy Curry to the World',
+      title: 'Taking Osaka-Born Curry to the World',
       description:
-        'With the mission of spreading the appeal of Japanese food culture — especially curry — to the world, we established "TOKUMASA INTERNATIONAL" in 2024. We have refined the flavors and operational know-how cultivated in Osaka, the city of food lovers, into a system that can be replicated overseas. Why not join us as a franchise owner and bring Joto Curry to your city?',
-      button: 'Free Online Consultation',
+        "We founded TOKUMASA INTERNATIONAL in 2024 with a simple mission: to share the best of Japanese food culture — above all, curry — with the world. We took the flavors and operational know-how cultivated in Osaka, Japan's food capital, and refined them into a system that can be replicated anywhere. Now we are expanding it worldwide. Join us as a franchise owner and open your own Joto Curry in your city.",
+      button: 'Start with a Free Online Consultation',
     },
   },
   brandPower: {
@@ -53,33 +53,33 @@ export const translations = {
         },
         domesticStores: {
           unit: '店舗',
-          label: '国内展開店舗数',
+          label: '国内店舗数',
         },
         overseasStores: {
           unit: '店舗',
-          label: '海外展開店舗数',
+          label: '海外店舗数',
         },
       },
       button: 'ブランドストーリーを見る',
       buttonLink: 'brand#section-brand-history',
     },
     en: {
-      title: "Numbers Prove Joto Curry's Brand Power",
+      title: 'Joto Curry, by the Numbers',
       stats: {
         meals: {
           unit: 'meals',
-          label: 'Average Daily Meals Served',
+          label: 'Served on an Average Day',
         },
         domesticStores: {
-          unit: 'stores',
-          label: 'Domestic Stores',
+          unit: 'locations',
+          label: 'In Japan',
         },
         overseasStores: {
-          unit: 'stores',
-          label: 'Overseas Stores',
+          unit: 'locations',
+          label: 'International',
         },
       },
-      button: 'View Brand Story',
+      button: 'Read Our Brand Story',
       buttonLink: 'brand#section-brand-history',
     },
   },
@@ -89,7 +89,7 @@ export const translations = {
       cards: [
         {
           number: '01',
-          title: '世界的な日本カレー人気',
+          title: '世界に広がる日本カレー人気',
           description:
             '寿司やラーメンに続く成長市場として、日本カレーは世界から注目を集めています。需要の追い風がある今が参入を検討するタイミングです。',
         },
@@ -103,34 +103,34 @@ export const translations = {
           number: '03',
           title: '多彩な展開で収益を最大化',
           description:
-            '地域に合わせたメニュー開発や、カレーパン、レトルトなどの物販展開により、収益を最大化。40年の実績に基づくノウハウでサポートします。',
+            '地域に合わせたメニュー開発や、カレーパン、レトルトなどの物販展開により、収益を最大化。40年以上の実績に基づくノウハウでサポートします。',
         },
       ],
       buttons: ['サポート体制を見る', 'オーナーの声を見る'],
     },
     en: {
-      title: '3 Reasons Why Franchise Owners Choose Us',
+      title: '3 Reasons Franchise Owners Choose Us',
       cards: [
         {
           number: '01',
-          title: 'Global Popularity of Japanese Curry',
+          title: 'Japanese Curry Is Going Global',
           description:
-            'Japanese curry is attracting worldwide attention as a growing market following sushi and ramen. Now is the time to consider entering this market with the wind at your back.',
+            'Following sushi and ramen, Japanese curry is winning attention worldwide as the next growth market. Demand is rising fast — now is the time to enter.',
         },
         {
           number: '02',
           title: 'Simple and Efficient Operations',
           description:
-            'Operations designed so that even those without experience can run the business with confidence using a small team. Minimize food waste and costs to achieve stable revenue.',
+            'Streamlined operations let a small team run the business with confidence, even with no prior experience. Minimizing food waste and running costs keeps profitability steady.',
         },
         {
           number: '03',
-          title: 'Maximize Revenue with Diverse Expansion',
+          title: 'Multiple Revenue Streams',
           description:
-            'Maximize revenue through region-specific menu development and retail product lines such as curry bread and ready-to-eat packets. Backed by 40 years of proven know-how.',
+            'Grow revenue with menus developed for your region and retail products such as curry buns and ready-to-eat pouches. We support you with more than 40 years of accumulated know-how.',
         },
       ],
-      buttons: ['View Support System', 'View Owner Voices'],
+      buttons: ['See How We Support You', 'Hear from Our Owners'],
       buttonLinks: {
         support: 'support',
         testimonials: 'testimonials',
@@ -209,9 +209,10 @@ export const translations = {
         contact: 'Contact:',
       },
       companyInfo: {
-        postalCode: '〒541-0052',
+        // 郵便番号は英語表記では住所末尾に含めるため、専用行は空にする
+        postalCode: '',
         address:
-          '3F Nagano Building, 3-2-16 Azuchi-cho, Chuo-ku, Osaka-shi, Osaka 541-0052, Japan',
+          '3F Nagano Building, 3-2-16 Azuchi-cho, Chuo-ku, Osaka 541-0052, Japan',
       },
       legal: {
         privacy: 'Privacy Policy',
@@ -219,7 +220,7 @@ export const translations = {
       },
       ariaLabel: 'Footer navigation',
       logoAlt: 'Joto Curry',
-      copyright: '© Tokumasa All Rights Reserved.',
+      copyright: '© Tokumasa Co., Ltd. All Rights Reserved.',
     },
   },
   cta: {
@@ -235,16 +236,15 @@ export const translations = {
       button: '出店のご相談はこちら',
     },
     en: {
-      title:
-        'Feel free to consult with us about any questions, no matter how small.',
+      title: "No question is too small — we're here to help.",
       questions: [
         'How much initial investment is required?',
-        'Can I really operate without experience?',
-        'How long does it take to open?',
-        'What is the actual revenue model?',
+        'Can I run a store with no prior experience?',
+        'How long does it take to open a store?',
+        'How does the revenue model work?',
       ],
-      text: 'Our experienced staff will answer your questions with care.',
-      button: 'Consultation for Opening a Store',
+      text: 'Our experienced team will answer your questions personally.',
+      button: 'Talk to Us About Opening a Store',
     },
   },
   franchise: {
@@ -259,72 +259,72 @@ export const translations = {
         title: 'Joto Curry - Franchise Business',
         heroTitle: 'Franchise Business',
         heroSubtitle:
-          "We introduce Joto Curry's franchise business that generates stable profits even with a small number of staff.",
+          'How a Joto Curry franchise generates stable profits with a small team.',
       },
     },
     mechanisms: {
       ja: {
         title: '安定した利益を生む<br class="is-sm">4つの仕組み',
         subtitle:
-          '少人数のスタッフでも安定した売上をつくれるように、効率的で再現性の高い調理システムを構築しています。',
+          '少人数のスタッフでも安定した利益を生み出せるように、効率と再現性を追求した運営の仕組みを整えています。',
         cards: [
           {
-            title: 'シンプルな調理で味の再現性を担保',
+            title: 'セントラルキッチンで味の再現性を担保',
             paragraphs: [
-              '厨房設備投資や店舗スタッフへの負担を軽減できるシンプルで再現性のある調理と提供手順。ブランドの魂である『秘伝のエキス』を調合したルーは、セントラルキッチンから完璧な状態で供給されます。',
-              '店舗では温めるだけで、どの国でもブレない最高品質の味を再現できます。',
+              '決め手は、ブランドの魂「秘伝のエキス」。ルーは大阪のセントラルキッチンで一括製造され、各店舗へ届きます。',
+              '店舗では牛肉とスパイスを加えて仕上げるだけ。どの国でも、最高品質の味を再現できます。',
             ],
           },
           {
             title: '高回転運営で売上最大化',
             paragraphs: [
-              'オーダーから提供までがハイスピードで可能なため、ランチタイムなどのピーク時でも回転率を上げることができます。席数が限られた立地でも、売上最大化を狙えるオペレーションです。',
+              '調理も盛り付けも、手順はシンプル。だから提供までが速く、ランチタイムなどのピーク時でも回転率を上げられます。設備投資は少なく、スタッフの負担も軽い。席数が限られた立地でも、売上の最大化を狙えます。',
             ],
           },
           {
             title: '少ないロスで収益性向上',
             paragraphs: [
-              '廃棄物の量も少ないため、原価管理がしやすく、収益性の向上にもつながります。売上だけでなく利益額を見通しやすくなることで、安心して出店計画や設備投資を検討いただけます。',
+              '食材ロスが少ないため、原価管理がしやすく、収益性の向上につながります。利益の見通しが立てやすくなり、次の出店や投資も安心して検討できます。',
             ],
           },
           {
             title: '現地メニュー開発でリピート獲得',
             paragraphs: [
-              '現地の嗜好に合わせたオリジナルメニューの開発が可能です。既存メニューとの差別化や季節限定商品として、リピート促進にも活用いただけます。',
-              '要望に応じて、日本の人気メニューのレシピについても共有します。',
+              '現地の嗜好に合わせたオリジナルメニューを開発できます。他店にはない看板メニューや季節限定の一皿は、お客様が何度も通いたくなる理由になります。',
+              'ご要望に応じて、日本の人気メニューのレシピも共有します。',
             ],
           },
         ],
       },
       en: {
-        title: '4 Mechanisms for Stable Profits',
+        title: '4 Systems Behind Stable Profits',
         subtitle:
-          'We have built an efficient and highly reproducible cooking system that enables stable sales even with a small number of staff.',
+          'We built our operations for efficiency and consistency, so a small team can run a profitable restaurant.',
         cards: [
           {
-            title: 'Guaranteed Taste Reproducibility with Simple Cooking',
+            title: 'Central Kitchen, Consistent Taste',
             paragraphs: [
-              'Simple and reproducible cooking and serving procedures that reduce the burden of kitchen equipment investment and store staff. The roux blended with the "secret extract," the soul of the brand, is supplied from the central kitchen in perfect condition.',
-              'At the store, just by heating it, you can reproduce the highest quality taste that never varies in any country.',
+              'The key to the flavor is the roux, blended with our "secret essence," the soul of the brand. It is made in a single central kitchen in Osaka and shipped to every restaurant.',
+              'Your restaurant simply adds beef and spices to finish the curry — the same top quality, in any country.',
             ],
           },
           {
-            title: 'Maximize Sales with High Turnover Operations',
+            title: 'Fast Turnover, Higher Sales',
             paragraphs: [
-              'Since orders can be served at high speed, turnover can be increased even during peak times such as lunch hours. This is an operation that can maximize sales even in locations with limited seating.',
+              'Cooking and serving are simple by design, so orders reach the table fast and turnover stays high even at peak lunch hours. Kitchen investment is low, and staff workload is light. Even in a compact location, you can make the most of every seat.',
             ],
           },
           {
-            title: 'Improved Profitability with Low Waste',
+            title: 'Less Waste, More Profit',
             paragraphs: [
-              'Since the amount of waste is also small, cost management is easier, leading to improved profitability. By making it easier to forecast not only sales but also profit amounts, you can consider store opening plans and equipment investments with confidence.',
+              'With little food waste, costs stay easy to control and margins improve. Profits become easier to forecast — so you can plan your next location or investment with confidence.',
             ],
           },
           {
-            title: 'Repeat Customers with Local Menu Development',
+            title: 'Local Menus, Repeat Customers',
             paragraphs: [
-              'It is possible to develop original menus tailored to local preferences. You can use them to differentiate from existing menus or as seasonal limited products to promote repeat customers.',
-              'We also share recipes for popular Japanese menus upon request.',
+              'You can develop original menu items for local tastes. Signature dishes and seasonal specials of your own give customers a reason to return again and again.',
+              'On request, we also share recipes for popular menu items from Japan.',
             ],
           },
         ],
@@ -332,47 +332,47 @@ export const translations = {
     },
     support: {
       ja: {
-        title: '充実したサポート体制',
+        title: '開業前から開業後までの<br class="is-sm">サポート体制',
         subtitle:
-          '開業前の準備からオープン後の運営まで、専門チームが一貫して伴走します。',
+          '開業準備、研修、オープン後の運営。それぞれの段階に、本部のサポートがあります。',
         blocks: [
           {
             title: '開業準備のトータルサポート',
             description:
-              'エリア選定から物件選び、資金計画、融資相談、事業計画書の作成まで、開業に必要なすべての準備をサポートします。',
+              'エリア・物件の選定から資金計画、融資相談、事業計画書の作成まで、開業に必要なすべての準備をサポートします。',
           },
           {
-            title: '研修とトレーニングで不安をゼロに',
+            title: '実践研修と調理マニュアル',
             description:
-              'カレー作りから接客、衛生管理、数値管理まで、実店舗に近い環境での研修プログラムを実施。飲食業未経験の方でも安心してスタートできます。',
+              'カレー作りから接客、衛生管理、数値管理まで、実店舗に近い環境での研修プログラムを実施。調理マニュアルも共有するので、開業後のスタッフ教育や品質維持に活用できます。飲食業未経験の方でも安心してスタートできます。',
           },
           {
-            title: 'オープン後も続く伴走サポート',
+            title: 'オープン後も続くサポート',
             description:
-              'オープン後も現場コンサルティング、集客施策、メニュー改善提案、定期的な売上・数値レビューなど、継続的なサポートを提供します。',
+              '現場コンサルティング、集客施策、メニュー改善提案、定期的な売上・数値レビューなどを提供します。',
           },
         ],
-        imageAlt: '充実したサポート体制',
+        imageAlt: '開業前から開業後までのサポート体制',
       },
       en: {
         title: 'Comprehensive Support System',
         subtitle:
-          'A professional team will consistently accompany you from pre-opening preparation to post-opening operations.',
+          'Preparation, training, and post-opening operations — we support you at every stage.',
         blocks: [
           {
-            title: 'Total Support for Opening Preparation',
+            title: 'Total Support Before You Open',
             description:
-              'We support all preparations necessary for opening, from area selection to property selection, financial planning, loan consultation, and business plan creation.',
+              'From choosing the right area and property to financial planning, loan consultation, and writing your business plan, we support everything you need to open.',
           },
           {
-            title: 'Zero Anxiety with Training and Education',
+            title: 'Hands-On Training and a Cooking Manual',
             description:
-              'We conduct training programs in an environment close to actual stores, from curry making to customer service, hygiene management, and numerical management. Even those without experience in the food service industry can start with confidence.',
+              'Our training program covers everything from cooking the curry to customer service, hygiene, and managing the numbers, in an environment modeled on a real restaurant. You also receive a cooking manual to train your staff and keep quality consistent after opening. Even without food-service experience, you can start with confidence.',
           },
           {
-            title: 'Continuous Support Even After Opening',
+            title: 'Ongoing Support After You Open',
             description:
-              'Even after opening, we provide ongoing support including on-site consulting, customer acquisition strategies, menu improvement proposals, and regular sales and performance reviews.',
+              'We stay involved with on-site consulting, marketing support, menu improvement ideas, and regular reviews of your sales and numbers.',
           },
         ],
         imageAlt: 'Comprehensive Support System',
@@ -380,14 +380,14 @@ export const translations = {
     },
     voices: {
       ja: {
-        title: '出店を決めた<br class="is-sm">フランチャイズオーナーの声',
+        title: 'フランチャイズオーナーの声',
         subtitle:
-          'なぜ上等カレーへの出店を決めたのか。開業前の不安や、実際の運営の手応えなどリアルな声をご紹介。',
+          'なぜ上等カレーへの出店を決めたのか。開業時のサポートや運営の手応えを、ご本人の言葉でご紹介します。',
       },
       en: {
-        title: 'Voices from Franchise Owners Who Decided to Open',
+        title: 'What Our Franchise Owners Say',
         subtitle:
-          'Why did they decide to open a Joto Curry franchise? We introduce real voices about pre-opening concerns and the actual operational feel.',
+          'Why did they choose Joto Curry? Hear about the support they\'ve received and how business is going — in their own words.',
       },
     },
   },
@@ -397,31 +397,31 @@ export const translations = {
         title: '上等カレー - ブランド',
         heroTitle: '上等カレーとは',
         heroSubtitle:
-          '40年以上の歴史を持つ大阪発のカレー専門店。<br>伝統的な味を守りながら、時代に合わせた進化を続け、今では世界へと広がっています。',
+          '大阪生まれ。カレー一筋、40年以上。<br>伝統の味を守りながら、時代に合わせた進化を続け、今では世界へと広がっています。',
       },
       en: {
         title: 'Joto Curry - Brand',
         heroTitle: 'About Joto Curry',
         heroSubtitle:
-          'A curry specialty restaurant from Osaka with over 40 years of history.<br>While preserving traditional flavors, we continue to evolve with the times and are now expanding worldwide.',
+          'Born in Osaka. Specializing in curry for over 40 years.<br>We preserve the traditional taste, evolve with the times, and are now expanding worldwide.',
       },
     },
     origin: {
       ja: {
-        title: '上等カレーの起源と<br class="is-sm">味へのこだわり',
+        title: '起源と、<br class="is-sm">味へのこだわり',
         blockTitles: [
           '原点は、一杯のカレーうどん',
           'こだわりの素材が生み出す<br class="is-sm">「上等」な味わい',
         ],
         paragraphs: [
           {
-            text: '上等カレーを運営すると得正は、1983年に「手打ちうどん 得正」として創業。生粋のカレー愛好家でもある創業者・瀬戸口勝幸は、名物「得正カレーうどん」を生み出しました。',
+            text: '上等カレーを運営する得正は、1983年に「手打ちうどん 得正」として創業。生粋のカレー愛好家でもある創業者・瀬戸口勝幸は、名物「得正カレーうどん」を生み出しました。',
           },
           {
             text: 'この味を、もっと多くの人に、もっと手軽に届けたい——。その想いから、コンセプトはカレーうどんからカレーライスへと進化し、1995年、上等カレーの1号店が誕生しました。',
           },
           {
-            text: '厳選した国産牛、玉ねぎ、こだわりのスパイス、そしてごく一部の職人だけが知る“秘伝エキス”によって生まれる甘みとスパイスの絶妙なバランス。',
+            text: '厳選した国産牛、玉ねぎ、こだわりのスパイス、そしてごく一部の職人だけが知る「秘伝のエキス」によって生まれる甘みとスパイスの絶妙なバランス。',
           },
           {
             text: '上等カレーはその名のとおり、「上等」と呼ぶにふさわしい本格的なカレー体験をお届けすることに、変わらぬこだわりを持ち続けています。',
@@ -430,23 +430,23 @@ export const translations = {
         imageAlt: '上等カレーの起源',
       },
       en: {
-        title: 'The Origin of Joto Curry and Our Commitment to Flavor',
+        title: 'Our Origins, Our Craft',
         blockTitles: [
           'It All Began with a Bowl of Curry Udon',
-          'Premium Flavor Born from<br class="is-sm">Carefully Selected Ingredients',
+          'Premium Flavor from Carefully Chosen Ingredients',
         ],
         paragraphs: [
           {
             text: 'Tokumasa, the company behind Joto Curry, was founded in 1983 as "Handmade Udon Tokumasa." Founder Katsuyuki Setoguchi, a true curry enthusiast, created the signature "Tokumasa Curry Udon."',
           },
           {
-            text: 'Driven by the desire to bring this flavor to more people in a more accessible way, the concept evolved from curry udon to curry rice, and in 1995, the first Joto Curry restaurant was born.',
+            text: 'He wanted to bring this flavor to more people, more easily. So the concept evolved from curry udon to curry rice — and in 1995, the first Joto Curry opened its doors.',
           },
           {
-            text: 'Carefully selected domestic beef, onions, specially blended spices, and a "secret extract" known only to a select few artisans create an exquisite balance of sweetness and spice.',
+            text: 'Carefully selected Japanese beef and onions. Specially blended spices. And a "secret essence" known only to a few artisans. Together, they create an exquisite balance of sweetness and spice.',
           },
           {
-            text: 'True to its name — "Joto" meaning "premium" — Joto Curry remains committed to delivering an authentic curry experience worthy of being called first-class.',
+            text: 'True to its name — "Joto" meaning "premium" — Joto Curry remains committed to delivering an authentic curry experience worthy of the name.',
           },
         ],
         imageAlt: 'The origin of Joto Curry',
@@ -467,42 +467,40 @@ export const translations = {
           {
             title: '素材と技術が生む深いコク',
             paragraphs: [
-              '厳選した国産牛と玉ねぎ。独自ブレンドのスパイス。加圧調理と低温熟成。40年かけて完成させた製法が、他では真似できない深いコクを生み出します。',
-              'この確立された製法により、唯一無二の味を安定して提供します。',
+              '厳選した国産牛と玉ねぎ。独自ブレンドのスパイス。加圧調理と低温熟成。40年以上かけて磨き上げた製法が、他では真似できない深いコクを生み出します。',
             ],
           },
           {
             title: '三人だけが知る秘伝のエキス',
             paragraphs: [
               '上等カレーの味の決め手となるのは、大阪で職人の手により丁寧に作られる秘伝のエキスです。そのレシピは創業者を含むわずか三人だけが知る門外不出のもの。',
-              '甘み・辛み・旨みが絶妙に調和したこの味こそが、上等カレーの真髄です。この厳格な品質管理が、すべての店舗で変わらぬ本物の味を保証します。',
+              '秘伝のエキスは大阪でのみ製造し、各店舗へ届けられます。この徹底した管理が、世界中どの店舗でも変わらぬ本物の味を保証します。',
             ],
           },
         ],
       },
       en: {
-        title: 'Unique Flavor Creation',
+        title: 'A Flavor Like No Other',
         imageAlts: ['Curry spoon', 'Ingredients', 'Curry paste'],
         blocks: [
           {
-            title: 'A Harmony of Sweetness,<br class="is-sm">Spice, and Umami',
+            title: 'A Harmony of Sweetness, Spice, and Umami',
             paragraphs: [
-              'A gentle sweetness on the first bite. Fragrant spices and deep umami that unfold as you eat. And a rich, lingering aftertaste.',
-              'This meticulously crafted three-layered flavor profile keeps customers coming back for more.',
+              'A gentle sweetness at first bite. Fragrant spices and deep umami that unfold as you eat. And a rich, lingering aftertaste.',
+              'Three layers of flavor, designed down to the last detail — that is what keeps customers craving more.',
             ],
           },
           {
-            title: 'Deep Richness Born from Ingredients and Technique',
+            title: 'Deep Richness from Ingredients and Technique',
             paragraphs: [
-              'Carefully selected domestic beef and onions. A proprietary spice blend. Pressure cooking and low-temperature aging. A production method perfected over 40 years creates a deep richness that cannot be replicated elsewhere.',
-              'This established method ensures consistent delivery of our one-of-a-kind flavor.',
+              'Carefully selected Japanese beef and onions. Our own spice blend. Pressure cooking and low-temperature aging. A method refined over more than 40 years creates a deep richness that cannot be replicated elsewhere.',
             ],
           },
           {
-            title: 'A Secret Extract Known Only to Three',
+            title: 'A Secret Essence Known Only to Three',
             paragraphs: [
-              "The key to Joto Curry's flavor is a secret extract, carefully crafted by artisans in Osaka. The recipe is a closely guarded secret known only to three people, including the founder.",
-              'This perfect harmony of sweetness, heat, and umami is the essence of Joto Curry. This strict quality control guarantees the same authentic taste at every store.',
+              "The key to Joto Curry's flavor is a secret essence, carefully crafted by artisans in Osaka. The recipe is a closely guarded secret, known only to the founder and two others.",
+              'The essence is made only in Osaka and delivered to every restaurant. This tight control is what guarantees the same authentic taste, anywhere in the world.',
             ],
           },
         ],
@@ -516,7 +514,7 @@ export const translations = {
             text: '上等カレーの看板メニューは「カツカレー」。サクサクの衣とコク深い甘辛ルーの組み合わせは、国や世代を問わず高い支持を集めています。',
           },
           {
-            text: '現地では、日本から供給するルーを温めるだけで、複雑な仕込みは不要です。トッピングや辛さの調整だけで、幅広いメニューを展開できます。さらに、地域特性に合わせたオリジナルメニューの開発もサポート。あなたの店舗ならではの強みを生み出せます。',
+            text: 'ベースのルーは日本から供給。現地では牛肉とスパイスを加えて仕上げるだけなので、複雑な仕込みは不要です。トッピングや辛さの調整で、幅広いメニューを展開できます。さらに、地域特性に合わせたオリジナルメニューの開発もサポート。あなたの店でしか食べられない看板メニューがつくれます。',
           },
         ],
         popularTitle: '人気メニュー紹介',
@@ -555,13 +553,13 @@ export const translations = {
         imageAlt: '上等カレーのメニュー',
       },
       en: {
-        title: 'Rich Menu to Meet Diverse Needs',
+        title: 'A Menu for Every Market',
         paragraphs: [
           {
-            text: 'Joto Curry\'s signature dish is "Katsu Curry." The combination of crispy breaded cutlet and rich sweet-spicy curry roux is beloved across countries and generations.',
+            text: "Joto Curry's signature dish is katsu curry. The combination of crispy breaded cutlet and rich sweet & spicy curry roux is beloved across countries and generations.",
           },
           {
-            text: 'At local stores, simply heating the curry roux supplied from Japan is all that is needed — no complicated preparation required. A wide range of menu items can be offered just by adjusting toppings and spice levels. We also support the development of original menus tailored to regional preferences, helping create unique strengths for your store.',
+            text: 'We supply the roux base from Japan; your kitchen simply adds beef and spices to finish it — no complicated preparation required. A wide range of menu items can be offered just by adjusting toppings and spice levels. We also support developing original menu items for local tastes — dishes your customers can find only at your restaurant.',
           },
         ],
         popularTitle: 'Popular Menu',
@@ -577,13 +575,13 @@ export const translations = {
             alt: 'Spinach Curry',
           },
           {
-            name: 'Shrimp Fry Curry',
+            name: 'Fried Shrimp Curry',
             category: 'Classic',
-            alt: 'Shrimp Fry Curry',
+            alt: 'Fried Shrimp Curry',
           },
           {
             name: 'Cheese Curry',
-            category: 'Popular with Women',
+            category: 'Fan Favorite',
             alt: 'Cheese Curry',
           },
           {
@@ -592,9 +590,9 @@ export const translations = {
             alt: 'Soft-Boiled Egg Curry',
           },
           {
-            name: 'Crab Cream Croquette Curry',
-            category: 'Popular with Women',
-            alt: 'Crab Cream Croquette Curry',
+            name: 'Creamy Crab Croquette Curry',
+            category: 'Fan Favorite',
+            alt: 'Creamy Crab Croquette Curry',
           },
         ],
         imageAlt: 'Joto Curry Menu',
@@ -602,54 +600,54 @@ export const translations = {
     },
     history: {
       ja: {
-        title: '上等カレーの世界への歩み',
+        title: '世界への歩み',
         intro: [
           '40年以上の実績を持つブランドだからこそ、安定したフランチャイズ運営が可能です。',
-          '1983年、大阪の小さな店舗から始まった上等カレーは、今や国内外に展開するグローバルブランドへ。この確かな成長の歴史が、あなたの成功を支えます。',
+          '上等カレーのルーツは、1983年に大阪で生まれた小さなうどん店。そこから国内外へ店舗を広げ、いままさにグローバルブランドへと成長を続けています。この確かな歩みが、あなたの成功を支えます。',
         ],
         button: 'フランチャイズの<br class="is-sm">ご相談はこちら',
         timeline: [
           {
             year: '1983',
-            heading: 'グルメの街。大阪で誕生',
+            heading: 'グルメの街・大阪で誕生',
             paragraphs: [
               '食の都・大阪で「手打ちうどん 得正」として創業。創業者のこだわりが生んだカレーうどんが評判を呼び、カレー専門店への展開を決意。',
             ],
-            imageAlt: 'グルメの街。大阪で誕生',
+            imageAlt: 'グルメの街・大阪で誕生',
           },
           {
             year: '1990s',
             heading: 'ナショナルブランドへと成長',
             paragraphs: [
-              '1995年、カレー専門店「上等カレー」として本格的なチェーン展開を開始。食道楽の街、大阪を中心にオフィスワーカーから口コミで人気が広がり高い支持を獲得。',
+              '1995年、カレー専門店「上等カレー」として本格的なチェーン展開を開始。大阪を中心にオフィスワーカーから口コミで人気が広がり高い支持を獲得。',
               '著名人やメディアにも取り上げられ、「大阪の名物カレー」として認知が広がりました。',
             ],
-            imageAlt: 'グルメの街。大阪で誕生',
+            imageAlt: 'ナショナルブランドへと成長',
           },
           {
             year: 'Now',
-            heading: '大阪から世界各地へ',
+            heading: 'そして、グローバルブランドへ',
             paragraphs: [
               '現在、海外11店舗を展開中。モンゴル、タイ、カンボジアでの成功に続き、2025年以降、韓国、中国、シンガポール、インドネシア、フィリピン、カナダでの事業計画が進行中です。',
               '世界で成長し続けるブランドと共に、あなたも成功への一歩を踏み出しませんか。',
             ],
-            imageAlt: '大阪から世界各地へ',
+            imageAlt: 'そして、グローバルブランドへ',
           },
         ],
       },
       en: {
-        title: "Joto Curry's Journey to the World",
+        title: 'From Osaka to the World',
         intro: [
-          'With over 40 years of experience, stable franchise operations are possible.',
-          'Joto Curry, which started as a small shop in Osaka in 1983, has now grown into a global brand expanding both domestically and internationally. This steady growth history supports your success.',
+          'Four decades of history stand behind every new restaurant.',
+          'Joto Curry traces its roots to a small udon shop that opened in Osaka in 1983. It has since expanded across Japan and overseas — and that steady track record is what supports your success.',
         ],
-        button: 'Consultation for Franchise',
+        button: 'Talk to Us About Franchising',
         timeline: [
           {
             year: '1983',
             heading: 'Born in Osaka, the Gourmet City',
             paragraphs: [
-              'Established in Osaka, the food capital, as "Handmade Udon Tokumasa." The curry udon created by the founder\'s commitment gained popularity, leading to the decision to expand into a curry specialty restaurant.',
+              'Established in Osaka, Japan\'s food capital, as "Handmade Udon Tokumasa." The founder\'s curry udon proved so popular that he decided to open a restaurant devoted to curry.',
             ],
             imageAlt: 'Born in Osaka, the Gourmet City',
           },
@@ -657,19 +655,19 @@ export const translations = {
             year: '1990s',
             heading: 'Growth into a National Brand',
             paragraphs: [
-              'In 1995, we began full-scale chain expansion as the curry specialty restaurant "Joto Curry." Centered in Osaka, the city of food lovers, popularity spread through word of mouth among office workers, gaining strong support.',
+              'In 1995, Joto Curry launched as a dedicated curry restaurant and began full-scale chain expansion. In Osaka, word of mouth spread among office workers, earning the brand strong local support.',
               'Featured by celebrities and media, it became widely recognized as "Osaka\'s Famous Curry."',
             ],
             imageAlt: 'Growth into a National Brand',
           },
           {
             year: 'Now',
-            heading: 'A Bowl Born in Osaka Spreads Worldwide',
+            heading: 'Becoming a Global Brand',
             paragraphs: [
               'Currently operating 11 stores overseas. Following success in Mongolia, Thailand, and Cambodia, expansion plans for South Korea, China, Singapore, Indonesia, the Philippines, and Canada are underway from 2025 onwards.',
-              'Why not take the first step toward success with a brand that continues to grow worldwide?',
+              'Take the first step — with a brand that keeps growing worldwide.',
             ],
-            imageAlt: 'A Bowl Born in Osaka Spreads Worldwide',
+            imageAlt: 'Becoming a Global Brand',
           },
         ],
       },
@@ -1057,7 +1055,7 @@ export const translations = {
       home: {
         title: '上等カレー | 海外フランチャイズオーナー募集',
         description:
-          '大阪発の甘辛カツカレー「上等カレー」の海外フランチャイズオーナーを募集中。40年の実績とシンプルなオペレーションで、未経験からでもスタート可能です。',
+          '大阪発の甘辛カツカレー「上等カレー」の海外フランチャイズオーナーを募集中。1983年創業の実績とシンプルなオペレーションで、未経験からでも開業できます。',
       },
       brand: {
         description:
@@ -1065,7 +1063,7 @@ export const translations = {
       },
       franchise: {
         description:
-          '上等カレーのフランチャイズ事業内容。安定した利益を生む4つの仕組み、充実したサポート体制、オーナーの声をご紹介します。',
+          '上等カレーのフランチャイズ事業内容。安定した利益を生む4つの仕組み、開業前から開業後までのサポート体制、オーナーの声をご紹介します。',
       },
       contact: {
         description:
@@ -1089,15 +1087,15 @@ export const translations = {
       home: {
         title: 'Joto Curry | International Franchise Owners Wanted',
         description:
-          "Osaka's sweet & spicy katsu curry franchise. 40 years of experience, simple operations, and no prior experience required. Start your Joto Curry franchise today.",
+          "Osaka's sweet & spicy katsu curry franchise. Proven success since 1983, simple operations, and no experience required. Start your Joto Curry franchise today.",
       },
       brand: {
         description:
-          "Discover the brand story of Joto Curry, Osaka's curry specialty restaurant since the 1970s. Learn about our unique flavor creation and global journey.",
+          'Discover the story of Joto Curry, an Osaka-born curry restaurant with roots going back to 1983. Learn about our craft and our journey from Osaka to the world.',
       },
       franchise: {
         description:
-          'Joto Curry franchise business details. Learn about our 4 mechanisms for stable profits, comprehensive support system, and franchise owner testimonials.',
+          'Joto Curry franchise business details. Learn about our 4 systems behind stable profits, comprehensive support system, and franchise owner testimonials.',
       },
       contact: {
         description:

@@ -32,6 +32,18 @@ h4 {
   line-break: strict;
 }
 
+/* 欧文には約物詰めも文節改行も不要 */
+:lang(en) :is(h1, h2, h3, h4) {
+  font-feature-settings: normal;
+  word-break: normal;
+}
+
+/* 欧文セリフは既定でオールドスタイル数字を持つものがあり「40」が「4o」に見えるため、
+   見出し・キャッチコピーでは等高数字を明示する */
+:lang(en) :is(h1, h2, h3, h4, .p-hero__features) {
+  font-variant-numeric: lining-nums;
+}
+
 button,
 a {
   cursor: pointer;
