@@ -7,6 +7,8 @@ export default defineConfig({
   site: 'https://international.tokumasa.net',
   // [lang]ディレクトリ構造でも画像パスが正しく解決されるように設定
   base: '/',
+  // Cloudflare Pages がディレクトリURLへ308転送するため、リンクとcanonicalを統一する
+  trailingSlash: 'always',
   output: 'server',
   adapter: cloudflare({
     imageService: 'compile',

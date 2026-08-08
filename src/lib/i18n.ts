@@ -31,13 +31,21 @@ export function getLocale(url: URL): Locale {
  * @returns 言語付きパス（例: '/ja/brand', '/en/contact'）
  */
 export function getLocalizedPath(path: string, locale: Locale): string {
+  const [pathname, hash] = path.split('#', 2);
+
   // 先頭のスラッシュを除去
-  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  const cleanPath = pathname.startsWith('/') ? pathname.slice(1) : pathname;
 
   // 既に言語プレフィックスが含まれている場合は除去
-  const pathWithoutLang = cleanPath.replace(/^(ja|en)\//, '');
+  const pathWithoutLang = cleanPath
+    .replace(/^(ja|en)(?:\/|$)/, '')
+    .replace(/\/+$/, '');
 
-  return `/${locale}/${pathWithoutLang}`;
+  const localizedPath = pathWithoutLang
+    ? `/${locale}/${pathWithoutLang}/`
+    : `/${locale}/`;
+
+  return hash ? `${localizedPath}#${hash}` : localizedPath;
 }
 
 /**

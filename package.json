@@ -8,11 +8,12 @@
     "build": "astro build",
     "optimize:images": "node scripts/optimize-cta-bg.mjs",
     "prebuild": "pnpm optimize:images",
-    "preview": "astro preview",
+    "preview": "wrangler pages dev dist --compatibility-date=2026-08-04 --compatibility-flag=nodejs_compat",
     "astro": "astro",
     "check:type": "astro check",
     "check:build": "astro build",
     "check:css": "stylelint \"src/styles/**/*.css\"",
+    "check:site": "node scripts/audit-site.mjs",
     "fix:css": "stylelint \"src/styles/**/*.css\" --fix",
     "check:local": "pnpm check:css && pnpm check:type && pnpm check:build",
     "check:delivery": "pnpm check:local",
@@ -22,13 +23,14 @@
     "@astrojs/check": "^0.9.6",
     "@astrojs/cloudflare": "^12.6.12",
     "@splidejs/splide": "^4.1.4",
+    "@splidejs/splide-extension-auto-scroll": "^0.5.0",
     "astro": "^5.17.3",
     "resend": "^6.7.0",
     "sharp": "^0.34.5",
-    "typescript": "^5.9.3",
-    "@splidejs/splide-extension-auto-scroll": "^0.5.0"
+    "typescript": "^5.9.3"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260804.1",
     "@csstools/postcss-global-data": "^3.1.0",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
@@ -37,6 +39,7 @@
     "postcss-import": "^16.1.1",
     "postcss-preset-env": "^10.4.0",
     "stylelint": "^16.26.1",
-    "stylelint-config-standard": "^38.0.0"
+    "stylelint-config-standard": "^38.0.0",
+    "wrangler": "^4.118.0"
   }
 }
