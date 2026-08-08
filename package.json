@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "packageManager": "pnpm@9.0.0",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --port 4399",
     "build": "astro build",
     "optimize:images": "node scripts/optimize-cta-bg.mjs",
     "prebuild": "pnpm optimize:images",
