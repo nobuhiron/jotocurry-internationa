@@ -1,0 +1,67 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/Button.astro';
+import { translations } from '../../data/translations';
+import type { Locale } from '../../lib/i18n';
+
+export const prerender = false;
+
+const { lang } = Astro.params;
+const locale: Locale = lang === 'en' ? 'en' : 'ja';
+const text = translations.meta[locale].notFound;
+
+Astro.response.status = 404;
+---
+
+<Layout title={text.title} description={text.description} locale={locale} noindex={true}>
+  <section class="p-404">
+    <div class="l-container">
+      <h1 class="p-404__title">{text.title.split(' | ')[0]}</h1>
+      <p class="p-404__message">{text.description}</p>
+      <div class="p-404__actions">
+        <Button href={`/${locale}/`} text={text.backToTop} variant="secondary" />
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .p-404 {
+    padding: 4rem 0 6rem;
+    background-color: var(--color-bg-surface-alt);
+    text-align: center;
+  }
+
+  .p-404__title {
+    margin-bottom: 1rem;
+    color: var(--color-text);
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .p-404__message {
+    margin-bottom: 1.5rem;
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .p-404__actions {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    .p-404 {
+      padding: 2rem 0 4rem;
+    }
+
+    .p-404__title {
+      font-size: 1.25rem;
+    }
+
+    .p-404__message {
+      font-size: 0.9375rem;
+    }
+  }
+</style>
