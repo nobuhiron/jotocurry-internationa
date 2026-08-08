@@ -18,6 +18,7 @@ const locale = (lang as Locale) || 'ja';
 const pageText = translations.cookie.page[locale];
 const contentText = translations.cookie.content[locale];
 const metaText = translations.meta[locale];
+const gaId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
 ---
 
 <Layout title={pageText.title} description={metaText.cookie.description} canonicalPath={`/${locale}/cookie/`} locale={locale}>
@@ -37,6 +38,12 @@ const metaText = translations.meta[locale];
             <p class="p-legal__section-content">{section.content}</p>
           </div>
         ))}
+
+        {gaId && (
+          <button type="button" class="p-legal__consent-reset" id="consent-reset">
+            {contentText.consentReset}
+          </button>
+        )}
 
         <p class="p-legal__updated">{contentText.lastUpdated}</p>
       </div>
@@ -86,6 +93,26 @@ const metaText = translations.meta[locale];
     white-space: pre-line;
   }
 
+  .p-legal__consent-reset {
+    padding: 0.5rem 1.25rem;
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    background-color: transparent;
+    color: var(--color-text);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .p-legal__consent-reset:hover {
+    opacity: 0.7;
+  }
+
+  .p-legal__consent-reset:focus-visible {
+    outline: 2px solid var(--color-accent-warm);
+    outline-offset: 2px;
+  }
+
   .p-legal__updated {
     margin-top: 3rem;
     padding-top: 2rem;
@@ -113,3 +140,17 @@ const metaText = translations.meta[locale];
     }
   }
 </style>
+
+<script>
+  // 「Cookie設定を変更する」: 保存済みの選択を消して同意バナーを再表示する
+  const resetButton = document.getElementById('consent-reset');
+  resetButton?.addEventListener('click', () => {
+    try {
+      localStorage.removeItem('cookie-consent');
+    } catch {
+      // localStorageが使えない環境では選択が保存されていないため何もしない
+    }
+    const banner = document.getElementById('cookie-consent');
+    if (banner) banner.hidden = false;
+  });
+</script>

@@ -997,12 +997,12 @@ export const translations = {
           {
             title: '2. 当サイトで使用するCookie',
             content:
-              '当サイトでは、以下の目的でCookieを使用しています。\n\n【必須Cookie】\nウェブサイトの基本的な機能を提供するために必要なCookieです。\n\n【分析Cookie】\nウェブサイトの利用状況を分析し、サービス改善に役立てるためのCookieです。Google Analyticsなどの第三者サービスを利用する場合があります。',
+              '当サイトでは、以下の目的でCookieを使用しています。\n\n【分析Cookie】\nウェブサイトの利用状況を分析し、サービス改善に役立てるためのCookieです。Google Analyticsを利用しており、バナーで同意いただいた場合にのみ有効になります。\n\nなお、同意の選択内容はCookieではなく、お使いのブラウザのローカルストレージに保存されます。',
           },
           {
             title: '3. Cookieの管理',
             content:
-              'お客様はブラウザの設定により、Cookieの受け入れを拒否したり、保存されたCookieを削除することができます。ただし、Cookieを無効にした場合、当ウェブサイトの一部機能が正常に動作しない場合があります。',
+              'お客様はブラウザの設定により、Cookieの受け入れを拒否したり、保存されたCookieを削除することができます。また、本ページ下部の「Cookie設定を変更する」ボタンから、いつでも同意の選択をやり直せます。',
           },
           {
             title: '4. 第三者Cookie',
@@ -1015,6 +1015,7 @@ export const translations = {
               'Cookieの使用に関するお問い合わせは、以下までご連絡ください。\n\n株式会社得正\n〒541-0052 大阪府大阪市中央区安土町3-2-16長野ビル3F\nTEL: 06-6926-8286\nEmail: kawakami@tokumasa.net',
           },
         ],
+        consentReset: 'Cookie設定を変更する',
         lastUpdated: '最終更新日: 2024年1月',
       },
       en: {
@@ -1028,12 +1029,12 @@ export const translations = {
           {
             title: '2. Cookies Used on This Site',
             content:
-              'We use cookies for the following purposes:\n\nEssential Cookies:\nCookies necessary to provide basic website functionality.\n\nAnalytics Cookies:\nCookies used to analyze website usage and improve our services. We may use third-party services such as Google Analytics.',
+              'We use cookies for the following purposes:\n\nAnalytics Cookies:\nCookies used to analyze website usage and improve our services. We use Google Analytics, and these cookies are set only after you give your consent through the banner.\n\nYour consent choice itself is saved in local storage in your browser, not in a cookie.',
           },
           {
             title: '3. Managing Cookies',
             content:
-              'You can refuse to accept cookies or delete stored cookies through your browser settings. However, if you disable cookies, some features of this website may not function properly.',
+              'You can refuse to accept cookies or delete stored cookies through your browser settings. You can also change your choice at any time using the "Change Cookie Settings" button at the bottom of this page.',
           },
           {
             title: '4. Third-Party Cookies',
@@ -1046,8 +1047,26 @@ export const translations = {
               'For inquiries regarding the use of cookies, please contact:\n\nTokumasa Co., Ltd.\n3F Nagano Building, 3-2-16 Azuchi-cho, Chuo-ku, Osaka-shi, Osaka 541-0052, Japan\nTEL: +81-6-6926-8286\nEmail: kawakami@tokumasa.net',
           },
         ],
+        consentReset: 'Change Cookie Settings',
         lastUpdated: 'Last Updated: January 2024',
       },
+    },
+  },
+  // アクセス解析Cookie（GA4）の同意バナー。PUBLIC_GA_MEASUREMENT_ID があるビルドでのみ表示
+  cookieConsent: {
+    ja: {
+      text: 'サービス改善のため、アクセス解析Cookie（Google Analytics）の使用に同意をお願いします。',
+      policyLink: 'Cookieについて',
+      accept: '同意する',
+      decline: '同意しない',
+      ariaLabel: 'Cookie使用の同意',
+    },
+    en: {
+      text: 'We ask for your consent to use analytics cookies (Google Analytics) to help us improve this site.',
+      policyLink: 'About Cookies',
+      accept: 'Accept',
+      decline: 'Decline',
+      ariaLabel: 'Cookie consent',
     },
   },
   meta: {

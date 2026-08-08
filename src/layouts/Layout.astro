@@ -3,6 +3,7 @@ import '../styles/style.css';
 import Header from './Header.astro';
 import Footer from './Footer.astro';
 import CtaSection from './CtaSection.astro';
+import CookieConsent from '../components/CookieConsent.astro';
 import type { Locale } from '../lib/i18n';
 
 interface Props {
@@ -30,6 +31,8 @@ const altLocale = locale === 'en' ? 'ja' : 'en';
 const altPath = canonicalPath ? canonicalPath.replace(`/${locale}/`, `/${altLocale}/`) : Astro.url.pathname.replace(`/${locale}/`, `/${altLocale}/`);
 const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage.startsWith('/') ? ogImage : `/${ogImage}`}`;
 const robotsContent = noindex ? 'noindex,nofollow' : 'index,follow';
+// GA4測定IDがあるビルドでのみ同意バナー＋計測を有効化する
+const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
 const structuredData = [
   {
     '@context': 'https://schema.org',
@@ -107,5 +110,6 @@ const structuredData = [
       <CtaSection locale={locale} />
     </main>
     <Footer locale={locale} />
+    {gaMeasurementId && <CookieConsent locale={locale} />}
   </body>
 </html>
