@@ -266,25 +266,25 @@ export const translations = {
       ja: {
         title: '安定した利益を生む<br class="is-sm">4つの仕組み',
         subtitle:
-          '少人数のスタッフでも安定した売上をつくれるように、効率的で再現性の高い調理システムを構築しています。',
+          '少人数のスタッフでも安定した利益を生み出せるように、効率と再現性を追求した運営の仕組みを整えています。',
         cards: [
           {
             title: 'セントラルキッチンで味の再現性を担保',
             paragraphs: [
-              'ルーの決め手は、ブランドの魂「秘伝のエキス」。大阪のセントラルキッチンで一括製造し、完璧な状態で各店舗へ届きます。',
+              '決め手は、ブランドの魂「秘伝のエキス」。ルーは大阪のセントラルキッチンで一括製造され、各店舗へ届きます。',
               '店舗では牛肉とスパイスを加えて仕上げるだけ。どの国でも、最高品質の味を再現できます。',
             ],
           },
           {
             title: '高回転運営で売上最大化',
             paragraphs: [
-              '調理も提供も、手順はシンプル。だから提供までが速く、ランチタイムなどのピーク時でも回転率を上げられます。設備投資は少なく、スタッフの負担も軽い。席数が限られた立地でも、売上の最大化を狙えます。',
+              '調理も盛り付けも、手順はシンプル。だから提供までが速く、ランチタイムなどのピーク時でも回転率を上げられます。設備投資は少なく、スタッフの負担も軽い。席数が限られた立地でも、売上の最大化を狙えます。',
             ],
           },
           {
             title: '少ないロスで収益性向上',
             paragraphs: [
-              '食材ロスが少ないため、原価管理がしやすく、収益性の向上につながります。売上だけでなく利益も見通しやすくなり、出店計画や設備投資を安心して検討できます。',
+              '食材ロスが少ないため、原価管理がしやすく、収益性の向上につながります。利益の見通しが立てやすくなり、次の出店や投資も安心して検討できます。',
             ],
           },
           {
@@ -299,12 +299,12 @@ export const translations = {
       en: {
         title: '4 Systems Behind Stable Profits',
         subtitle:
-          'We built our kitchen operations for efficiency and consistency, so a small team can keep sales stable.',
+          'We built our operations for efficiency and consistency, so a small team can run a profitable restaurant.',
         cards: [
           {
             title: 'Central Kitchen, Consistent Taste',
             paragraphs: [
-              'The key to the flavor is the roux, blended with our "secret essence," the soul of the brand. It is made in a single central kitchen in Osaka and arrives at every restaurant in perfect condition.',
+              'The key to the flavor is the roux, blended with our "secret essence," the soul of the brand. It is made in a single central kitchen in Osaka and shipped to every restaurant.',
               'Your restaurant simply adds beef and spices to finish the curry — the same top quality, in any country.',
             ],
           },
@@ -323,7 +323,7 @@ export const translations = {
           {
             title: 'Local Menus, Repeat Customers',
             paragraphs: [
-              'You can develop original menus for local tastes. Signature dishes and seasonal specials of your own give customers a reason to return again and again.',
+              'You can develop original menu items for local tastes. Signature dishes and seasonal specials of your own give customers a reason to return again and again.',
               'On request, we also share recipes for popular menu items from Japan.',
             ],
           },
