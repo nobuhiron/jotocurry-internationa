@@ -66,3 +66,24 @@ const heroTall = await getImage({ src: heroImageTall, format: 'webp', widths: [5
   </div>
 </section>
 
+<script>
+  // URLバーの開閉などでビューポート高が変わると、min-heightがsvh基準のため
+  // object-fit:coverの画像が拡大縮小して見える環境がある（特にアプリ内ブラウザ）。
+  // 初回表示時の高さをpxで固定してこれを防ぐ。横幅が変わったとき（回転・リサイズ）だけ再計算する。
+  const heroImage = document.querySelector('.p-hero__image');
+  if (heroImage instanceof HTMLElement) {
+    let lastWidth = window.innerWidth;
+    const lockHeight = () => {
+      // 一旦解除してCSS由来の高さを測り直してから固定する
+      heroImage.style.minHeight = '';
+      heroImage.style.minHeight = `${Math.round(heroImage.getBoundingClientRect().height)}px`;
+    };
+    lockHeight();
+    window.addEventListener('resize', () => {
+      if (window.innerWidth === lastWidth) return;
+      lastWidth = window.innerWidth;
+      lockHeight();
+    });
+  }
+</script>
+
