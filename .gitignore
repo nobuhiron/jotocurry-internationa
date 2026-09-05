@@ -28,3 +28,6 @@ pnpm-debug.log*
 
 # local Cloudflare runtime state
 .wrangler/
+
+# Claude Code のローカル設定（許可の追加で勝手に差分が出るため追跡しない）
+.claude/settings.local.json
