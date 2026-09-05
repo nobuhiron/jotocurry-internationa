@@ -44,13 +44,21 @@
   /* 本文(1fr) + 署名(auto) の2行。署名をカード下端に揃える */
   grid-template-rows: 1fr auto;
   gap: var(--spacing-lg);
-  padding: var(--spacing-2xl) var(--spacing-2xl) var(--spacing-xl);
+  /* スマホはカード幅が狭く、左右40pxだと本文が1行18文字程度まで詰まるため余白を抑える */
+  padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-lg);
   background-color: var(--color-bg-surface);
   border-radius: var(--radius-xs);
   border: 1px solid var(--color-sand);
   height: 100%;
   /* 店舗写真のサイズをカード幅(cqi)に追従させるためのコンテナ */
   container-type: inline-size;
+}
+
+@media (--md) {
+  .p-franchise-voices__slide {
+    /* PCはカード幅に対して余白の比率が適正なため従来どおり */
+    padding: var(--spacing-2xl) var(--spacing-2xl) var(--spacing-xl);
+  }
 }
 
 .p-franchise-voices__paragraphs {
@@ -76,8 +84,8 @@
 
 .p-franchise-voices__avatar {
   /* 店舗写真のため円形ではなく角丸スクエア。
-     カード幅の18%を64〜96pxに制限し、3枚表示では小さく・1枚表示では大きく追従させる */
-  --avatar-size: clamp(64px, 18cqi, 96px);
+     カード幅の22%を72〜96pxに制限し、3枚表示では小さく・1枚表示では大きく追従させる */
+  --avatar-size: clamp(72px, 22cqi, 96px);
 
   width: var(--avatar-size);
   height: var(--avatar-size);
