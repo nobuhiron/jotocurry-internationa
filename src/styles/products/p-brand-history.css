@@ -6,7 +6,14 @@
 
 .p-brand-history__inner {
   background-color: var(--color-bg-surface);
-  padding: var(--spacing-2xl);
+  /* スマホは外側にl-containerの余白もあるため、左右は狭めて本文幅を確保する */
+  padding: var(--spacing-2xl) var(--spacing-md);
+}
+
+@media (--md) {
+  .p-brand-history__inner {
+    padding: var(--spacing-2xl);
+  }
 }
 
 .p-brand-history__intro {
@@ -108,6 +115,8 @@
 .p-brand-history__item-header {
   grid-column: 1 / 2;
   align-self: start;
+  /* ドットと円(::before/::after)の位置基準。staticにするとアイテム全体が基準になり円がズレる */
+  position: relative;
   display: flex;
   align-items: center;
   gap: var(--spacing-md);

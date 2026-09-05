@@ -89,6 +89,9 @@
 .p-brand-menu__popular-card-name {
   font-size: fz(16, 20);
   margin: 0;
+  /* 見出し既定のword-break:auto-phraseは「カニクリームコロッケカレー」のような
+     文節で区切れない長い複合語を折り返せない。カード幅を超える場合は途中改行を許可する */
+  overflow-wrap: anywhere;
 }
 
 .p-brand-menu__popular-card-category {
