@@ -36,7 +36,8 @@ export default function initBrandPower() {
   function computeLayout() {
     if (window.innerWidth <= 768) {
       gap = 12;
-      visibleSlides = 2.5;
+      /* スマホは1枚を大きく見せる（端に次スライドを覗かせて流れを示す） */
+      visibleSlides = 1.5;
     } else {
       gap = 16;
       visibleSlides = 4.5;

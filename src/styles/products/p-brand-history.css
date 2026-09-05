@@ -80,10 +80,10 @@
 .p-brand-history__item {
   position: relative;
   padding-block: var(--spacing-2xl);
-  /* 左レール（年号+ドット） + コンテンツの2カラム */
+  /* スマホは年号を上・コンテンツを下の縦積みにし、テキストと画像に全幅を使わせる */
   display: grid;
-  grid-template-columns: 96px 1fr;
-  column-gap: var(--spacing-md);
+  grid-template-columns: 1fr;
+  row-gap: var(--spacing-lg);
   align-items: start;
   /* 全てのアイテムを初期状態で表示 */
   opacity: 1;
@@ -93,8 +93,10 @@
 
 @media (--md) {
   .p-brand-history__item {
+    /* 左レール（年号+ドット） + コンテンツの2カラム */
     grid-template-columns: 150px 1fr;
     column-gap: var(--spacing-xl);
+    row-gap: 0;
   }
 }
 
@@ -105,9 +107,6 @@
 
 .p-brand-history__item-header {
   grid-column: 1 / 2;
-  /* 自分の時代のコンテンツを読んでいる間、年号が画面上部に留まる */
-  position: sticky;
-  top: 96px;
   align-self: start;
   display: flex;
   align-items: center;
@@ -115,6 +114,15 @@
   margin: 0;
   padding-inline-start: 24px;
   z-index: 1;
+}
+
+@media (--md) {
+  .p-brand-history__item-header {
+    /* 自分の時代のコンテンツを読んでいる間、年号が画面上部に留まる
+       （スマホの縦積みでは本文に覆い被さるためstickyにしない） */
+    position: sticky;
+    top: 96px;
+  }
 }
 
 .p-brand-history__item-header::before {
@@ -186,10 +194,19 @@
 }
 
 .p-brand-history__item-content {
-  grid-column: 2 / 3;
+  grid-column: 1 / 2;
+  /* 縦積み時もタイムラインの縦線を避ける（ヘッダーの字下げと揃える） */
+  padding-inline-start: 24px;
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--spacing-2xl);
+}
+
+@media (--md) {
+  .p-brand-history__item-content {
+    grid-column: 2 / 3;
+    padding-inline-start: 0;
+  }
 }
 
 /* 従来の --md(768px viewport) 切替時のアイテム実幅(約690px)相当 */
