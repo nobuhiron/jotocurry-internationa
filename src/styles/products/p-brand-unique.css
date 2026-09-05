@@ -25,7 +25,16 @@
 .p-brand-unique__text-column {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-2xl);
+  /* スマホは各ブロック内に画像が入る。ブロック内の間隔(24px)と差がないと
+     見出しが上のブロックの画像に属して見えるため、間隔を広くとって切れ目を作る */
+  gap: var(--spacing-5xl);
+}
+
+@media (--lg) {
+  .p-brand-unique__text-column {
+    /* PCは画像が右カラムに分離するため、ブロック間はこれで足りる */
+    gap: var(--spacing-2xl);
+  }
 }
 
 .p-brand-unique__text-block {

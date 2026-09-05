@@ -1,9 +1,7 @@
 @import '../global/variables.css';
 @import '../global/custom_media.css';
 
-.p-contact-form {
-  padding-block: var(--spacing-5xl);
-}
+/* 上下の余白は l-section の共通値（SP 64px / PC 96px）に従う */
 
 .p-contact-form__inner {
   grid-template-columns: 1fr;

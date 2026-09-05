@@ -1,8 +1,17 @@
 @import '../global/variables.css';
+@import '../global/custom_media.css';
 
 /* セクションの基本スタイル */
 .l-section {
   padding-block: var(--spacing-4xl);
+}
+
+/* 左右の余白(l-container)は画面幅に応じて20→40pxへ広がるため、
+   縦も合わせて広げないと大画面でセクションの切れ目が弱くなる */
+@media (--lg) {
+  .l-section {
+    padding-block: var(--spacing-6xl);
+  }
 }
 
 /* 背景色のバリエーション（データ属性で制御） */

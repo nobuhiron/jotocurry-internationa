@@ -27,7 +27,6 @@ export default function initBrandPower() {
   list.style.display = 'flex';
   list.style.willChange = 'transform';
 
-  let paused = false;
   let x = 0;
   let lastTime = 0;
   let singleSetWidth = 0;
@@ -90,7 +89,7 @@ export default function initBrandPower() {
   }
 
   function tick(time) {
-    if (!paused && singleSetWidth > 0) {
+    if (singleSetWidth > 0) {
       if (!lastTime) lastTime = time;
       const dt = (time - lastTime) / 1000;
       x += speedPxPerSecond * dt;
@@ -100,11 +99,6 @@ export default function initBrandPower() {
     lastTime = time;
     requestAnimationFrame(tick);
   }
-
-  carouselElement.addEventListener('mouseenter', () => { paused = true; });
-  carouselElement.addEventListener('mouseleave', () => { paused = false; });
-  carouselElement.addEventListener('focusin', () => { paused = true; });
-  carouselElement.addEventListener('focusout', () => { paused = false; });
 
   const resizeObserver = new ResizeObserver(() => setup());
   resizeObserver.observe(track);
